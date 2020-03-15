@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link href="comments_data/embed_806cd422abf7694cc0f38143ee7509460f55823b.css" media="all" rel="stylesheet" data-target="embed">
+<link href="comments_data/embedded_theme_5_f52bd44e1cd59f67c6d120f8cebd364f6dcf619a.css" media="all" rel="stylesheet" data-target="embedded_theme" data-theme-id="5">
+<link rel="preload" href="comments_data/break_string-cc617154cd957804f2f6a1f3bc68258c9cdca3d4b9a322bf.js" as="script">
+<script src="comments_data/break_string-cc617154cd957804f2f6a1f3bc68258c9cdca3d4b9a322bf.js"></script>
+<title>Creating a Single-Page App in React using React Router - programming - kirupaForum</title>
+<meta id="data-embedded" data-referer="https://www.kirupa.com/react/creating_single_page_app_react_using_react_router.htm">
+<link rel="preload" href="comments_data/embed-application-590793ad7c35377ed13fcf562bc5faefeb2d67a33a7.js" as="script">
+<script src="comments_data/embed-application-590793ad7c35377ed13fcf562bc5faefeb2d67a33a7.js"></script>
+</head>
+<body>
+<header class="discourse" data-embed-state="loaded">
+<a class="button" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/2">Continue Discussion</a>
+<span class="replies">49 replies</span>
+</header>
+<article class="post" id="post-791853">
+<a title="April 18, 2017  6:31am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/2">Apr '17</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/balaMurgan" target="_blank"><img src="comments_data/45_003.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/balaMurgan" target="_blank" class="new-user">bala<wbr>​Murgan</a>
+</h3>
+<p>Hi, waht changes do I need to make to the code to get it running on react router 4.1.1?</p>
+<p>Please help, as I am stuck on this since days.</p>
+<p>Thanx,<br>
+Bala</p>
+<a data-link-to-post="791855" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/2" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-791855">
+<a title="April 18, 2017  6:39am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/3">Apr '17</a>
+<a data-link-to-post="791853" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/2">▶ balaMurgan</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/balaMurgan" target="_blank"><img src="comments_data/45_003.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/balaMurgan" target="_blank" class="new-user">bala<wbr>​Murgan</a>
+</h3>
+<p>Could you pls mention the github link for this code.</p>
+<a data-link-to-post="791862" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/3" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-791862">
+<a title="April 18, 2017  6:00pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/4">Apr '17</a>
+<a data-link-to-post="791855" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/3">▶ balaMurgan</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank"><img src="comments_data/9237_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank" class="staff">kirupa</a>
+</h3>
+<p>I haven’t had a chance to convert this example into React Router 
+4.1.1 yet, but I’ll start fiddling with that shortly and post an update 
+here once that has been done <img src="comments_data/slight_smile_002.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<a data-link-to-post="791874" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/4" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-791874">
+<a title="April 19, 2017 12:36am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/5">Apr '17</a>
+<a data-link-to-post="791862" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/4">▶ kirupa</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/balaMurgan" target="_blank"><img src="comments_data/45_003.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/balaMurgan" target="_blank" class="new-user">bala<wbr>​Murgan</a>
+</h3>
+<p>Thanx for the quick revert. Eagerly waiting for it.<br>
+Request you to provide it ASAP.</p>
+</div>
+</article>
+<article class="post" id="post-791917">
+<a title="April 21, 2017  7:45am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/6">Apr '17</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/sctm81" target="_blank"><img src="comments_data/8407_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/sctm81" target="_blank" class="new-user">sctm<wbr>​81</a>
+</h3>
+<p>Yes, please update ASAP. I purchased your book and couldn’t progress as this critical part isn’t working.</p>
+<a data-link-to-post="791926" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/6" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-791926">
+<a title="April 21, 2017  4:28pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/7">Apr '17</a>
+<a data-link-to-post="791917" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/6">▶ sctm81</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank"><img src="comments_data/9237_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank" class="staff">kirupa</a>
+</h3>
+<p>You can use the older version of React Router to get familiar with how it works, but updating it is on my to-do list <img src="comments_data/slight_smile_002.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<a data-link-to-post="791951" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/7" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-791951">
+<a title="April 24, 2017 11:21pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/8">Apr '17</a>
+<a data-link-to-post="791926" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/7">▶ kirupa</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/sctm81" target="_blank"><img src="comments_data/8407_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/sctm81" target="_blank" class="new-user">sctm<wbr>​81</a>
+</h3>
+<p>Could you please explain how to do use the ‘older version’ of React 
+Router? I’m just stuck trying follow the example in the book. Thanks</p>
+<a data-link-to-post="791952" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/8" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-791952">
+<a title="April 24, 2017 11:34pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/9">Apr '17</a>
+<a data-link-to-post="791951" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/8">▶ sctm81</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank"><img src="comments_data/9237_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank" class="staff">kirupa</a>
+</h3>
+<p>There is a typo in the React book currently. Please include this file:</p>
+<p><code>&lt;script src="https://npmcdn.com/react-router@2.4.0/umd/ReactRouter.min.js"&gt;&lt;/script&gt;</code></p>
+<p>The book doesn’t have the “2.4.0” version, and that causes the latest
+ version to be incorrectly loaded. It’s been on the book’s hard-to-find 
+errata page, so apologies for not spotting this as the problem earlier <img src="comments_data/slight_smile_002.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<a class="post-replies button" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/9">2 replies</a>
+</div>
+</article>
+<article class="post" id="post-791953">
+<a title="April 24, 2017 11:41pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/10">Apr '17</a>
+<a data-link-to-post="791952" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/9">▶ kirupa</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/sctm81" target="_blank"><img src="comments_data/8407_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/sctm81" target="_blank" class="new-user">sctm<wbr>​81</a>
+</h3>
+<p>Thanks for the quick reply. Yes, that works now.</p>
+</div>
+</article>
+<article class="post" id="post-792017">
+<a title="May  1, 2017  6:18am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/11">May '17</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/janh" target="_blank"><img src="comments_data/45_010.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/janh" target="_blank" class="new-user">janh</a>
+</h3>
+<p>I got the example in the tutorial working with react-router version 
+3.0.5 (loaded as an npm module). There are apparently a lot of breaking 
+changes in version 4. In fact, it is described in various posts as a 
+complete rewrite. Among other things, nesting of routes does not make 
+the components associated with the child routes implicit “children” of 
+the component that is associated with the parent route. As a result, the
+ sample application does not work as-is with version 4.</p>
+<a data-link-to-post="792023" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/11" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-792023">
+<a title="May  1, 2017 11:27pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/12">May '17</a>
+<a data-link-to-post="792017" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/11">▶ janh</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank"><img src="comments_data/9237_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank" class="staff">kirupa</a>
+</h3>
+<p>Yes - the breaking changes are quite numerous. I’m in the process of 
+re-writing that article right now, so expect an updated version in a few
+ days (barring any unforeseen delays) <img src="comments_data/slight_smile_002.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+</div>
+</article>
+<article class="post" id="post-792187">
+<a title="May 19, 2017  8:11am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/13">May '17</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/criszama" target="_blank"><img src="comments_data/45.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/criszama" target="_blank" class="new-user">criszama</a>
+</h3>
+<p>Hello<br>
+thanks for this tutorial but i need a responsive menu …<br>
+someone do you have a tutorial to make a navbar react-bootstrap without webpack?<br>
+thanks a lot</p>
+<a data-link-to-post="793536" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/13" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-793536">
+<a title="November  5, 2017  8:45pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/14">Nov '17</a>
+<a data-link-to-post="792187" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/13">▶ criszama</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank"><img src="comments_data/9237_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank" class="staff">kirupa</a>
+</h3>
+<p>I just updated this tutorial to work with React Router 4 and create-react-app! Sorry for the massive delay on that, everyone <img src="comments_data/slight_smile_002.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+</div>
+</article>
+<article class="post" id="post-793729">
+<a title="November 22, 2017  6:11pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/15">Nov '17</a>
+ <div class="author">
+<a href="https://forum.kirupa.com/u/yogita.rjpl" target="_blank"><img src="comments_data/45_012.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/yogita.rjpl" target="_blank" class="new-user">yogita.<wbr>​rjpl</a>
+</h3>
+<p>Hi kirupa, I followed your tutorial to create navigation in my 
+project, But as soon as i introduced router in code. It fails with this 
+exception<br>
+Stack: Invariant Violation: Hash history needs a DOM</p>
+<p>It seems some imports are missing in your tutorial.</p>
+</div>
+</article>
+<article class="post" id="post-793984">
+<a title="December 14, 2017 10:07am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/16">Dec '17</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/arol" target="_blank"><img src="comments_data/8862_2.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/arol" target="_blank" class="new-user">arol</a>
+</h3>
+<p>When we run npm start the default url is localhost:3000.</p>
+<p>I was wondering if I can use my own domain dev instead of localhost without running nmp run build</p>
+<p>Could you help me with this?</p>
+<a data-link-to-post="794018" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/16" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-794018">
+<a title="December 16, 2017  8:55pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/18">Dec '17</a>
+<a data-link-to-post="793984" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/16">▶ arol</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank"><img src="comments_data/9237_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank" class="staff">kirupa</a>
+</h3>
+<p>Does this help? <a href="https://github.com/facebookincubator/create-react-app/issues/1959" target="_blank">https://github.com/facebookincubator/create-react-app/issues/1959</a></p>
+<p><img src="comments_data/slight_smile_002.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+</div>
+</article>
+<article class="post" id="post-794079">
+<a title="December 23, 2017  8:03pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/19">Dec '17</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/Tirumalesh_Chinna" target="_blank"><img src="comments_data/8886_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/Tirumalesh_Chinna" target="_blank" class="new-user">Tirumalesh_<wbr>​<wbr>​Chinna</a>
+</h3>
+<p>Why there is a “#” in the urls,</p>
+<p>Ex: <a href="http://localhost:3000/#/contact" rel="nofollow noopener" target="_blank">http://localhost:3000/#/contact</a></p>
+<p>how to remove that?</p>
+<a data-link-to-post="794089" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/19" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-794089">
+<a title="December 26, 2017  3:22am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/20">Dec '17</a>
+<a data-link-to-post="794079" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/19">▶ Tirumalesh_Chinna</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank"><img src="comments_data/9237_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank" class="staff">kirupa</a>
+</h3>
+<p>That is because you (and the tutorial) are using <code>HashRouter</code>. The <code>BrowserRouter</code> component should avoid that: <a href="https://reacttraining.com/react-router/web/api/BrowserRouter" target="_blank">https://reacttraining.com/react-router/web/api/BrowserRouter</a> <img src="comments_data/slight_smile_002.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+</div>
+</article>
+<article class="post" id="post-794102">
+<a title="December 27, 2017  8:16am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/21">Dec '17</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/Fictionfree" target="_blank"><img src="comments_data/45_007.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/Fictionfree" target="_blank" class="new-user">Fictionfree</a>
+</h3>
+<p>I first made a simple nav with home ,contact ,about and with 
+components having about, home,etc each having an index.jsx. Now I want 
+to add a few sub sections like vision, acknowledgement ,etc in about 
+section like a drop-down. I made different folders for them and linked 
+them up but since I already had an about page , when I click on the 
+about link in navbar, the drop down opens up as well the about page, 
+which I don’t want anymore. What should I do?</p>
+<a data-link-to-post="794113" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/21" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-794113">
+<a title="December 30, 2017  5:58am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/22">Dec '17</a>
+<a data-link-to-post="794102" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/21">▶ Fictionfree</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank"><img src="comments_data/9237_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank" class="staff">kirupa</a>
+</h3>
+<p>You can try adding the <code>exact</code> prop to your Route: <code>&lt;Route exact path="/about"/&gt;</code></p>
+<p>That should do it <img src="comments_data/slight_smile_002.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+</div>
+</article>
+<article class="post" id="post-794245">
+<a title="January  8, 2018  4:16am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/23">Jan '18</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/Changwoo_Rhee" target="_blank"><img src="comments_data/8930_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/Changwoo_Rhee" target="_blank" class="new-user">Changwoo_<wbr>​<wbr>​Rhee</a>
+</h3>
+<p>hi i have upload this source to github</p>
+<aside class="onebox whitelistedgeneric">
+<header class="source">
+<img src="comments_data/favicon.html" class="site-icon" width="32" height="32">
+<a href="https://github.com/x1wins/creating_single_page_app_react_using_react_router" target="_blank" rel="nofollow noopener">GitHub</a>
+</header>
+<article class="onebox-body">
+<img src="comments_data/982291.jpg" class="thumbnail onebox-avatar" width="400" height="400">
+<h3><a href="https://github.com/x1wins/creating_single_page_app_react_using_react_router" target="_blank" rel="nofollow noopener">x1wins/creating_single_page_app_react_using_react_router</a></h3>
+<p>https://www.kirupa.com/react/creating_single_page_app_react_using_react_router.htm</p>
+</article>
+<div class="onebox-metadata">
+</div>
+<div style="clear: both"></div>
+</aside>
+<a data-link-to-post="795540" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/23" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-794298">
+<a title="January 15, 2018  9:22am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/24">Jan '18</a>
+<a data-link-to-post="791952" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/9">▶ kirupa</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/Asra_Eusuph" target="_blank"><img src="comments_data/8943_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/Asra_Eusuph" target="_blank" class="">Asra_<wbr>​<wbr>​Eusuph</a>
+</h3>
+<p>can you implement all the react JS component life cycle in a single page which have home about and contact tabs?</p>
+</div>
+</article>
+<article class="post" id="post-794402">
+<a title="January 25, 2018  4:19pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/25">Jan '18</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/Lucas_Andrade" target="_blank"><img src="comments_data/8960_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/Lucas_Andrade" target="_blank" class="new-user">Lucas_<wbr>​<wbr>​Andrade</a>
+</h3>
+<p>Thank you, this tutorial helped me a lot to get start with React.</p>
+</div>
+</article>
+<article class="post" id="post-794688">
+<a title="March  6, 2018  4:36pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/26">Mar '18</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/Yalian_Alexander" target="_blank"><img src="comments_data/9012_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/Yalian_Alexander" target="_blank" class="new-user">Yalian_<wbr>​<wbr>​Alexander</a>
+</h3>
+<p>When i add the css it don’t load into the web, why this happened?</p>
+<a data-link-to-post="794689" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/26" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-794689">
+<a title="March  6, 2018  4:56pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/27">Mar '18</a>
+<a data-link-to-post="794688" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/26">▶ Yalian_Alexander</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank"><img src="comments_data/9237_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank" class="staff">kirupa</a>
+</h3>
+<p>Do you have the <code>import</code> statement for the CSS file specified? <img src="comments_data/slight_smile_002.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<a data-link-to-post="794690" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/27" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-794690">
+<a title="March  6, 2018  7:00pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/28">Mar '18</a>
+<a data-link-to-post="794689" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/27">▶ kirupa</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/Yalian_Alexander" target="_blank"><img src="comments_data/9012_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/Yalian_Alexander" target="_blank" class="new-user">Yalian_<wbr>​<wbr>​Alexander</a>
+</h3>
+<p>yep of course, like u put it</p>
+<a data-link-to-post="794691" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/28" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-794691">
+<a title="March  6, 2018  9:10pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/29">Mar '18</a>
+<a data-link-to-post="794690" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/28">▶ Yalian_Alexander</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank"><img src="comments_data/9237_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank" class="staff">kirupa</a>
+</h3>
+<p>Strange. If you add something like the following into your CSS, does everything look bigger?</p>
+<pre><code>* {
+   font-size: 200px;
+}
+</code></pre>
+<p>Sometimes the selector names are misspelled or a random <code>.</code> or <code>#</code> has been added to a HTML tag selector <img src="comments_data/slight_smile_002.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<a data-link-to-post="794762" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/29" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-794762">
+<a title="March 18, 2018  8:00pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/30">Mar '18</a>
+<a data-link-to-post="794691" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/29">▶ kirupa</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/gcronin" target="_blank"><img src="comments_data/45_009.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/gcronin" target="_blank" class="new-user">gcronin</a>
+</h3>
+<p>first &amp; foremost, excellent series of posts - very informative and clear. Kudos to you !!</p>
+<p>Just wondering - was there any reason you did not implement the 
+styling in the ‘React way’ that you advocated in “Styling in React”, for
+ this tutorial?</p>
+<p>thanks</p>
+<a data-link-to-post="794764" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/30" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-794764">
+<a title="March 18, 2018  9:15pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/31">Mar '18</a>
+<a data-link-to-post="794762" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/30">▶ gcronin</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank"><img src="comments_data/9237_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank" class="staff">kirupa</a>
+</h3>
+<p>Haha! I think you are referring to that I wrote here:</p>
+<blockquote>
+<p>With that said, you should pick and choose the [styling] techniques 
+that make the most sense for your situation. While I am biased towards 
+React’s way of solving our UI development problems, I’ll do my best to 
+highlight alternate or conventional methods as well. Tying that back to 
+what we saw here, using CSS style rules with your React content is 
+totally OK as long as you made the decision knowing the things you gain 
+as well as lose by doing so.</p>
+</blockquote>
+<p>There really is no “one true” approach haha:</p>
+<ul>
+<li>
+<p>For web <strong><em>sites</em></strong> like what we are basically dealing with in this example, the traditional CSS file with style rules is easier to maintain.</p>
+</li>
+<li>
+<p>When I’m dealing with components used as part of a larger React app, 
+then I lean towards the “React way” of styling using an object.</p>
+</li>
+<li>
+<p>My preferred approach is to have a CSS file per component similar to what you see in the <a href="https://www.kirupa.com/react/simple_todo_app_react.htm" target="_blank">todolist tutorial</a>.
+ It provides the flexibility of CSS, specificity, the cascade, and other
+ good things. It also keeps things isolated enough to have each 
+component be independent-ish.</p>
+</li>
+</ul>
+<p>Use whatever approach makes sense for you. All of these approaches have their Pros and Cons <img src="comments_data/stuck_out_tongue.png" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+<p>(Glad you like these articles! Thanks for the nice comments!!!)</p>
+<p>Cheers,<br>
+Kirupa</p>
+</div>
+</article>
+<article class="post" id="post-795249">
+<a title="April 25, 2018  5:54pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/32">Apr '18</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/gaby8" target="_blank"><img src="comments_data/45_013.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/gaby8" target="_blank" class="new-user">gaby<wbr>​8</a>
+</h3>
+<p>Thanks for sharing your work. I see that you’re using css. I am wondering if I should use react-bootstrap?<br>
+Any advice?<br>
+Thanks again!</p>
+</div>
+</article>
+<article class="post" id="post-795299">
+<a title="May  3, 2018  4:35am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/33">May '18</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/theeshana" target="_blank"><img src="comments_data/45_005.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/theeshana" target="_blank" class="new-user">theeshana</a>
+</h3>
+<p>Thanks for the tutorial. Need more help</p>
+</div>
+</article>
+<article class="post" id="post-795337">
+<a title="May  7, 2018 10:47pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/34">May '18</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/tmoods" target="_blank"><img src="comments_data/45_004.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/tmoods" target="_blank" class="new-user">tmoods</a>
+</h3>
+<p>Thanks so much! So many of the React tutorials out there get so 
+complex very quickly. I feel like you have a great balance of detail 
+which is explained very clearly and in a way you don’t need to be an 
+expert to implement. Exactly what I needed to carry learnings across to 
+my own React SPA project - thanks again!!</p>
+<a data-link-to-post="795344" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/34" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-795344">
+<a title="May  8, 2018  6:09pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/35">May '18</a>
+<a data-link-to-post="795337" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/34">▶ tmoods</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank"><img src="comments_data/9237_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank" class="staff">kirupa</a>
+</h3>
+<p>Glad you liked the content and the way it was presented <img src="comments_data/slight_smile_002.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+</div>
+</article>
+<article class="post" id="post-795540">
+<a title="May 28, 2018  2:57pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/36">May '18</a>
+<a data-link-to-post="794245" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/23">▶ Changwoo_Rhee</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/Jeff_Huang" target="_blank"><img src="comments_data/45_015.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/Jeff_Huang" target="_blank" class="new-user">Jeff_<wbr>​<wbr>​Huang</a>
+</h3>
+<p>Thanks, I just need clone the code from github, that’s save my time.</p>
+</div>
+</article>
+<article class="post" id="post-795653">
+<a title="June 11, 2018 11:27pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/37">Jun '18</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/tomizechsterson" target="_blank"><img src="comments_data/9167_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/tomizechsterson" target="_blank" class="new-user">tomizechsterson</a>
+</h3>
+<p>Hi <a class="mention" href="https://forum.kirupa.com/u/kirupa" target="_blank">@kirupa</a> ,</p>
+<p>I really enjoy your articles on React. They’re extremely helpful and 
+informative with learning React and gaining confidence with it.</p>
+<p>I’m running into a bit of an issue with React Router, though. I’ve 
+adapted this tutorial into a bit larger of an app to give it navigation,
+ but it seems that if I use components with state in the routes, I run 
+into this warning and my app stops functioning properly after navigating
+ away from the component with state: “Can’t call setState on an 
+unmounted component…”</p>
+<p>I’m sure it’s something simple that I’m missing, but I’ve been 
+fighting with this for a while now and my frustration is clouding my 
+ability to spot details. Would you mind giving some advice on increasing
+ the complexity of an app that uses React Router?</p>
+<p>I have a project on Github that exhibits this behavior if you need to see it in action</p>
+<a data-link-to-post="795676" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/37" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-795676">
+<a title="June 12, 2018  4:25pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/38">Jun '18</a>
+<a data-link-to-post="795653" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/37">▶ tomizechsterson</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank"><img src="comments_data/9237_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank" class="staff">kirupa</a>
+</h3>
+<p>You are running into a very common issue that everybody runs into. This blog post provides more details on what you can try: <a href="https://reactjs.org/blog/2015/12/16/ismounted-antipattern.html" target="_blank">https://reactjs.org/blog/2015/12/16/ismounted-antipattern.html</a></p>
+<p>Let me know if that helps <img src="comments_data/slight_smile_002.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<a data-link-to-post="795677" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/38" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-795677">
+<a title="June 12, 2018  6:36pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/39">Jun '18</a>
+<a data-link-to-post="795676" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/38">▶ kirupa</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/tomizechsterson" target="_blank"><img src="comments_data/9167_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/tomizechsterson" target="_blank" class="new-user">tomizechsterson</a>
+</h3>
+<p>Well, see here’s the thing about that. I’ve run into a few articles 
+that mention this issue, and it makes sense, but I don’t think I’m doing
+ this exactly. I’m not using isMounted at all, and I’m not using Flux 
+for this project. I’m simply calling setState in a function that’s 
+called in componentDidMount and then in a handler that’s passed to a 
+lower-level component (which itself never calls setState), which looks 
+legal to my inexperienced eyes.</p>
+<p><a href="https://github.com/tomizechsterson/chargen-ui" rel="nofollow noopener" target="_blank">Here</a>’s
+ the project I’m working on that exhibits this issue. You’ll see the 
+BrowserRouter used in src/App.js and it’s the handleSelect(id) function 
+in the ADD2Characters class that raises the warning.</p>
+<p>Could it have something to do with the onClick in ADD2CharacterTable? I just noticed that while looking it over again</p>
+<a data-link-to-post="795678" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/39" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-795678">
+<a title="June 12, 2018  6:55pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/40">Jun '18</a>
+<a data-link-to-post="795677" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/39">▶ tomizechsterson</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/tomizechsterson" target="_blank"><img src="comments_data/9167_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/tomizechsterson" target="_blank" class="new-user">tomizechsterson</a>
+</h3>
+<p>I think I just managed something… I just made a commit to that repo 
+that converts the ADD2CharacterTable component to a function component, 
+and this appears to get around the issue. Would you agree with this 
+solution, or is it just a hack made by someone who doesn’t know any 
+better? <img src="comments_data/slight_smile_002.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<a data-link-to-post="795679" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/40" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-795679">
+<a title="June 12, 2018  7:11pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/41">Jun '18</a>
+<a data-link-to-post="795678" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/40">▶ tomizechsterson</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank"><img src="comments_data/9237_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank" class="staff">kirupa</a>
+</h3>
+<p>After looking through your code, I am not 100% sure why you had the 
+original problem to begin with haha. With that said, avoiding any 
+knowledge of state by going to a functional component is one way of 
+avoiding this issue entirely. Since your app works fine now, I wouldn’t 
+question it too much! <img src="comments_data/slight_smile_002.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<a data-link-to-post="795680" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/41" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-795680">
+<a title="June 12, 2018  8:08pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/42">Jun '18</a>
+<a data-link-to-post="795679" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/41">▶ kirupa</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/tomizechsterson" target="_blank"><img src="comments_data/9167_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/tomizechsterson" target="_blank" class="new-user">tomizechsterson</a>
+</h3>
+<p>Yeah, I agree, as long as it works. Oh well, no worries, haha</p>
+<p>I really appreciate your taking a look, too</p>
+</div>
+</article>
+<article class="post" id="post-795684">
+<a title="June 13, 2018  5:10am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/43">Jun '18</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/matthewjwhitney" target="_blank"><img src="comments_data/45_006.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/matthewjwhitney" target="_blank" class="new-user">matthewjwhitney</a>
+</h3>
+<p>Is the finished code for this tutorial hosted somewhere? Thanks!</p>
+</div>
+</article>
+<article class="post" id="post-797165">
+<a title="November 23, 2018  9:20am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/44">Nov '18</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/Van_Long" target="_blank"><img src="comments_data/45_008.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/Van_Long" target="_blank" class="new-user">Van_<wbr>​<wbr>​Long</a>
+</h3>
+<p>have been solve</p>
+<a data-link-to-post="797166" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/44" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-797166">
+<a title="November 23, 2018  9:24am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/45">Nov '18</a>
+<a data-link-to-post="797165" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/44">▶ Van_Long</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/Van_Long" target="_blank"><img src="comments_data/45_008.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/Van_Long" target="_blank" class="new-user">Van_<wbr>​<wbr>​Long</a>
+</h3>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forum.kirupa.com/uploads/default/original/2X/b/b966819666eec4874b5edf7a8cb623ff8d12a167.png" data-download-href="https://forum.kirupa.com/uploads/default/b966819666eec4874b5edf7a8cb623ff8d12a167" title="image.png" target="_blank"><img src="comments_data/b966819666eec4874b5edf7a8cb623ff8d12a167_2_560x500.png" alt="image" data-base62-sha1="qs7WVWb2eZMigGwk699msMuZBEH" srcset="https://forum.kirupa.com/uploads/default/optimized/2X/b/b966819666eec4874b5edf7a8cb623ff8d12a167_2_560x500.png, https://forum.kirupa.com/uploads/default/optimized/2X/b/b966819666eec4874b5edf7a8cb623ff8d12a167_2_840x750.png 1.5x, https://forum.kirupa.com/uploads/default/original/2X/b/b966819666eec4874b5edf7a8cb623ff8d12a167.png 2x" data-small-upload="https://forum.kirupa.com/uploads/default/optimized/2X/b/b966819666eec4874b5edf7a8cb623ff8d12a167_2_10x10.png" width="560" height="500"></a></div>
+<a data-link-to-post="797414" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/45" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-797414">
+<a title="December 13, 2018 12:05pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/46">Dec '18</a>
+<a data-link-to-post="797166" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/45">▶ Van_Long</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/john_Morris" target="_blank"><img src="comments_data/45_014.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/john_Morris" target="_blank" class="new-user">john_<wbr>​<wbr>​Morris</a>
+</h3>
+<p>Follow this</p>
+<pre><code class="lang-auto">import React, {
+  Component
+} from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
+import Home from './Home'
+import Stuff from './Stuff’
+import Contact from './Contact'
+
+export default class Main extends Component {
+
+  render() {
+    return (
+      &lt;Router&gt;
+        &lt;div&gt;
+          &lt;h1&gt;Simple SPA&lt;/h1&gt;
+          &lt;ul className="header"&gt;
+            &lt;li&gt;
+              &lt;Link to="/"&gt;Home&lt;/Link&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a href="/stuff"&gt;Stuff&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+          &lt;div className="content"&gt;
+            &lt;Route exact path="/" component={Home}/&gt;
+            &lt;Route path="/stuff" component={Stuff}/&gt;
+            &lt;Route path="/contact" component={Contact}/&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/Router&gt;
+      )
+  }
+}
+</code></pre>
+<a data-link-to-post="797422" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/46" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-797422">
+<a title="December 13, 2018  5:41pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/47">Dec '18</a>
+<a data-link-to-post="797414" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/46">▶ john_Morris</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank"><img src="comments_data/9237_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank" class="staff">kirupa</a>
+</h3>
+<p>What is the problem here? <img src="comments_data/slight_smile.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+</div>
+</article>
+<article class="post" id="post-798404">
+<a title="March 21, 2019  7:21am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/48">Mar '19</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/SwethaB" target="_blank"><img src="comments_data/45_002.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/SwethaB" target="_blank" class="new-user">SwethaB</a>
+</h3>
+<p>Thank you for a very well written, detailed article. This post is a very good start to understand React router for SPA <img src="comments_data/slight_smile.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<a data-link-to-post="798461" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/48" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-798461">
+<a title="March 27, 2019 11:27am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/49">Mar '19</a>
+<a data-link-to-post="798404" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/48">▶ SwethaB</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/Siva_K" target="_blank"><img src="comments_data/45_011.png" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/Siva_K" target="_blank" class="new-user">Siva_<wbr>​K</a>
+</h3>
+<p>I created build for this application, and then i kept that folder on 
+httpd server. But it’s not working. Am I did any thing wrong here?</p>
+<a data-link-to-post="798473" class="post-replies button" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/49" target="_blank">1 reply</a>
+</div>
+</article>
+<article class="post" id="post-798473">
+<a title="March 27, 2019  9:20pm" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/50">Mar '19</a>
+<a data-link-to-post="798461" class="in-reply-to" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/49">▶ Siva_K</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank"><img src="comments_data/9237_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/kirupa" target="_blank" class="staff">kirupa</a>
+</h3>
+<p>What error are you seeing? Are the paths to the JS and CSS still accurate in the HTML file?</p>
+</div>
+</article>
+<article class="post" id="post-799266">
+<a title="July  5, 2019  6:48am" class="post-date" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/51">Jul '19</a>
+<div class="author">
+<a href="https://forum.kirupa.com/u/Gopal_Singh" target="_blank"><img src="comments_data/9734_2.jpg" alt=""></a>
+</div>
+<div class="cooked">
+<h3 class="username">
+<a href="https://forum.kirupa.com/u/Gopal_Singh" target="_blank" class="new-user">Gopal_<wbr>​<wbr>​Singh</a>
+</h3>
+<p>index.js &gt;&gt;&gt;<br>
+import React from ‘react’;<br>
+import ReactDOM from ‘react-dom’;<br>
+import Home from ‘./Home’;<br>
+ReactDOM.render(&lt; Home /&gt;, document.getElementById(‘root’));</p>
+<p>Home.js<br>
+import React, {Component} from ‘react’;<br>
+import ReactDOM from ‘react-dom’;<br>
+import {<br>
+Route,<br>
+NavLink,<br>
+HashRouter<br>
+} from “react-router-dom”;<br>
+import Login from ‘./Login’;<br>
+import SignUp from ‘./SignUp’;<br>
+class Home extends Component {<br>
+render (){<br>
+return (<br>
+&lt; HashRouter&gt;<br>
+&lt; div&gt;<br>
+&lt; ul&gt;<br>
+&lt; li&gt;&lt; NavLink to="/ SignUp"&gt;SignUp&lt;/ NavLink&gt;&lt; /li&gt;<br>
+&lt; /ul&gt;<br>
+&lt; /div&gt;<br>
+&lt;/ HashRouter&gt;);<br>
+}<br>
+}<br>
+export default Home;</p>
+<p>SignUp.js<br>
+import React, {Component} from ‘react’;<br>
+import ReactDOM from ‘react-dom’;<br>
+import SignUpCSS from ‘./SignUpCSS.css’</p>
+<p>class SignUp extends Component {<br>
+render(){ return (<br>
+</p><div>
+<br>
+<br>
+<div>
+<br>
+<h1>Sign Up</h1>
+<br>
+<p>Please fill in this form to create an account.</p>
+<br>
+<hr>
+<pre><code>&lt;label 
+for="email"&gt;&lt;b&gt;Email&lt;/b&gt;&lt;/label&gt;
+&lt;input type="text" placeholder="Enter Email" name="email" 
+required/&gt;
+
+&lt;label for="psw"&gt;&lt;b&gt;Password&lt;/b&gt;&lt;/label&gt;
+&lt;input type="password" placeholder="Enter Password" name="psw" 
+required/&gt;
+
+&lt;label for="psw-repeat"&gt;&lt;b&gt;Repeat 
+Password&lt;/b&gt;&lt;/label&gt;
+&lt;input type="password" placeholder="Repeat Password" 
+name="psw-repeat" required&gt;&lt;/input&gt;
+
+&lt;label&gt;
+  &lt;input type="checkbox" checked="checked" name="remember" 
+style="margin-bottom:15px"&gt; Remember me &lt;/input&gt;
+&lt;/label&gt;
+
+&lt;p&gt;By creating an account you agree to our &lt;a href="#" 
+style="color:dodgerblue"&gt;Terms &amp; Privacy&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class="clearfix"&gt;
+  &lt;button type="button" class="cancelbtn"&gt;Cancel&lt;/button&gt;
+  &lt;button type="submit" class="signupbtn"&gt;Sign Up&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/form&gt;
+&lt;/div&gt;);
+</code></pre>
+<p>}}<br>
+export default SignUp;</p>
+<p>Please find the above three page<br>
+I am not able to redirect SignUp even not getting any error whats I am missing here</p>
+</div>
+</div>
+</div>
+</article>
+<footer class="clearfix">
+<a target="_blank" href="https://forum.kirupa.com/"><img class="logo" src="comments_data/ed6006f4a517a9ed8a07f860df454e7f560669ed.png"></a>
+<a class="button" target="_blank" href="https://forum.kirupa.com/t/creating-a-single-page-app-in-react-using-react-router/636201/51">Continue Discussion</a>
+</footer>
+<div class="clearfix"></div>
+
+
+</body></html>

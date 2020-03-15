@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="shortcut icon" href="https://www.kirupa.com/favicon_new.png">
+<link rel="apple-touch-icon" href="https://www.kirupa.com/favicon_ios.png">
+<link rel="alternate" type="application/rss+xml" title="kirupa.com Updates" href="https://www.kirupa.com/modular/kirupa.xml">
+
+<meta property="og:site_name" content="kirupa.com">
+<meta property="fb:admins" content="700218">
+<meta property="og:type" content="article">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0099fe">
+<link rel="manifest" href="https://www.kirupa.com/manifest.json">
+<meta name="keywords" content="react, reactjs, router, navigation, single, page, app">
+<meta name="content" content="Kick your React skills up a few notches by learning how to use React Router to create a sweet single-page app.">
+<meta name="description" content="Kick your React skills up a few notches by learning how to use React Router to create a sweet single-page app.">
+<meta name="title" content="Creating a Single-Page App in React using React Router | KIRUPA">
+<title>Creating a Single-Page App in React using React Router | kirupa.com<script type="text/javascript" async="" src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/embed.js"></script></title>
+<meta name="author" content="Kirupa Chinnathambi">
+<link href="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/kirupa_html5.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+p.centerImage iframe {
+    border: #333 solid 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+</style>
+<meta property="og:title" content="Creating a Single-Page App in React using React Router">
+<meta property="og:url" content="https://www.kirupa.com/react/creating_single_page_app_react_using_react_router.htm">
+<meta property="og:image" content="https://www.kirupa.com/images/router_sharing.png">
+<meta property="og:description" content="Kick your React skills up a few notches by learning how to use React Router to create a sweet single-page app.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@kirupa">
+<meta name="twitter:creator" content="@kirupa">
+<meta name="twitter:title" content="Creating a Single-Page App in React using React Router">
+<meta name="twitter:description" content="Kick your React skills up a few notches by learning how to use React Router to create a sweet single-page app.">
+<meta name="twitter:image:src" content="https://www.kirupa.com/images/router_sharing.png">
+</head>
+<body>
+<div id="navigationSlider" class="hidden">
+<nav class="navigationBoxes">
+<ul>
+<li><a class="boring" href="https://www.kirupa.com/learn/index.htm">Articles</a>
+<ul>
+<li><a style="background-image: url('https://www.kirupa.com/icon/1f34d.svg');" href="https://www.kirupa.com/react/index.htm">React for Beginners</a>
+</li>
+<li><a style="background-image: url('https://www.kirupa.com/icon/1f682.svg');" href="https://www.kirupa.com/javascript/learn_javascript.htm">JavaScript 101</a>
+</li>
+<li><a style="background-image: url('https://www.kirupa.com/icon/1f680.svg');" href="https://www.kirupa.com/html5/learn_animation.htm">Web Animation</a>
+</li>
+<li><a style="background-image: url('https://www.kirupa.com/icon/1f951.svg');" href="https://www.kirupa.com/learn/ui_index.htm">Good UI/UX Stuff</a>
+</li>
+<li><a style="background-image: url('https://www.kirupa.com/icon/1f419.svg');" href="https://www.kirupa.com/apps/index.htm">The Web Corner</a>
+</li>
+<li><a style="background-image: url('https://www.kirupa.com/icon/1f368.svg');" href="https://www.kirupa.com/canvas/index.htm">Canvas</a>
+</li>
+<li><a style="background-image: url('https://www.kirupa.com/icon/1f495.svg');" href="https://www.kirupa.com/html5/learn_html_css.htm">HTML, CSS, and You!</a>
+</li>
+<li><a style="background-image: url('https://www.kirupa.com/icon/1f9f1.svg');" href="https://www.kirupa.com/developer/flash/index.htm">Flash and ActionScript</a>
+</li>
+</ul>
+</li>
+<li><a class="boring" href="https://www.youtube.com/user/kirupa">Videos</a></li>
+<li><a class="boring" href="https://www.kirupa.com/book/index.htm">Books</a></li>
+<li><a class="boring" href="https://www.kirupa.com/newsletter.htm">The News(letter)</a></li>
+<li><a class="boring" href="#">About</a>
+</li>
+</ul>
+</nav>
+</div>
+<div id="mainHeader">
+<a class="wideOnly" href="https://www.kirupa.com/">
+<svg width="55" height="54" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-2h62v62H-1z"></path>
+<g transform="translate(3 3)">
+<ellipse fill="var(--orangeBackground)" cx="27.625" cy="26.323" rx="24.375" ry="24.677"></ellipse>
+<path d="M13.167.145a13.9 13.9 0 00-.498 1.452c-1.033 3.668-.138 6.634 2.687 8.898.095.087.204.16.327.218 1.82-3.107 1.455-6.145-1.095-9.116A16.937 16.937 0 0013.167.145zM.142 3.861c1.251.765 2.124 1.883 2.616 3.354a265.59 265.59 0 00.854 2.482c.644 1.858 1.829 3.213 3.554 4.064.067.039.138.073.214.102 1.8.832 3.644 1.002 5.53.508.39-.116.702-.32.94-.61.122-.155.227-.334.312-.537.227-.58.251-1.17.071-1.77a2.943 2.943 0 00-.1-.262 9.305 9.305 0 00-.725-1.408 8.739 8.739 0 00-2.8-2.845 22.164 22.164 0 00-5.034-2.352h-.029A14.388 14.388 0 003.27 4.05a14.7 14.7 0 00-3.128-.189z" stroke="var(--orangeBackground)" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15.782 10.667C17.928 7.014 17.077 3.457 13.226 0c-1.752 4.386-1.01 7.868 2.224 10.447.096.088.207.161.332.22z" fill="var(--orangeSmallLeaf)" fill-rule="nonzero"></path>
+<path d="M14.208 11.15a9.372 9.372 0 00-.736-1.42 8.846 8.846 0 00-2.845-2.873 22.57 22.57 0 00-5.111-2.373c-.77-.245-1.55-.425-2.34-.543A15.017 15.017 0 000 3.751c1.27.772 2.156 1.9 2.657 3.385a266.975 266.975 0 00.866 2.505c.655 1.876 1.858 3.243 3.61 4.103.067.039.14.073.216.102 1.83.84 3.702 1.011 5.617.513.395-.117.713-.322.953-.615.125-.157.231-.337.318-.542.27-.674.26-1.358-.029-2.052z" fill="var(--orangeBigLeaf)" fill-rule="nonzero"></path>
+<path d="M13.183 32.88c.77 1.738 1.872 3.335 3.306 4.79 3.11 3.136 6.854 4.704 11.234 4.704 1.684 0 3.278-.23 4.78-.688.115-.04.235-.079.36-.118.491-.175.977-.37 1.459-.586a16.547 16.547 0 002.136-1.216 16.684 16.684 0 002.498-2.095c1.377-1.397 2.45-2.926 3.22-4.586.135-.284.255-.572.361-.865-.404.303-.813.591-1.227.865-3.07 2.051-6.151 3.414-9.241 4.088-.202.039-.4.078-.592.117-.087.02-.173.034-.26.044-1.838.332-3.682.42-5.53.264l-.563-.059a1.235 1.235 0 00-.173-.015c-3.909-.478-7.831-2.027-11.768-4.644z" fill="var(--orangeBodyBottom)" fill-rule="nonzero"></path>
+<path d="M43.606 26.257c0-4.445-1.55-8.245-4.65-11.4a25.56 25.56 0 00-.52-.512c.357.693.535 1.43.535 2.212 0 1.69-.838 3.165-2.513 4.425-.269.195-.553.386-.851.571-2.234 1.378-4.929 2.066-8.086 2.066-3.158 0-5.858-.688-8.1-2.066a11.51 11.51 0 01-.838-.571c-1.675-1.26-2.512-2.735-2.512-4.425 0-.498.072-.977.216-1.436h-.043a16.271 16.271 0 00-2.08 2.681l-.057.088c-1.223 2.003-1.95 4.215-2.18 6.638a17.039 17.039 0 00-.087 1.729c0 2.393.448 4.6 1.343 6.623 3.937 2.617 7.86 4.166 11.768 4.644.048 0 .105.005.173.015.183.02.37.04.563.059 1.848.156 3.692.068 5.53-.264.087-.01.173-.025.26-.044.193-.04.39-.078.592-.117 3.09-.674 6.17-2.037 9.241-4.088.414-.274.823-.562 1.227-.865.135-.342.255-.684.361-1.025.472-1.544.708-3.19.708-4.938z" fill="var(--orangeBodyMiddle)" fill-rule="nonzero"></path>
+<path d="M34.018 12.044c-1.78-1.006-3.927-1.51-6.44-1.51-2.512 0-4.654.504-6.425 1.51-1.78.996-2.671 2.203-2.671 3.62 0 1.416.89 2.627 2.671 3.633 1.771.996 3.913 1.494 6.426 1.494 2.512 0 4.658-.498 6.44-1.494 1.77-1.006 2.656-2.217 2.656-3.634 0-1.416-.886-2.623-2.657-3.619z" fill="var(--orangeBodyTop)" fill-rule="nonzero"></path>
+<path d="M8.832 18.503a20.725 20.725 0 00-1.52 7.82c0 11.357 9.095 20.564 20.313 20.564 11.218 0 20.313-9.207 20.313-20.564 0-11.358-9.095-20.565-20.313-20.565-2.23 0-4.376.364-6.384 1.036" stroke="var(--orangeBorder)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path>
+</g>
+</g>
+</svg>
+</a>
+<a style="margin-top: 3px;" href="https://www.kirupa.com/">
+<svg width="157" height="31" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<path d="M-7-10h171v51H-7z"></path>
+<path d="M19 13V1h-6v12h6zM7 31V19h6v-6H7V1H1v30h6zm12 0V19h-6v12h6zm18 0V1h-6v30h6zm24-12v12h6V19h-6zm-.24-6H55V7h5.76v6zm.24 6v-6h6V1H49v30h6V19h6zm36 12V1h-6v24h-6V1h-6v30h18zm18 0V19h12V1h-18v30h6zm6-18h-6V7h6v6zm24 18V19h6v12h6V1h-18v30h6zm6-18h-6V7h6v6z" fill="var(--logoTextShadow)" fill-rule="nonzero"></path>
+<path d="M18 12V0h-6v12h6zM6 30V18h6v-6H6V0H0v30h6zm12 0V18h-6v12h6zm18 0V0h-6v30h6zm24-12v12h6V18h-6zm-.24-6H54V6h5.76v6zm.24 6v-6h6V0H48v30h6V18h6zm36 12V0h-6v24h-6V0h-6v30h18zm18 0V18h12V0h-18v30h6zm6-18h-6V6h6v6zm24 18V18h6v12h6V0h-18v30h6zm6-18h-6V6h6v6z" fill="var(--logoTextColor)" fill-rule="nonzero"></path>
+</g>
+</svg>
+</a>
+<span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;"><input id="sbi" class="kirupaInput wideOnly ds-input" size="20" role="combobox" aria-autocomplete="list" aria-haspopup="true" type="text" autocomplete="off" spellcheck="false" aria-expanded="false" aria-label="search input" aria-owns="algolia-autocomplete-listbox-0" style="position: relative; vertical-align: top;" dir="auto"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: MS Shell Dlg \32 ; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: optimizelegibility; text-transform: none;"></pre><span class="ds-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;" role="listbox" id="algolia-autocomplete-listbox-0"><div class="ds-dataset-1"></div></span></span>
+<a class="kirupaButton wideOnly" id="askquestion" href="http://forum.kirupa.com/">FORUM</a>
+<img id="navMobile" alt="navigation" src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/1f354.svg" width="24">
+<canvas id="backgroundCanvas" width="1225px" height="87px"></canvas>
+</div>
+<script>
+  let canvas = document.querySelector("#backgroundCanvas");
+  let context = canvas.getContext("2d");
+
+  let bodyStyle = getComputedStyle(document.body);
+
+  let backgroundColor = bodyStyle.getPropertyValue("--primaryLightest");
+  let foregroundColor = bodyStyle.getPropertyValue("--primary");
+
+  context.fillStyle = backgroundColor;
+  context.fillRect(0, 0, canvas.width, canvas.height);
+
+  class Circle {
+    constructor(xPos, yPos, radius, color) {
+      this.radius = radius;
+      this.xPos = xPos;
+      this.yPos = yPos;
+      this.color = color;
+    }
+
+    setPosition(xPos, yPos) {
+      this.xPos = xPos;
+      this.yPos = yPos;
+    }
+
+    setRadius(radius) {
+      this.radius = radius;
+    }
+
+    setColor(color) {
+      this.color = color;
+    }
+
+    draw() {
+      context.globalAlpha = Math.random() * 1 / 7;
+
+      context.beginPath();
+      context.arc(this.xPos, this.yPos, this.radius, 0, 2 * Math.PI, true);
+      context.closePath();
+
+      context.fillStyle = this.color;
+      context.fill();
+    }
+  }
+
+  var circles = [];
+
+  function drawCircle() {
+    for (let i = 0; i < 10; i++) {
+      let r;
+
+      if (i < 9) {
+        r = Math.round(1 + Math.random() * 50);
+      } else {
+        r = Math.round(100 + Math.random() * 250);
+      }
+
+      let xPos = Math.round(Math.random() * canvas.width);
+      let yPos = Math.round(Math.random() * canvas.height);
+
+      let alpha = Math.random() * 1 / 7;
+
+      let newCircle = new Circle(xPos, yPos, r, foregroundColor);
+      newCircle.draw();
+
+      circles.push(newCircle);
+    }
+  }
+  drawCircle();
+</script>
+<div id="mainBody">
+<div id="leftContents">
+<nav class="navigationBoxes">
+<ul>
+<li><a href="https://www.kirupa.com/learn/index.htm">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="currentColor" d="M18.64 2.634L.984 8.856c-.284.1-.347.345-.01.479l3.796 1.521 2.25.901 10.984-8.066c.148-.108.318.095.211.211l-7.871 8.513v.002l-.452.503.599.322 4.982 2.682c.291.156.668.027.752-.334l2.906-12.525c.079-.343-.148-.552-.491-.431zM7 17.162c0 .246.139.315.331.141.251-.229 2.85-2.561 2.85-2.561L7 13.098v4.064z"></path></svg>
+Articles</a>
+<ul>
+<li><a href="https://www.kirupa.com/react/index.htm">React for Beginners</a>
+</li>
+<li><a href="https://www.kirupa.com/javascript/learn_javascript.htm">JavaScript 101</a>
+ </li>
+<li><a href="https://www.kirupa.com/html5/learn_animation.htm">Web Animation</a>
+</li>
+<li><a href="https://www.kirupa.com/learn/ui_index.htm">Good UI/UX Stuff</a>
+</li>
+<li><a href="https://www.kirupa.com/apps/index.htm">The Web Corner</a>
+</li>
+<li><a href="https://www.kirupa.com/canvas/index.htm">Canvas</a>
+</li>
+<li><a href="https://www.kirupa.com/html5/learn_html_css.htm">HTML, CSS, and You!</a>
+</li>
+<li><a href="https://www.kirupa.com/developer/flash/index.htm">Flash and AS</a>
+</li>
+</ul>
+</li>
+<li><a href="https://www.youtube.com/user/kirupa">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="currentColor" d="M20 5V3.799A.798.798 0 0019.201 3H.801A.8.8 0 000 3.799V5h2v2H0v2h2v2H0v2h2v2H0v1.199A.8.8 0 00.801 17h18.4a.8.8 0 00.799-.801V15h-2v-2h2v-2h-2V9h2V7h-2V5h2zM8 13V7l5 3-5 3z"></path></svg>
+Videos</a></li>
+<li><a href="https://www.kirupa.com/book/index.htm">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="currentColor" d="M17 5.95v10.351c0 .522-.452.771-1 1.16-.44.313-1-.075-1-.587V6.76c0-.211-.074-.412-.314-.535-.24-.123-7.738-4.065-7.738-4.065-.121-.045-.649-.378-1.353-.016-.669.344-1.033.718-1.126.894l8.18 4.482c.217.114.351.29.351.516v10.802a.67.67 0 01-.369.585.746.746 0 01-.333.077.736.736 0 01-.386-.104c-.215-.131-7.774-4.766-8.273-5.067-.24-.144-.521-.439-.527-.658L3 3.385c0-.198-.023-.547.289-1.032C3.986 1.269 6.418.036 7.649.675l8.999 4.555c.217.112.352.336.352.72z"></path></svg>
+Books</a></li>
+<li><a href="https://www.kirupa.com/newsletter.htm">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="currentColor" d="M14.69 2.661c-1.894-1.379-3.242-1.349-3.754-1.266a.538.538 0 00-.35.223l-4.62 6.374-2.263 3.123a2.447 2.447 0 00-.462 1.307l-.296 5.624a.56.56 0 00.76.553l5.256-2.01c.443-.17.828-.465 1.106-.849l1.844-2.545 5.036-6.949a.56.56 0 00.1-.423c-.084-.526-.487-1.802-2.357-3.162zM8.977 15.465l-2.043.789a.19.19 0 01-.221-.062 5.145 5.145 0 00-1.075-1.03 5.217 5.217 0 00-1.31-.706.192.192 0 01-.126-.192l.122-2.186.549-.755s1.229-.169 2.833.998c1.602 1.166 1.821 2.388 1.821 2.388l-.55.756z"></path></svg>
+The News(letter)</a></li>
+<li><a href="https://forum.kirupa.com/">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="currentColor" d="M18 6v7c0 1.1-.9 2-2 2h-4v3l-4-3H4c-1.101 0-2-.9-2-2V6c0-1.1.899-2 2-2h12c1.1 0 2 .9 2 2z"></path></svg>
+Forums</a></li>
+<li><a href="#">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="currentColor" d="M17.19 4.155c-1.672-1.534-4.383-1.534-6.055 0L10 5.197 8.864 4.155c-1.672-1.534-4.382-1.534-6.054 0-1.881 1.727-1.881 4.52 0 6.246L10 17l7.19-6.599c1.88-1.726 1.88-4.52 0-6.246z"></path></svg>
+About</a>
+</li>
+</ul>
+</nav>
+</div>
+<div id="mainContent">
+<div id="tutorialInformation">
+<div class="tags">
+<p><a href="https://www.kirupa.com/react/index.htm">REACT</a></p>
+<p><a href="https://www.amazon.com/exec/obidos/ASIN/0134546318/kirupacom" target="_blank">BOOK</a></p>
+</div>
+<div class="authorImage">
+<a href="https://www.kirupa.com/me/index.htm">
+<img alt="Look, it's a kirupa!!!" src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/kirupa_me.png"></a></div>
+<div class="authorText">
+<h1>Creating a Single-Page App in React using React Router</h1>
+<p class="tutorialInfo">by <a href="https://www.kirupa.com/me/index.htm">
+kirupa</a>&nbsp;&nbsp; |&nbsp;&nbsp; filed under <a href="https://www.kirupa.com/react/index.htm">Learning React</a></p>
+</div>
+</div>
+<div id="tutorialBox">
+</div>
+<p>Now that you've familiarized yourself with the basics of how to work 
+with React, let's kick things up a few notches. What we are going to do 
+is use React to build a simple <strong>single-page app</strong> (also referred to as <strong>SPA</strong> by the cool kids...and people living in Scandinavia). Like we talked about in our <a href="https://www.kirupa.com/react/introducing_react.htm" class="blueEmphasis">React introduction</a>
+ forever ago, single-page apps are different from the more traditional 
+multi-page apps that you see everywhere. The biggest difference is that 
+navigating a single-page app doesn't involve going to an entirely new 
+page. Instead, your pages (commonly known as&nbsp;<strong><em>views</em></strong>&nbsp;in this context) typically load inline within the same page itself:</p>
+<p class="centerImageNoBorder"><img src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/single_page_model_144.png" alt="" width="600" height="528"></p>
+<p>When you are loading content inline, things get a little challenging.
+ The hard part is not loading the content itself. That is relatively 
+easy. The hard part is making sure that single-page apps behave in a way
+ that is consistent with what your users are used to. More specifically,
+ when users navigate your app, they expect that: </p>
+<ol>
+<li>The URL displayed in the address bar always reflects the thing that they are viewing.<br>
+</li>
+<li>They can use the browser's back and forward buttons...successfully.<br>
+</li>
+<li>They can navigate to a particular view (aka <strong>deep link</strong>) directly using the appropriate URL.</li>
+</ol>
+<p>With multi-page apps, these three things come for free. There is 
+nothing extra you have to do for any of it. With single-page apps, 
+because you aren't navigating to an entirely new page, you have to do 
+real work to deal with these three things <strong>that your users expect to just work</strong>.
+ You need to ensure that navigating within your app adjusts the URL 
+appropriately. You need to ensure your browser's history is properly 
+synchronized with each navigation to allow users to use the back and 
+forward buttons. If users bookmark a particular view or copy/paste a URL
+ to access later, you need to ensure that your single-page app takes the
+ user to the correct place.</p>
+<p>To deal with all of this, you have a bucket full of techniques commonly known as <strong>routing</strong>.
+ Routing is where you try to map URLs to destinations that aren't 
+physical pages such as the individual views in your single-page app. 
+That sounds complicated, but fortunately there are a bunch of JavaScript
+ libraries that help us out with this. One such JavaScript library is 
+the star of this tutorial, <strong><a href="https://github.com/reactjs/react-router" class="blueEmphasis">React Router</a></strong>.
+ React Router provides routing capabilities to single-page apps built in
+ React, and what makes it nice is that extends what you already know 
+about React in familiar ways to give you all of this routing 
+awesomeness. In this tutorial, you'll learn all about how it does 
+that...and hopefully more!</p>
+<p>Onwards!</p>
+<div id="reactBookContent" class="bookContent">
+<div id="bookImage"> <a href="https://www.amazon.com/exec/obidos/ASIN/013484355X/kirupacom" target="_blank"><img src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/learning_react.gif" width="150"></a>
+</div>
+<div id="bookContent">
+<h4>OMG! A React Book Written by Kirupa?!!</h4>
+<p>To kick your React skills up a few notches, everything you see here 
+and more (with all its casual clarity!) is available in both paperback 
+and digital editions.</p>
+<a href="https://www.amazon.com/exec/obidos/ASIN/013484355X/kirupacom" target="_blank" class="greenButton">BUY ON AMAZON</a>
+</div>
+</div>
+<h2>The Example</h2>
+<p>Before we go further, take a look at the following example:</p>
+<p class="centerImage">
+<iframe id="I2" border="0" name="I2" src="examples/react_router/index.html" style="width: 600px; height: 500px;" marginheight="0" marginwidth="0" frameborder="0">Your browser does not support inline frames or is currently configured not to display inline frames. </iframe>
+</p>
+<p>What you have here is a simple React app that uses React Router to 
+provide all of the navigation and view-loading goodness! Click on the 
+various links to load the relevant content, and feel free to <a href="https://www.kirupa.com/react/examples/react_router/index.html" target="_blank" class="blueEmphasis">open up this page in its own browser window</a> to use the back and forward buttons to see them working.</p>
+<p>In the following sections, we are going to be building this app in 
+pieces. By the end, not only will you have re-created this app, you'll 
+hopefully have learned enough about React Router to build cooler and 
+more awesomer things.</p>
+<h2>Getting Started<u></u></h2>
+<p>The first thing we need to do is get our project setup. We'll use our trusty <strong>create-react-app</strong> command to do this. From your favorite terminal, navigate to the folder you want to create your app, and type the following:</p>
+<div><div id="highlighter_198745" class="syntaxhighlighter nogutter kirupa_code js"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js plain">create-react-app react_spa</code></div></div></td></tr></tbody></table></div></div>
+<p>This will create our new project inside a folder called <strong>react_spa</strong>. Go ahead and navigate into this folder:</p>
+<div><div id="highlighter_386542" class="syntaxhighlighter nogutter kirupa_code js"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js plain">cd react_spa</code></div></div></td></tr></tbody></table></div></div>
+<p>Normally, this is where we start messing around with deleting the 
+existing content to start from a blank slate. We will do that, but 
+first, we are going to install React Router. To do that, run the 
+following command:</p>
+<div><div id="highlighter_461967" class="syntaxhighlighter nogutter kirupa_code js"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js plain">npm i react-router-dom --save</code></div></div></td></tr></tbody></table></div></div>
+<p>This copies the appropriate React Router files and registers it in our <strong>package.json</strong> so that our app is made aware of its existence. That's good stuff, right?</p>
+<p>Now that you've done this, it is time to clean up our project to start from a clean slate. From inside your <strong>react_spa</strong> folder, delete everything found inside your <strong>public</strong> and <strong>src</strong> folders. Once you've done this, let's create our index.html file that will serve as our app's starting point. In your <strong>public</strong> folder, create a file called <strong>index.html</strong> and add the following contents into it:</p>
+<div><div id="highlighter_715936" class="syntaxhighlighter nogutter kirupa_code js"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js plain">&lt;!DOCTYPE html&gt;</code></div><div class="line number2 index1 alt1"><code class="js plain">&lt;html lang=</code><code class="js string">"en"</code><code class="js plain">&gt;</code></div><div class="line number3 index2 alt2"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">&lt;head&gt;</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;meta charset=</code><code class="js string">"utf-8"</code><code class="js plain">&gt;</code></div><div class="line number5 index4 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;meta name=</code><code class="js string">"viewport"</code></div><div class="line number6 index5 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">content=</code><code class="js string">"width=device-width, initial-scale=1, shrink-to-fit=no"</code><code class="js plain">&gt;</code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;title&gt;React Router Example&lt;/title&gt;</code></div><div class="line number8 index7 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">&lt;/head&gt;</code></div><div class="line number9 index8 alt2"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">&lt;body&gt;</code></div><div class="line number10 index9 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;div id=</code><code class="js string">"root"</code><code class="js plain">&gt;&lt;/div&gt;</code></div><div class="line number11 index10 alt2"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">&lt;/body&gt;</code></div><div class="line number12 index11 alt1"><code class="js plain">&lt;/html&gt;</code></div></div></td></tr></tbody></table></div></div>
+<p>Take a quick glance at the HTML. There shouldn't be anything 
+surprising here. Next, we'll create our JavaScript entry point. Inside 
+the <strong>src</strong> folder, create a file called <strong>index.js</strong> and add the following contents into it:</p>
+<div><div id="highlighter_646487" class="syntaxhighlighter nogutter kirupa_code js"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js plain">import React from </code><code class="js string">"react"</code><code class="js plain">;</code></div><div class="line number2 index1 alt1"><code class="js plain">import ReactDOM from </code><code class="js string">"react-dom"</code><code class="js plain">;</code></div><div class="line number3 index2 alt2"><code class="js plain">import Main from </code><code class="js string">"./Main"</code><code class="js plain">;</code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="js plain">ReactDOM.render(</code></div><div class="line number6 index5 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">&lt;Main/&gt;, </code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">document.getElementById(</code><code class="js string">"root"</code><code class="js plain">)</code></div><div class="line number8 index7 alt1"><code class="js plain">);</code></div></div></td></tr></tbody></table></div></div>
+<p>Our <span class="inlineCode">ReactDOM.render</span> call lives here, and what we are rendering is our <span class="inlineCode">Main</span> component...which doesn't exist yet. The <span class="inlineCode">Main</span>
+ component will be the starting point for our SPA expedition using React
+ Router, and we'll see how starting with the next section.</p>
+<h2>Building our Single Page App</h2>
+<p>The way we build our app is no different than all the apps we've been
+ building so far. We will have a main parent component. Each of the 
+individual "pages" of our app will be separate components that feed into
+ the main component. The magic React Router brings to to the table is 
+basically choosing which components to show and which to hide. To make 
+this feel natural, all of this <em>navigating</em> is tied in with our browser's address bar and back/forward buttons, so it is all made to look seamless.</p>
+<h3>Displaying the Initial Frame</h3>
+<p>When building a SPA, there will always be a part of your page that 
+will remain static. This static part, also referred to as an&nbsp;<strong><em>app frame</em></strong>,
+ could just be one invisible HTML element that acts as the container for
+ all of your content, or could include some additional visual things 
+like a header, footer, navigation, etc. In our case, our app frame will 
+just be a component that contains UI elements for our navigation header 
+and an empty area for content to load in.</p>
+<p>Inside our <strong>src</strong> folder, create a new file called <strong>Main.js</strong> and add the following content into it:</p>
+<div><div id="highlighter_297623" class="syntaxhighlighter nogutter kirupa_code js"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js plain">import React, { Component } from </code><code class="js string">"react"</code><code class="js plain">;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="js plain">class Main extends Component {</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">render() {</code></div><div class="line number5 index4 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js keyword">return</code> <code class="js plain">(</code></div><div class="line number6 index5 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;div&gt;</code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;h1&gt;Simple SPA&lt;/h1&gt;</code></div><div class="line number8 index7 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;ul className=</code><code class="js string">"header"</code><code class="js plain">&gt;</code></div><div class="line number9 index8 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;li&gt;&lt;a href=</code><code class="js string">"/"</code><code class="js plain">&gt;Home&lt;/a&gt;&lt;/li&gt;</code></div><div class="line number10 index9 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;li&gt;&lt;a href=</code><code class="js string">"/stuff"</code><code class="js plain">&gt;Stuff&lt;/a&gt;&lt;/li&gt;</code></div><div class="line number11 index10 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;li&gt;&lt;a href=</code><code class="js string">"/contact"</code><code class="js plain">&gt;Contact&lt;/a&gt;&lt;/li&gt;</code></div><div class="line number12 index11 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/ul&gt;</code></div><div class="line number13 index12 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;div className=</code><code class="js string">"content"</code><code class="js plain">&gt;</code></div><div class="line number14 index13 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div><div class="line number15 index14 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/div&gt;</code></div><div class="line number16 index15 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/div&gt;</code></div><div class="line number17 index16 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">);</code></div><div class="line number18 index17 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">}</code></div><div class="line number19 index18 alt2"><code class="js plain">}</code></div><div class="line number20 index19 alt1">&nbsp;</div><div class="line number21 index20 alt2"><code class="js plain">export </code><code class="js keyword">default</code> <code class="js plain">Main;</code></div></div></td></tr></tbody></table></div></div>
+<p>Once you have pasted this, take a look at what we have here. We have a component called <span class="inlineCode">Main</span> that returns some HTML. That's it. To see what we have so far in action, <strong>npm start</strong> it up and see what is going on in your browser.</p>
+<p>You should see an unstyled version of an app title and some list items appear:</p>
+<p class="centerImageNoBorder"><img src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/react_router_example1.png" width="600" height="461"></p>
+<p>I know that this doesn't look all fancy and styled, but that's OK for
+ now. We will deal with that later. The important thing to call out is 
+that there is nothing React Router specific here. ABSOLUTELY NOTHING!</p>
+<h3>Creating our Content Pages</h3>
+<p>Our app will have three pages of content. This content will just be a
+ simple component that prints out some JSX. Let's just get those created
+ and out of the way! First, create a file called <strong>Home.js</strong> in our <strong>src</strong> directory and add the following content:</p>
+<div><div id="highlighter_282354" class="syntaxhighlighter nogutter kirupa_code js"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js plain">import React, { Component } from </code><code class="js string">"react"</code><code class="js plain">;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="js plain">class Home extends Component {</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">render() {</code></div><div class="line number5 index4 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js keyword">return</code> <code class="js plain">(</code></div><div class="line number6 index5 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;div&gt;</code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;h2&gt;HELLO&lt;/h2&gt;</code></div><div class="line number8 index7 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;p&gt;Cras facilisis urna ornare ex volutpat, et</code></div><div class="line number9 index8 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">convallis erat elementum. Ut aliquam, ipsum vitae</code></div><div class="line number10 index9 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">gravida suscipit, metus dui bibendum est, eget rhoncus nibh</code></div><div class="line number11 index10 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">metus nec massa. Maecenas hendrerit laoreet augue</code></div><div class="line number12 index11 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">nec molestie. Cum sociis natoque penatibus et magnis</code></div><div class="line number13 index12 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">dis parturient montes, nascetur ridiculus mus.&lt;/p&gt;</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;p&gt;Duis a turpis sed lacus dapibus elementum sed eu lectus.&lt;/p&gt;</code></div><div class="line number16 index15 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/div&gt;</code></div><div class="line number17 index16 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">);</code></div><div class="line number18 index17 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">}</code></div><div class="line number19 index18 alt2"><code class="js plain">}</code></div><div class="line number20 index19 alt1">&nbsp;</div><div class="line number21 index20 alt2"><code class="js plain">export </code><code class="js keyword">default</code> <code class="js plain">Home;</code></div></div></td></tr></tbody></table></div></div>
+<p>Next, create a file called <strong>Stuff.js</strong> in the same location and add in the following:</p>
+<div><div id="highlighter_885872" class="syntaxhighlighter nogutter kirupa_code js"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js plain">import React, { Component } from </code><code class="js string">"react"</code><code class="js plain">;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="js plain">class Stuff extends Component {</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">render() {</code></div><div class="line number5 index4 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js keyword">return</code> <code class="js plain">(</code></div><div class="line number6 index5 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;div&gt;</code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;h2&gt;STUFF&lt;/h2&gt;</code></div><div class="line number8 index7 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;p&gt;Mauris sem velit, vehicula eget sodales vitae,</code></div><div class="line number9 index8 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">rhoncus eget sapien:&lt;/p&gt;</code></div><div class="line number10 index9 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;ol&gt;</code></div><div class="line number11 index10 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;li&gt;Nulla pulvinar diam&lt;/li&gt;</code></div><div class="line number12 index11 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;li&gt;Facilisis bibendum&lt;/li&gt;</code></div><div class="line number13 index12 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;li&gt;Vestibulum vulputate&lt;/li&gt;</code></div><div class="line number14 index13 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;li&gt;Eget erat&lt;/li&gt;</code></div><div class="line number15 index14 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;li&gt;Id porttitor&lt;/li&gt;</code></div><div class="line number16 index15 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/ol&gt;</code></div><div class="line number17 index16 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/div&gt;</code></div><div class="line number18 index17 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">);</code></div><div class="line number19 index18 alt2"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">}</code></div><div class="line number20 index19 alt1"><code class="js plain">}</code></div><div class="line number21 index20 alt2">&nbsp;</div><div class="line number22 index21 alt1"><code class="js plain">export </code><code class="js keyword">default</code> <code class="js plain">Stuff;</code></div></div></td></tr></tbody></table></div></div>
+<p>We just have one more page left. Create a file called <strong>Contact.js</strong> in our <strong>src</strong> folder and make sure its contents are the following:</p>
+<div><div id="highlighter_13554" class="syntaxhighlighter nogutter kirupa_code js"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js plain">import React, { Component } from </code><code class="js string">"react"</code><code class="js plain">;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="js plain">class Contact extends Component {</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">render() {</code></div><div class="line number5 index4 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js keyword">return</code> <code class="js plain">(</code></div><div class="line number6 index5 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;div&gt;</code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;h2&gt;GOT QUESTIONS?&lt;/h2&gt;</code></div><div class="line number8 index7 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;p&gt;The easiest thing to </code><code class="js keyword">do</code> <code class="js plain">is post on</code></div><div class="line number9 index8 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">our &lt;a href=</code><code class="js string">"<a href="http://forum.kirupa.com/">http://forum.kirupa.com</a>"</code><code class="js plain">&gt;forums&lt;/a&gt;.</code></div><div class="line number10 index9 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/p&gt;</code></div><div class="line number11 index10 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/div&gt;</code></div><div class="line number12 index11 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">);</code></div><div class="line number13 index12 alt2"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">}</code></div><div class="line number14 index13 alt1"><code class="js plain">}</code></div><div class="line number15 index14 alt2">&nbsp;</div><div class="line number16 index15 alt1"><code class="js plain">export </code><code class="js keyword">default</code> <code class="js plain">Contact;</code></div></div></td></tr></tbody></table></div></div>
+<p>That's the last of our content we are going to add. If you took a 
+look at what it is you were adding, you'll see that these components 
+can't get any simpler. They just returned some boilerplate JSX content. 
+Now, make sure to save all of your changes to these three files. We'll 
+look at how to make them useful shortly.</p>
+<h3>Using React Router</h3>
+<p>We have our app frame in the form of our <span class="inlineCode">Main</span> component. We have our content pages represented by the <span class="inlineCode">Home</span>, <span class="inlineCode">Stuff</span>, and <span class="inlineCode">Contact</span>
+ components. What we need to do is tie all of these together to create 
+our app. This is where React Router comes in. To start using it, go back
+ to <strong>Main.js</strong>, and ensure your <span class="inlineCode">import</span> statements look as follows:</p>
+<div><div id="highlighter_648986" class="syntaxhighlighter nogutter kirupa_code js"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js plain">import React, { Component } from </code><code class="js string">"react"</code><code class="js plain">;</code></div><div class="line number2 index1 alt1"><code class="js plain">import {</code></div><div class="line number3 index2 alt2"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">Route,</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">NavLink,</code></div><div class="line number5 index4 alt2"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">HashRouter</code></div><div class="line number6 index5 alt1"><code class="js plain">} from </code><code class="js string">"react-router-dom"</code><code class="js plain">;</code></div><div class="line number7 index6 alt2"><code class="js plain">import Home from </code><code class="js string">"./Home"</code><code class="js plain">;</code></div><div class="line number8 index7 alt1"><code class="js plain">import Stuff from </code><code class="js string">"./Stuff"</code><code class="js plain">;</code></div><div class="line number9 index8 alt2"><code class="js plain">import Contact from </code><code class="js string">"./Contact"</code><code class="js plain">;</code></div></div></td></tr></tbody></table></div></div>
+<p>We are importing <strong>Route</strong>, <strong>NavLink</strong>, and <strong>HashRouter</strong> from the react-router-dom NPM package we installed earlier. In addition, we are importing our <span class="inlineCode">Home</span>, <span class="inlineCode">Stuff</span>, and <span class="inlineCode">Contact</span> components since we will be referencing them as part of loading our content.</p>
+<p>The way React Router works is by defining what I call a <strong>routing region</strong>. Inside this region, you will have two things:</p>
+<ol>
+<li>Your navigation links</li>
+<li>The container to load your content into</li>
+</ol>
+<p>There is a close correlation between what URL your navigation links 
+specify and the content that ultimately gets loaded. There is no way to 
+easily explain this without first getting our hands dirty and 
+implementing what we just read about.</p>
+<p>The first thing we are going to do is define our <strong>routing region</strong>. Inside our <span class="inlineCode">Main</span> component's <span class="inlineCode">render</span> method, add the following highlighted lines:</p>
+<div><div id="highlighter_293313" class="syntaxhighlighter nogutter kirupa_code js"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js plain">class Main extends Component {</code></div><div class="line number2 index1 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">render() {</code></div><div class="line number3 index2 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js keyword">return</code> <code class="js plain">(</code></div><div class="line number4 index3 alt1 highlighted"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;HashRouter&gt;</code></div><div class="line number5 index4 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;div&gt;</code></div><div class="line number6 index5 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;h1&gt;Simple SPA&lt;/h1&gt;</code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;ul className=</code><code class="js string">"header"</code><code class="js plain">&gt;</code></div><div class="line number8 index7 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;li&gt;&lt;a href=</code><code class="js string">"/"</code><code class="js plain">&gt;Home&lt;/a&gt;&lt;/li&gt;</code></div><div class="line number9 index8 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;li&gt;&lt;a href=</code><code class="js string">"/stuff"</code><code class="js plain">&gt;Stuff&lt;/a&gt;&lt;/li&gt;</code></div><div class="line number10 index9 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;li&gt;&lt;a href=</code><code class="js string">"/contact"</code><code class="js plain">&gt;Contact&lt;/a&gt;&lt;/li&gt;</code></div><div class="line number11 index10 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/ul&gt;</code></div><div class="line number12 index11 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;div className=</code><code class="js string">"content"</code><code class="js plain">&gt;</code></div><div class="line number13 index12 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div><div class="line number14 index13 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/div&gt;</code></div><div class="line number15 index14 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/div&gt;</code></div><div class="line number16 index15 alt1 highlighted"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/HashRouter&gt;</code></div><div class="line number17 index16 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">);</code></div><div class="line number18 index17 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">}</code></div><div class="line number19 index18 alt2"><code class="js plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>The <span class="inlineCode">HashRouter</span> component provides the
+ foundation for the navigation and browser history handling that routing
+ is made up of. What we are going to do next is define our navigation 
+links. We already have list elements with the <span class="inlineCode">a</span> element defined. We need to replace them with the more specialized <span class="inlineCode">NavLink</span> component, so go ahead and make the following highlighted changes:</p>
+<div><div id="highlighter_553700" class="syntaxhighlighter nogutter kirupa_code js"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js plain">class Main extends Component {</code></div><div class="line number2 index1 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">render() {</code></div><div class="line number3 index2 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js keyword">return</code> <code class="js plain">(</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;HashRouter&gt;</code></div><div class="line number5 index4 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;div&gt;</code></div><div class="line number6 index5 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;h1&gt;Simple SPA&lt;/h1&gt;</code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;ul className=</code><code class="js string">"header"</code><code class="js plain">&gt;</code></div><div class="line number8 index7 alt1 highlighted"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;li&gt;&lt;NavLink to=</code><code class="js string">"/"</code><code class="js plain">&gt;Home&lt;/NavLink&gt;&lt;/li&gt;</code></div><div class="line number9 index8 alt2 highlighted"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;li&gt;&lt;NavLink to=</code><code class="js string">"/stuff"</code><code class="js plain">&gt;Stuff&lt;/NavLink&gt;&lt;/li&gt;</code></div><div class="line number10 index9 alt1 highlighted"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;li&gt;&lt;NavLink to=</code><code class="js string">"/contact"</code><code class="js plain">&gt;Contact&lt;/NavLink&gt;&lt;/li&gt;</code></div><div class="line number11 index10 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/ul&gt;</code></div><div class="line number12 index11 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;div className=</code><code class="js string">"content"</code><code class="js plain">&gt;</code></div><div class="line number13 index12 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div><div class="line number14 index13 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/div&gt;</code></div><div class="line number15 index14 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/div&gt;</code></div><div class="line number16 index15 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/HashRouter&gt;</code></div><div class="line number17 index16 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">);</code></div><div class="line number18 index17 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">}</code></div><div class="line number19 index18 alt2"><code class="js plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>For each link, pay attention to the URL we are telling our router to navigate to. This URL value (defined by the <span class="inlineCode">to</span> prop) acts as an identifier to ensure the right content gets loaded. The way we match the URL with the content is by using a <span class="inlineCode">Route</span> component. Go ahead and add the following highlighted lines:</p>
+<div><div id="highlighter_692763" class="syntaxhighlighter nogutter kirupa_code js"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js plain">class Main extends Component {</code></div><div class="line number2 index1 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">render() {</code></div><div class="line number3 index2 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js keyword">return</code> <code class="js plain">(</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;HashRouter&gt;</code></div><div class="line number5 index4 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;div&gt;</code></div><div class="line number6 index5 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;h1&gt;Simple SPA&lt;/h1&gt;</code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;ul className=</code><code class="js string">"header"</code><code class="js plain">&gt;</code></div><div class="line number8 index7 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;li&gt;&lt;NavLink to=</code><code class="js string">"/"</code><code class="js plain">&gt;Home&lt;/NavLink&gt;&lt;/li&gt;</code></div><div class="line number9 index8 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;li&gt;&lt;NavLink to=</code><code class="js string">"/stuff"</code><code class="js plain">&gt;Stuff&lt;/NavLink&gt;&lt;/li&gt;</code></div><div class="line number10 index9 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;li&gt;&lt;NavLink to=</code><code class="js string">"/contact"</code><code class="js plain">&gt;Contact&lt;/NavLink&gt;&lt;/li&gt;</code></div><div class="line number11 index10 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/ul&gt;</code></div><div class="line number12 index11 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;div className=</code><code class="js string">"content"</code><code class="js plain">&gt;</code></div><div class="line number13 index12 alt2 highlighted"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;Route path=</code><code class="js string">"/"</code> <code class="js plain">component={Home}/&gt;</code></div><div class="line number14 index13 alt1 highlighted"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;Route path=</code><code class="js string">"/stuff"</code> <code class="js plain">component={Stuff}/&gt;</code></div><div class="line number15 index14 alt2 highlighted"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;Route path=</code><code class="js string">"/contact"</code> <code class="js plain">component={Contact}/&gt;</code></div><div class="line number16 index15 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/div&gt;</code></div><div class="line number17 index16 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/div&gt;</code></div><div class="line number18 index17 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">&lt;/HashRouter&gt;</code></div><div class="line number19 index18 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">);</code></div><div class="line number20 index19 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">}</code></div><div class="line number21 index20 alt2"><code class="js plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>As you can see, the <span class="inlineCode">Route</span> component contains a <span class="inlineCode">path</span> prop. The value you specify for the <span class="inlineCode">path</span> determines when this route is going to be active. When a route is active, the component specified by the <span class="inlineCode">component</span> prop gets rendered. For example, when we click on the <strong>Stuff</strong> link (whose path is <strong>/stuff</strong> as set by the <span class="inlineCode">NavLink</span> component's <span class="inlineCode">to</span> prop), the route whose <span class="inlineCode">path</span> value is also <strong>/stuff</strong> becomes active. This means the contents of our <span class="inlineCode">Stuff</span> component get rendered.</p>
+<p>You can see all of this for yourself. Jump back to your browser to see the live updates or run <span class="inlineCode">npm start</span>
+ again. Click around on the links to see the content loading in and out.
+ Something seems off, though, right? The content for our home page seems
+ to always display even if we are clicking on the Stuff or Contact 
+links:</p>
+<p class="centerImageNoBorder"><img src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/react_router_bug_home.png" width="600" height="573"></p>
+<p>That seems problematic. We'll look at how to fix that and do many 
+more little housekeeping tasks in the next section when we go one level 
+deeper into using React Router.</p>
+<h3>It's the Little Things</h3>
+<p>In the previous section, we got our SPA mostly up and running. We just wrapped our entire routing region inside a <span class="inlineCode">HashRouter</span> component, and we separated our links and the place our links would load by using the <span class="inlineCode">NavLink</span> and <span class="inlineCode">Route</span> components respectively. Getting our example <em>mostly</em> up and running and <em>fully</em> up and running are two different things. In the following sections, we'll close those differences.</p>
+<h4>Fixing our Routing</h4>
+<p>We ended the previous section by calling out that our routing has a bug in it. The contents of our <span class="inlineCode">Home</span> component is always displaying. The reason for it is because the path for loading our <span class="inlineCode">Home</span> component is <strong>/</strong>. Our <span class="inlineCode">Stuff</span> and <span class="inlineCode">Contact</span> components have the <strong>/</strong> character as part of their paths as well. This means our <strong>Home</strong> component always matches whatever path we are trying to navigate to. The fix for that is simple. In the <span class="inlineCode">Route</span> component representing our home content, add the <span class="inlineCode">exact</span> prop as highlighted below:</p>
+ <div><div id="highlighter_417633" class="syntaxhighlighter nogutter kirupa_code js"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js plain">&lt;div className=</code><code class="js string">"content"</code><code class="js plain">&gt;</code></div><div class="line number2 index1 alt1 highlighted"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">&lt;Route exact path=</code><code class="js string">"/"</code> <code class="js plain">component={Home}/&gt;</code></div><div class="line number3 index2 alt2"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">&lt;Route path=</code><code class="js string">"/stuff"</code> <code class="js plain">component={Stuff}/&gt;</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">&lt;Route path=</code><code class="js string">"/contact"</code> <code class="js plain">component={Contact}/&gt;</code></div><div class="line number5 index4 alt2"><code class="js plain">&lt;/div&gt;</code></div></div></td></tr></tbody></table></div></div>
+<p>This prop ensures the <span class="inlineCode">Route</span> is active
+ only if the path is an exact match for what is being loaded. If you 
+preview your app now, you'll see that the content loads correctly with 
+the home content only displaying when our app is in the home view.</p>
+<h4>Adding Some CSS</h4>
+<p>Right now, our app is completely unstyled. The fix for that is easy. In your <strong>src</strong> folder, create a file called <strong>index.css</strong> and add the following style rules into it:</p>
+<div><div id="highlighter_778830" class="syntaxhighlighter nogutter kirupa_code css"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="css plain">body {</code></div><div class="line number2 index1 alt1"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">background-color</code><code class="css plain">: </code><code class="css value">#FFCC00</code><code class="css plain">;</code></div><div class="line number3 index2 alt2"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">padding</code><code class="css plain">: </code><code class="css value">20px</code><code class="css plain">;</code></div><div class="line number4 index3 alt1"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">margin</code><code class="css plain">: </code><code class="css value">0</code><code class="css plain">;</code></div><div class="line number5 index4 alt2"><code class="css plain">}</code></div><div class="line number6 index5 alt1"><code class="css plain">h</code><code class="css value">1</code><code class="css plain">, h</code><code class="css value">2</code><code class="css plain">, p, ul, li {</code></div><div class="line number7 index6 alt2"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">font-family</code><code class="css plain">: </code><code class="css color1">sans-serif</code><code class="css plain">;</code></div><div class="line number8 index7 alt1"><code class="css plain">}</code></div><div class="line number9 index8 alt2"><code class="css plain">ul.header li {</code></div><div class="line number10 index9 alt1"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">display</code><code class="css plain">: </code><code class="css value">inline</code><code class="css plain">;</code></div><div class="line number11 index10 alt2"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">list-style-type</code><code class="css plain">: </code><code class="css value">none</code><code class="css plain">;</code></div><div class="line number12 index11 alt1"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">margin</code><code class="css plain">: </code><code class="css value">0</code><code class="css plain">;</code></div><div class="line number13 index12 alt2"><code class="css plain">}</code></div><div class="line number14 index13 alt1"><code class="css plain">ul.header {</code></div><div class="line number15 index14 alt2"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">background-color</code><code class="css plain">: </code><code class="css value">#111</code><code class="css plain">;</code></div><div class="line number16 index15 alt1"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">padding</code><code class="css plain">: </code><code class="css value">0</code><code class="css plain">;</code></div><div class="line number17 index16 alt2"><code class="css plain">}</code></div><div class="line number18 index17 alt1"><code class="css plain">ul.header li a {</code></div><div class="line number19 index18 alt2"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">color</code><code class="css plain">: </code><code class="css value">#FFF</code><code class="css plain">;</code></div><div class="line number20 index19 alt1"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">font-weight</code><code class="css plain">: </code><code class="css value">bold</code><code class="css plain">;</code></div><div class="line number21 index20 alt2"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">text-decoration</code><code class="css plain">: </code><code class="css value">none</code><code class="css plain">;</code></div><div class="line number22 index21 alt1"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">padding</code><code class="css plain">: </code><code class="css value">20px</code><code class="css plain">;</code></div><div class="line number23 index22 alt2"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">display</code><code class="css plain">: inline-</code><code class="css value">block</code><code class="css plain">;</code></div><div class="line number24 index23 alt1"><code class="css plain">}</code></div><div class="line number25 index24 alt2"><code class="css plain">.content {</code></div><div class="line number26 index25 alt1"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">background-color</code><code class="css plain">: </code><code class="css value">#FFF</code><code class="css plain">;</code></div><div class="line number27 index26 alt2"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">padding</code><code class="css plain">: </code><code class="css value">20px</code><code class="css plain">;</code></div><div class="line number28 index27 alt1"><code class="css plain">}</code></div><div class="line number29 index28 alt2"><code class="css plain">.content h</code><code class="css value">2</code> <code class="css plain">{</code></div><div class="line number30 index29 alt1"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">padding</code><code class="css plain">: </code><code class="css value">0</code><code class="css plain">;</code></div><div class="line number31 index30 alt2"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">margin</code><code class="css plain">: </code><code class="css value">0</code><code class="css plain">;</code></div><div class="line number32 index31 alt1"><code class="css plain">}</code></div><div class="line number33 index32 alt2"><code class="css plain">.content li {</code></div><div class="line number34 index33 alt1"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">margin-bottom</code><code class="css plain">: </code><code class="css value">10px</code><code class="css plain">;</code></div><div class="line number35 index34 alt2"><code class="css plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>After you've done this, we need to reference this style sheet in our app. At the top of <strong>index.js</strong>, add the <span class="inlineCode">import</span> statement to do just that:</p>
+<div><div id="highlighter_258078" class="syntaxhighlighter nogutter kirupa_code js"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js plain">import React from </code><code class="js string">"react"</code><code class="js plain">;</code></div><div class="line number2 index1 alt1"><code class="js plain">import ReactDOM from </code><code class="js string">"react-dom"</code><code class="js plain">;</code></div><div class="line number3 index2 alt2"><code class="js plain">import Main from </code><code class="js string">"./Main"</code><code class="js plain">;</code></div><div class="line number4 index3 alt1 highlighted"><code class="js plain">import </code><code class="js string">"./index.css"</code><code class="js plain">;</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="js plain">ReactDOM.render(</code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">&lt;Main/&gt;, </code></div><div class="line number8 index7 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">document.getElementById(</code><code class="js string">"root"</code><code class="js plain">)</code></div><div class="line number9 index8 alt2"><code class="js plain">);</code></div></div></td></tr></tbody></table></div></div>
+<p>Save all of your changes if you haven't done so yet. If you preview 
+the app now, you'll notice that it is starting to look a bit more like 
+the example we started out with:</p>
+<p class="centerImageNoBorder"><img src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/react_router_css.png" width="600" height="573"></p>
+<p>We are almost done here! There is just a few more things we need to do.</p>
+<h4>Highlighting the Active Link</h4>
+<p>Right now, it's hard to tell which link corresponds to content that 
+is currently loaded. It would be useful to have some sort of a visual 
+cue to solve this. The creators of React Router have already thought of 
+that! When you click on a link, a <span class="inlineCode">class</span> value of <strong>active</strong> is automatically assigned to it.</p>
+<p>For example, this is what the HTML for clicking on the Stuff link looks like:</p>
+<div><div id="highlighter_690903" class="syntaxhighlighter nogutter kirupa_code css"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="css plain">&lt;a aria-current=</code><code class="css string">"true"</code> <code class="css plain">href=</code><code class="css string">"#/stuff"</code> <code class="css plain">class=</code><code class="css string">"active"</code><code class="css plain">&gt;Stuff&lt;/a&gt;</code></div></div></td></tr></tbody></table></div></div>
+<p>This means all we really have to do is add the appropriate CSS that lights up when an element has a <span class="inlineCode">class</span> value of <strong>active</strong> set on it. To make this happen, go back to <strong>index.css</strong> and add the following style rule towards the bottom of your document:</p>
+<div><div id="highlighter_309027" class="syntaxhighlighter nogutter kirupa_code css"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="css plain">.active {</code></div><div class="line number2 index1 alt1"><code class="css spaces">&nbsp;&nbsp;</code><code class="css keyword">background-color</code><code class="css plain">: </code><code class="css value">#0099FF</code><code class="css plain">;</code></div><div class="line number3 index2 alt2"><code class="css plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>Once you have added this rule and saved your document, go back to 
+your browser and click around on the links in our example. You'll see 
+that the active link whose content is displayed from is highlighted with
+ a blue color. What you will also see is our Home link always 
+highlighted. That isn't correct. The fix for that is simple. Just add 
+the <strong>exact</strong> prop to our <span class="inlineCode">NavLink</span> component representing our home content:</p>
+<div><div id="highlighter_241338" class="syntaxhighlighter nogutter kirupa_code js"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2 highlighted"><code class="js plain">&lt;li&gt;&lt;NavLink exact to=</code><code class="js string">"/"</code><code class="js plain">&gt;Home&lt;/NavLink&gt;&lt;/li&gt;</code></div><div class="line number2 index1 alt1"><code class="js plain">&lt;li&gt;&lt;NavLink to=</code><code class="js string">"/stuff"</code><code class="js plain">&gt;Stuff&lt;/NavLink&gt;&lt;/li&gt;</code></div><div class="line number3 index2 alt2"><code class="js plain">&lt;li&gt;&lt;NavLink to=</code><code class="js string">"/contact"</code><code class="js plain">&gt;Contact&lt;/NavLink&gt;&lt;/li&gt;</code></div></div></td></tr></tbody></table></div></div>
+<p>Once you have done that, go back to our browser. You'll see that our 
+Home link only gets the active color treatment when the home content is 
+displayed: </p>
+<p><span class="centerImageNoBorder"><img src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/react_router_active_links.png" width="600" height="573"></span></p>
+<p>At this point, we are also done with the code changes to build our SPA using React Router. Yay!!! </p>
+<h2>Conclusion</h2>
+<p>By now, we've covered a good chunk of the cool functionality React 
+Router has for helping you build your SPA. This doesn't mean that there 
+aren't more interesting things for you to take advantage of. Our app was
+ pretty simple with very modest demands on what routing functionality we
+ needed to implement. There is a whole lot more that React Router 
+provides (including variations of APIs for what you've seen here), so if
+ you are building a more complex single-page app than what we've looked 
+at so far, you should totally spend an afternoon taking a look the <a href="https://github.com/reactjs/react-router/" target="_blank" class="blueEmphasis">full React Router documentation</a> and examples.</p>
+<p><strong>Next tutorial:</strong> <a href="https://www.kirupa.com/react/smooth_sliding_menu_react_motion.htm" class="blueEmphasis">Creating a Smooth Sliding Menu</a></p>
+<p></p><p>Got a question or just want to chat? Comment below or drop by <a class="blueEmphasis" href="http://forum.kirupa.com/">our forums</a> (they are actually the same thing!) where a bunch of the friendliest people you'll ever run into will be happy to help you out!</p>
+<p><a href="https://www.kirupa.com/about/whatiskirupa.htm"><img src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/kirupa_sig.png" alt="" width="150" height="65"></a> </p>
+<p>&nbsp;</p>
+<div id="sigNewsletter">
+<h4>THE KIRUPA NEWSLETTER</h4>
+<p>Get cool tips, tricks, <span class="strikethrough">selfies</span>, and more...personally hand-delivered to your inbox!</p>
+<form action="//kirupa.us7.list-manage.com/subscribe/post?u=b0d69bc8873ebf34032eb7796&amp;id=47036a7bd4" class="validate" id="mc-embedded-subscribe-form" method="post" name="mc-embedded-subscribe-form" novalidate="" target="_blank">
+<div id="mc_embed_signup_scroll">
+<p><input class="kirupaInput" id="mce-EMAIL" name="EMAIL" placeholder="email address" required="" type="email"><input class="greenButton" id="mc-embedded-subscribe" name="subscribe" type="submit" value="SIGN ME UP"> </p>
+<p>
+</p>
+<div style="position: absolute; left: -5000px;">
+<input name="b_b0d69bc8873ebf34032eb7796_47036a7bd4" tabindex="-1" type="text">
+</div>
+<div class="clear">
+</div>
+</div>
+</form>
+<p class="smallText">( <a class="blueEmphasis" href="http://us7.campaign-archive1.com/home/?u=b0d69bc8873ebf34032eb7796&amp;id=47036a7bd4">View past issues</a> for an idea of what you've been missing out on all this time! )</p>
+</div>
+<p> </p>
+<h2 id="pageComments">COMMENTS</h2>
+<div id="pageCommentsImage">
+<img src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/green_square.svg">
+</div>
+<div id="oldComments">
+<div id="discourse-comments"><iframe src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/comments.html" id="discourse-embed-frame" scrolling="no" width="100%" height="9654px" frameborder="0"></iframe></div>
+<script type="text/javascript">
+			  DiscourseEmbed = { discourseUrl: 'https://forum.kirupa.com/',
+								 discourseEmbedUrl: "https://www.kirupa.com" + window.location.pathname.split("?")[0].split("#")[0] };
+
+			  (function() {
+				var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+				d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+				(document.getElementsByTagName('title')[0] || document.getElementsByTagName('title')[0]).appendChild(d);
+			  })();
+			</script>
+</div>
+<p></p>
+<p></p>
+</div>
+<div id="rightContents">
+<div id="bookBannerContent">
+<ul>
+<li class="js101Right">
+<a class="bookLink" href="http://www.informit.com/store/javascript-absolute-beginners-guide-9780136502890"><strong>JavaScript</strong>
+<span class="lessemphasis">Absolute Beginner's Guide</span></a>
+<ul class="buyNowRight">
+<li>
+<a class="kirupaButton kirupaButtonSmall" href="https://www.amazon.com/exec/obidos/ASIN/013650289X/kirupacom">BUY</a></li>
+</ul>
+</li>
+<li class="learningReactRight">
+<a class="bookLink" href="https://www.amazon.com/exec/obidos/ASIN/013484355X/kirupacom"><strong>Learning
+React:</strong><br>
+<span class="lessemphasis">A Hands-on Guide</span></a>
+<ul class="buyNowRight">
+<li>
+<a class="kirupaButton kirupaButtonSmall" href="https://www.amazon.com/exec/obidos/ASIN/013484355X/kirupacom">BUY</a></li>
+</ul>
+</li>
+<li class="animationRight">
+<a class="bookLink" href="http://shop.oreilly.com/product/0636920050858.do" target="_blank"><strong>Creating</strong><span class="lessemphasis"> Web Animations</span></a>
+<ul class="buyNowRight">
+<li>
+<a class="kirupaButton kirupaButtonSmall" href="https://www.amazon.com/exec/obidos/ASIN/1491957514/kirupacom" target="_blank">BUY</a></li>
+</ul>
+</li>
+</ul>
+<img alt="new books - yay!!!" src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/caption_books.png" width="165" height="66">
+</div>
+<nav class="navigationBoxes whats_new">
+<ul class="oneBoxOnly">
+<li><img class="fresh_caption" src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/fresh_new.png" alt="" width="125" height="19">
+<svg class="fresh_background" width="205" height="64" xmlns="http://www.w3.org/2000/svg">
+<g fill="var(--primary)" fill-rule="evenodd" fill-opacity=".15" opacity=".67">
+<circle cx="4" cy="47" r="4"></circle>
+<circle cx="24" cy="37" r="10"></circle>
+<circle cx="63.5" cy="27.5" r="17.5"></circle>
+<circle cx="49" cy="34" r="24"></circle>
+<circle cx="96.5" cy="19.5" r="15.5"></circle>
+<circle cx="81.5" cy="34.5" r="20.5"></circle>
+<circle cx="106" cy="39" r="25"></circle>
+<circle cx="113" cy="22" r="22"></circle>
+<circle cx="143" cy="36" r="22"></circle>
+<circle cx="165.5" cy="26.5" r="15.5"></circle>
+<circle cx="188" cy="39" r="8"></circle>
+<circle cx="202.5" cy="23.5" r="2.5"></circle>
+</g>
+</svg>
+<ul>
+<li>
+<a href="https://www.kirupa.com/ux/sound_ux.htm" style="background-image: url('https://www.kirupa.com/icon/1f50a.svg');">
+Sound UX, Or Why Our Web Pages Barely Make A Peep
+</a>
+</li>
+<li>
+<a href="https://www.kirupa.com/html5/dynamic_elements.htm" style="background-image: url('https://www.kirupa.com/icon/1f9f2.svg');">
+What are Dynamic Elements
+</a>
+</li>
+<li>
+<a href="https://www.kirupa.com/html5/loading_script_files_dynamically.htm" style="background-image: url('https://www.kirupa.com/icon/1f389.svg');">
+Loading Script Files Dynamically
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<nav class="navigationBoxes newForum">
+<ul class="oneBoxOnly">
+<li>
+<img class="fresh_caption" src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/hot.png" alt="" width="158" height="18">
+<svg class="fresh_background" width="176" height="18" xmlns="http://www.w3.org/2000/svg">
+<path fill="var(--highlighter)" d="M1.293 0H176l-2.397 18H0z" fill-rule="evenodd"></path>
+</svg>
+<ul id="forumListing">
+
+<li>
+<a href="https://forum.kirupa.com/t/javascript-tip-of-the-day/641803" style="background-image: url(&quot;https://www.kirupa.com/icon/1f4dd.svg&quot;);">JavaScript Tip of the Day</a>
+</li>
+
+<li>
+<a href="https://forum.kirupa.com/t/provide-feedback-directly-on-a-web-page/641973" style="background-image: url(&quot;https://www.kirupa.com/icon/1f5e8.svg&quot;);">Provide feedback directly on a web page!</a>
+</li>
+
+<li>
+<a href="https://forum.kirupa.com/t/overlapping-buttons/641998" style="background-image: url(&quot;https://www.kirupa.com/icon/1f4dd.svg&quot;);">Overlapping buttons</a>
+</li>
+
+<li>
+<a href="https://forum.kirupa.com/t/how-to-design-this-curve/642000" style="background-image: url(&quot;https://www.kirupa.com/icon/1f4dd.svg&quot;);">how to design this curve</a>
+</li>
+
+<li>
+<a href="https://forum.kirupa.com/t/be-yourself/642004" style="background-image: url(&quot;https://www.kirupa.com/icon/1f5e8.svg&quot;);">Be yourself?</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<template id="topicRow">
+<li>
+<a href="#">Test</a>
+</li>
+</template>
+<script>
+
+  fetch('https://forum.kirupa.com/latest.json')
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (jsonData) {
+      processResults(jsonData);
+    });
+
+  var topicArray = [];
+
+  function processResults(input) {
+    //console.log(input);
+
+    var topicList = input.topic_list.topics;
+
+    for (var i = 0; i < 5; i++) {
+      var topic = topicList[i];
+
+      if (topic.pinned == false) {
+        topicArray.push({
+          title: topic.title,
+          count: topic.posts_count,
+          category: topic.category_id,
+          urlFrag: topic.slug + "/" + topic.id
+        });
+      }
+    }
+
+    //console.log(topicArray);
+
+    createDOM();
+  }
+
+  function createDOM() {
+    // 38 -> flash/as -> flash.svg
+    // 43 -> jobs -> 26f3.svg (golf)
+    // 36 -> random -> 1f379.svg (orange)
+    // 3 -> meta -> 1f441.svg
+    // 41 -> programming -> 1f4be.svg (disk)
+    // 42 -> web dev -> 1f431.svg (cat)
+    // other -> unknown -> 1f354.svg
+    // other
+    var forumParent = document.querySelector("#forumListing");
+    var t = document.querySelector("#topicRow");
+
+    for (var i = 0; i < topicArray.length; i++) {
+      var topic = topicArray[i];
+
+      var clone = document.importNode(t.content, true);
+
+      // set the link
+      var topicLink = clone.querySelector("a");
+      topicLink.textContent = topic.title;
+      topicLink.setAttribute("href", "https://forum.kirupa.com/t/" + topic.urlFrag);
+
+      // set the icon
+      var category = topic.category;
+      var icon = "https://www.kirupa.com/icon/";
+
+      switch (category) {
+        case 38:
+          icon += "1f525.svg";
+          break;
+        case 43:
+          icon += "1f4b0.svg";
+          break;
+        case 41:
+          icon += "1f4ac.svg";
+          break;
+        case 39:
+          icon += "1f3a8.svg";
+          break;
+        case 42:
+          icon += "1f4dd.svg";
+          break;
+        case 36:
+          icon += "1f5e8.svg";
+          break;
+        case 3:
+          icon += "1f5fa.svg";
+          break;
+        default:
+          icon += "1f4dd.svg"
+          break;
+      }
+
+      topicLink.style.backgroundImage = "url(" + icon + ")";
+
+      forumParent.appendChild(clone);
+    }
+  }
+</script>
+<div id="mainFooter">
+<p>Serving you freshly baked content since 1998!<br>
+<a href="https://mediatemple.net/" target="_blank">Killer hosting by (mt) mediatemple</a>
+</p>
+<div>
+<a href="https://www.twitter.com/kirupa" target="_blank"><img src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/twitter_svg.svg" alt="Twitter"></a>
+<a href="https://www.youtube.com/user/kirupa" target="_blank"><img src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/youtube.svg" alt="Youtube"></a>
+<a href="https://www.facebook.com/kirupa" target="_blank"><img src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/fb_svg.svg" alt="Facebook"></a>
+<a href="https://www.pinterest.com/kirupa/" target="_blank"><img src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/pinterest.svg" alt="Pinterest"></a>
+<a href="https://www.instagram.com/kirupac/" target="_blank"><img src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/instagram.svg" alt="Instagram"></a>
+<a href="https://github.com/kirupa/kirupa" target="_blank"><img src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/github.svg" alt="Github"></a>
+</div>
+</div>
+<div id="scriptContainer"><link rel="stylesheet" href="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/shCore.css"><link rel="stylesheet" href="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/shThemeDefault.css"><script src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/shCore.js"></script><script src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/shBrushJScript.js"></script><script src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/shBrushXml.js"></script><script src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/shBrushCss.js"></script></div>
+<script async="" src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/kirupa.js"></script>
+<script>
+var scriptContainer = document.querySelector("#scriptContainer");
+var prism = document.querySelector("pre code");
+
+var syntaxHighlighting = document.querySelector("pre[class^='brush']");
+
+if (prism) {
+  var prismScript = document.createElement("script");
+  prismScript.setAttribute("src", "https://www.kirupa.com/js/prism_v1.js");
+  scriptContainer.appendChild(prismScript);
+
+  var prismStyle = document.createElement("link");
+  prismStyle.setAttribute("rel", "stylesheet");
+  prismStyle.setAttribute("href", "https://www.kirupa.com/js/prism_v1.css");
+  scriptContainer.appendChild(prismStyle);
+
+  console.log("Loaded prism!");
+}
+
+if (syntaxHighlighting) {
+  var shCoreCSS = document.createElement("link");
+  shCoreCSS.setAttribute("rel", "stylesheet");
+  shCoreCSS.setAttribute("href", "https://www.kirupa.com/ssi/sh/styles/shCore.css");
+  scriptContainer.appendChild(shCoreCSS);
+
+  var shThemeDefault = document.createElement("link");
+  shThemeDefault.setAttribute("rel", "stylesheet");
+  shThemeDefault.setAttribute("href", "https://www.kirupa.com/ssi/sh/styles/shThemeDefault.css");
+  scriptContainer.appendChild(shThemeDefault);
+
+  var shCore = document.createElement("script");
+  shCore.setAttribute("src", "https://www.kirupa.com/ssi/sh/scripts/shCore.js");
+  scriptContainer.appendChild(shCore);
+  
+  shCore.addEventListener("load", syntaxScriptLoaded, false);
+}
+
+function syntaxScriptLoaded() {
+
+  var shBrushJScript = document.createElement("script");
+  shBrushJScript.setAttribute("src", "https://www.kirupa.com/ssi/sh/scripts/shBrushJScript.js");
+  scriptContainer.appendChild(shBrushJScript);
+
+  var shBrushXml = document.createElement("script");
+  shBrushXml.setAttribute("src", "https://www.kirupa.com/ssi/sh/scripts/shBrushXml.js");
+  scriptContainer.appendChild(shBrushXml);
+
+  var shBrushCss = document.createElement("script");
+  shBrushCss.setAttribute("src", "https://www.kirupa.com/ssi/sh/scripts/shBrushCss.js");
+  scriptContainer.appendChild(shBrushCss);
+
+  SyntaxHighlighter.defaults['gutter'] = false;
+  SyntaxHighlighter.defaults['toolbar'] = false;
+  SyntaxHighlighter.defaults['class-name'] = 'kirupa_code';
+  SyntaxHighlighter.all();
+  
+  console.log("Loaded the syntaxhighlighting scripts!");
+}
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/service-worker.js');
+    });
+  }
+</script>
+<script src="Creating%20a%20Single-Page%20App%20in%20React%20using%20React%20Router%20%20%20kirupa.com_files/docsearch.js"></script>
+<script>
+	docsearch({
+		apiKey: 'e59d8b56a7ba3ed403538ca3c82fe533',
+		indexName: 'kirupa',
+		inputSelector: '#sbi',
+		debug: false // Set debug to true if you want to inspect the dropdown
+	})
+</script>
+
+</body></html>
