@@ -18,6 +18,11 @@ class UsuarioController {
   public function getById($id){
     return $this->model->getById($id);
   }
+
+  public function getCredentials($email,$password){
+    return $this->model->getCredentials($email, $password);
+  }
+
 }
 
  ?>

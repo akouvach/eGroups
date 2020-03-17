@@ -1,7 +1,9 @@
 <?php
 
 include_once '../core/jwt_core.php';
+
 require '../vendor/autoload.php';
+require_once "../controller/usuario_controller.php";
 
 use Firebase\JWT\JWT;
 
@@ -14,58 +16,53 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
  
 // database connection will be here
 
-// include_once 'config/core.php';
-// include_once 'libs/php-jwt-master/src/BeforeValidException.php';
-// include_once 'libs/php-jwt-master/src/ExpiredException.php';
-// include_once 'libs/php-jwt-master/src/SignatureInvalidException.php';
-// include_once 'libs/php-jwt-master/src/JWT.php';
-
-
-
-require_once "../controller/usuario_controller.php";
+$json = file_get_contents('php://input');
+$data = json_decode($json);
 
 $usr = new UsuarioController();
 
-$result = $usr->getById("1");
+$result = $usr->getCredentials($data->email, $data->password);
 
+if (!is_null($result)){
+    $token = array(
+        "iss" => $iss,
+        "aud" => $aud,
+        "iat" => $iat,
+        "nbf" => $nbf,
+        "data" => array(
+            "id" => $result[0]->id,
+            "nombre" => $result[0]->nombre,
+            "apellido" => $result[0]->apellido,
+            "email" => $result[0]->email
+        )
+     );
 
-$token = array(
-    "iss" => $iss,
-    "aud" => $aud,
-    "iat" => $iat,
-    "nbf" => $nbf,
-    "data" => array(
-        "id" => $result->id,
-        "nombre" => $result->nombre,
-        "apellido" => $result->apellido,
-        "email" => $result->email
-    )
- );
+    // set response code
+    http_response_code(200);
+    // generate jwt
+    $jwt = JWT::encode($token, $key);
 
-//  echo $token;
-//  echo $_POST['email'];
-
- // set response code
- http_response_code(200);
-
- // generate jwt
- $jwt = JWT::encode($token, $key);
-
-
- $json = file_get_contents('php://input');
- $data = json_decode($json);
-
- $plano = JWT::decode($jwt, $key, array('HS256'));
-
- echo json_encode(
+    echo json_encode(
          array(
-             "message" => "Successful login.",
-             "jwt" => $jwt,
-             "data" => $data,
-             "email" => $data->email,
-             "password" => $data->password, 
-             "plano" => $plano->data
+             "ok" => true,
+             "jwt" => $jwt
          )
      );
+
+} else {
+     // set response code
+    http_response_code(400);
+    // generate jwt
+ 
+    echo json_encode(
+         array(
+             "ok" => false,
+             "mensaje" => $result
+         )
+     );
+
+}
+
+
 
 ?>

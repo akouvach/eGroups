@@ -8,7 +8,7 @@ async function traerUsuario(){
 
     let data = {
         email: "akouvach@yahoo.com",
-        password : "1234"
+        password : "akouvach"
     }
 
 
@@ -27,15 +27,20 @@ async function traerUsuario(){
         .then(function(response) {
             if(response.ok)
                 return response.json();
-            else
-                return {"rta":false, "mensaje":"error de conversion json"};
+            else {
+                return {"rta":false, "mensaje":"error de conversion json"  };
+            }
         })
         .catch(function(error) {
             return error;
         });
 
-    jwt.value = rta.jwt;
-    localStorage.setItem("token", JSON.stringify(rta));
+    if(rta.ok){
+        jwt.value = rta.jwt;
+        localStorage.setItem("token", JSON.stringify(rta));    
+    } else {
+        jwt.value = "error";
+    }
 
 
     console.log(rta);
