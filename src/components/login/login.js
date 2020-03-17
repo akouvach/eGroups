@@ -5,6 +5,8 @@ import Password from '../intermedio/password';
 import Titulo1 from '../intermedio/titulos/titulo1';
 import Enviar from '../../components/intermedio/boton/enviar';
 import Form from '../../components/base/Form';
+import Usuario from '../usuario/usuario';
+import Encrypt from '../generales/encrypt';
 
 class Login extends Component {
 
@@ -22,10 +24,14 @@ class Login extends Component {
     verificarContrasenia = (ev)=>{
         ev.preventDefault();
         console.log("verificando contrasenia", this.state.email, this.state.password);
-        this.setState({
-            email:"",
-            password:""
-        });
+        //console.log("datos del usuario ", Usuario.get());
+        let hash = Encrypt.hash(this.state.password);
+        console.log("passsord:", this.state.password, "Hash: ", hash);
+        setTimeout(()=>{
+            console.log("Comparacion: ", Encrypt.compare(this.state.password, hash));
+        }, 5 * 1000);
+        
+
     }
 
     componentDidMount(){
