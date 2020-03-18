@@ -33,25 +33,26 @@ class Usuario extends Crud {
         try {
             $sql = "insert into ".self::TABLE." (nombre, apellido, email, pass, fecha_nac, genero, ciudad_residencia) values(?,?,?,?,?,?,?)";
             $stmt = $this->pdo->prepare($sql);
-            $stmt->execute(array($this->nombre, $this->apellido, $this->email, $this->pass, $this->fecha_nac, $this->genero, $this->ciudad_residencia));
-
+            $result = $stmt->execute(array($this->nombre, $this->apellido, $this->email, $this->pass, $this->fecha_nac, $this->genero, $this->ciudad_residencia));
+            return $result;
         } catch (PDOException $err){
-          echo "Erro: </br>".$err;
-          return null;
-        }
-
+          throw new Exception(__FILE__ . __LINE__ . $err->getMessage());
+        } catch (Exception $ex){
+            throw new Exception ($ex->getMessage());
+          }
     }
 
     public function update(){
-      try {
+        try {
           $sql = "update ".self::TABLE." set nombre=?, apellido=?, email=?, pass=?, fecha_nac=?, genero=?, ciudad_residencia=? where id = ?";
           $stmt = $this->pdo->prepare($sql);
-          $stmt->execute(array($this->nombre, $this->apellido, $this->email, $this->pass, $this->fecha_nac, $this->genero, $this->ciudad_residencia, $this->id));
-
-      } catch (PDOException $err){
-        echo "Erro: </br>".$err;
-        return null;
-      }
+          $result = $stmt->execute(array($this->nombre, $this->apellido, $this->email, $this->pass, $this->fecha_nac, $this->genero, $this->ciudad_residencia, $this->id));
+          return $result;
+        } catch (PDOException $err){
+            throw new Exception("Erro: </br>".$err->getMessage());
+        } catch (Exception $ex){
+            throw new Exception ($ex->getMessage());
+        }    
     }
 
     public function getCredentials($email, $password){
@@ -61,15 +62,11 @@ class Usuario extends Crud {
             $stmt->execute(array($email, $password));
             $result = $stmt->fetchAll(PDO::FETCH_OBJ);
             return $result;
-  
         } catch (PDOException $err){
-          echo "Erro: </br>".$err;
-          return null;
+            throw new Exception("Erro: </br>".$err->getMessage());
+        } catch (Exception $ex){
+            throw new Exception ($ex->getMessage());
         }
-
-
-
-  
     }
 
 }

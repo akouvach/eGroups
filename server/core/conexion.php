@@ -18,20 +18,15 @@ class Conexion {
               $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
               return $pdo;
             } else {
-              echo "error en la conexion";
-              return null;
+              throw new Exception("error en la conexion la creación de la conexión");
             }
 
         } catch (PDOException $err){
-
-            echo $err->getMessage();
-            return null;
-
+            throw new Exception($err->getMessage());
+        } catch (Exception $ex){
+          throw new Exception ($ex->getMessage());
         }
 
     }
-
-
-
 }
 ?>

@@ -13,11 +13,10 @@ abstract class Crud extends Conexion {
         try {
             $this->pdo = parent::conex();
             if(is_null($this->pdo)){
-                echo "error de creación";
+                throw new Exception("No se pudo conectar a la base de datos");
             }
         } catch (PDOException $err){
-            echo $err;
-            return null;
+            throw new Exception("Error PDO: " . $err->__toString());
         }
     }
 
@@ -30,10 +29,10 @@ abstract class Crud extends Conexion {
     }
 
     public function __destruct() {
-      //parent::__destruct();
-    // close the database connection
-      $this->pdo = null;
-}
+        //parent::__destruct();
+        // close the database connection
+        $this->pdo = null;
+    }
 
 
 
@@ -48,14 +47,13 @@ abstract class Crud extends Conexion {
             $result = $stmt->fetchAll(PDO::FETCH_OBJ);
 
             // $stmt->execute();
-
-            // $this->result = $stmt.fet   .fetch_all(PDO::FETCH_OBJ);
             return $result;
-
         } catch (PDOException $err) {
-            echo $err->getMessage();
+            throw new Exception("PDO Ex: " . $err->getMessage());
+            //echo $err->getMessage();
+        } catch (Exception $ex){
+            throw new Exception ($ex->getMessage());
         }
-
 
 
     }
@@ -65,12 +63,14 @@ abstract class Crud extends Conexion {
         try {
             $stmt = $this->pdo->prepare("select * from $this->table where id=?");
             $stmt->execute(array($id));
-            return $stmt->fetch(PDO::FETCH_OBJ);
-
+            $result = $stmt->fetch(PDO::FETCH_OBJ);
+            return $result;
         } catch (PDOException $err) {
-            echo $err->getMessage();
+            throw new Exception("PDO Ex: " . $err->getMessage());
+            //echo $err->getMessage();
+        } catch (Exception $ex){
+            throw new Exception ($ex->getMessage());
         }
-
 
 
     }
@@ -80,13 +80,14 @@ abstract class Crud extends Conexion {
         try {
             $stmt = $this->pdo->prepare("delete from $this->table where id=?");
             $stmt->execute(array($id));
-            return $stmt.mysqli_fetch_all(PDO::FETCH_OBJ);
-
+            $result = $stmt.mysqli_fetch_all(PDO::FETCH_OBJ);
+            return $result;
         } catch (PDOException $err) {
-            echo $err->getMessage();
+            throw new Exception("PDO Ex: " . $err->getMessage());
+//            echo $err->getMessage();
+        } catch (Exception $ex){
+            throw new Exception ($ex->getMessage());
         }
-
-
 
     }
 

@@ -1,10 +1,11 @@
 let lugar = document.getElementById("resultado");
 let jwt = document.getElementById("jwt");
-
+let tokenName = "token";
+let urlBase = "http://localhost:8000/api/";
 
 async function traerUsuario(){
 
-    let url = "http://localhost:8000/api/login.php"
+    let url = urlBase + "login.php";
 
     let data = {
         email: "akouvach@yahoo.com",
@@ -18,7 +19,7 @@ async function traerUsuario(){
                         'Content-Type': 'application/json'
                     },
                     mode: 'cors',
-                    cache: 'default' , 
+                    cache: 'no-cache' , 
                     credentials: 'omit', 
                     body : JSON.stringify(data)
                 };
@@ -37,7 +38,7 @@ async function traerUsuario(){
 
     if(rta.ok){
         jwt.value = rta.jwt;
-        localStorage.setItem("token", JSON.stringify(rta));    
+        sessionStorage.setItem(tokenName, JSON.stringify(rta));    
     } else {
         jwt.value = "error";
     }
@@ -52,12 +53,13 @@ async function traerUsuario(){
 
 async function buscarUno(){
 
-    let url = "http://localhost:8000/api/usuario_api.php"
 
-    let token = JSON.parse(localStorage.getItem("token"));
+
+    let url = urlBase + "usuario_api.php";
+
+    let token = JSON.parse(sessionStorage.getItem(tokenName));
 
     let data = {
-        "token": token.jwt,
         "payload" : [
                         {
                             "model":"usuarios",
@@ -68,13 +70,15 @@ async function buscarUno(){
         ]
     };
     
-    console.log("data del localstorage:" , data, JSON.stringify(data));
-    console.log(JSON.stringify(data));
+    //console.log("data del localstorage:" , data);
+    //console.log(token);
+    //token.jwt +="pepe";
 
     let miInit = { 
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + token.jwt
                     },
                     mode: 'cors',
                     cache: 'no-cache' , 
@@ -84,12 +88,16 @@ async function buscarUno(){
 
     let rta = await fetch(url,miInit)
         .then(function(response) {
-            //console.log("rta:", response);
-            return response.json();
-
+            return response.text();
+            // if(response.ok){
+            //     return response.json();
+            // } else {
+            //     throw new Error ("Error en la consulta post");
+            // }
+            
         })
         .catch(function(error) {
-            return error;
+            console.log(error.message);
         });
 
     console.log(rta);

@@ -1,66 +1,66 @@
 <?php
-
 include_once '../core/jwt_core.php';
+include_once '../core/error_core.php';
 
 require '../vendor/autoload.php';
-require_once "../controller/usuario_controller.php";
 
 use Firebase\JWT\JWT;
 
-// required headers
-header("Access-Control-Allow-Origin: http://localhost/egroups/api/");
-header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Max-Age: 3600");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
- 
-// database connection will be here
 
-$json = file_get_contents('php://input');
-$data = json_decode($json);
+if($_SERVER['REQUEST_METHOD']=='POST') {
 
-$usr = new UsuarioController();
+    //Recibo los datos enviados por un fetch post con json
+    $json = file_get_contents('php://input');
+    $data = json_decode($json);
 
-$result = $usr->getCredentials($data->email, $data->password);
+    //Obtento el usuario correspondiente
+    $result = getCredentials($data);
 
-if (!is_null($result)){
-    $token = array(
-        "iss" => $iss,
-        "aud" => $aud,
-        "iat" => $iat,
-        "nbf" => $nbf,
-        "data" => array(
-            "id" => $result[0]->id,
-            "nombre" => $result[0]->nombre,
-            "apellido" => $result[0]->apellido,
-            "email" => $result[0]->email
-        )
-     );
+    //si me trae algún resultado es que encontró la combinación de usuario y contraseña
+    if (!is_null($result)){
+        $token = array(
+            "iss" => $iss,
+            "aud" => $aud,
+            "iat" => $iat,
+            "nbf" => $nbf,
+            "data" => array(
+                "id" => $result[0]->id,
+                "nombre" => $result[0]->nombre,
+                "apellido" => $result[0]->apellido,
+                "email" => $result[0]->email
+            )
+        );
 
-    // set response code
-    http_response_code(200);
-    // generate jwt
-    $jwt = JWT::encode($token, $key);
+        // genero el token con los datos que me enviaron
+        $jwt = JWT::encode($token, $key);
 
-    echo json_encode(
-         array(
-             "ok" => true,
-             "jwt" => $jwt
-         )
-     );
+        //Seteo cabesera y devuelvo el token
+        http_response_code(200);
+        echo json_encode(
+            array(
+                "ok" => true,
+                "jwt" => $jwt
+            )
+        );
+
+    } else {
+        // este usuario no tiene permisos
+        http_response_code(401);
+    
+        $error = "Usuario y contraseña no encontrados";
+        myError(2, $error );
+
+        echo json_encode(
+            array(
+                "ok" => false,
+                "mensaje" => $error
+            )
+        );
+
+    }
 
 } else {
-     // set response code
-    http_response_code(400);
-    // generate jwt
- 
-    echo json_encode(
-         array(
-             "ok" => false,
-             "mensaje" => $result
-         )
-     );
-
+    myError(1,'{"msg":"Error - Just POST"}');
 }
 
 
