@@ -16,8 +16,12 @@ abstract class Crud extends Conexion {
                 throw new Exception("No se pudo conectar a la base de datos");
             }
         } catch (PDOException $err){
-            throw new Exception("Error PDO: " . $err->__toString());
-        }
+            throw $err;
+        } catch (Error $err){
+            throw $err;
+        } catch (Exception $ex){
+            throw $ex;
+        }    
     }
 
     public function __get($name){
@@ -49,12 +53,12 @@ abstract class Crud extends Conexion {
             // $stmt->execute();
             return $result;
         } catch (PDOException $err) {
-            throw new Exception("PDO Ex: " . $err->getMessage());
-            //echo $err->getMessage();
+            throw $err;
+        } catch (Error $err){
+            throw $err;
         } catch (Exception $ex){
-            throw new Exception ($ex->getMessage());
+            throw $ex;
         }
-
 
     }
 
@@ -66,12 +70,12 @@ abstract class Crud extends Conexion {
             $result = $stmt->fetch(PDO::FETCH_OBJ);
             return $result;
         } catch (PDOException $err) {
-            throw new Exception("PDO Ex: " . $err->getMessage());
-            //echo $err->getMessage();
+            throw $err;
+        } catch (Error $err){
+            throw $err;
         } catch (Exception $ex){
-            throw new Exception ($ex->getMessage());
+            throw $ex;
         }
-
 
     }
 
@@ -83,13 +87,13 @@ abstract class Crud extends Conexion {
             $result = $stmt.mysqli_fetch_all(PDO::FETCH_OBJ);
             return $result;
         } catch (PDOException $err) {
-            throw new Exception("PDO Ex: " . $err->getMessage());
-//            echo $err->getMessage();
+            throw $err;
+        } catch (Error $err){
+            throw $err;
         } catch (Exception $ex){
-            throw new Exception ($ex->getMessage());
+            throw $ex;
         }
-
-    }
+            }
 
 
     abstract function create();

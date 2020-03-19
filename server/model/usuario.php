@@ -29,17 +29,18 @@ class Usuario extends Crud {
 
 
     public function create(){
-
         try {
             $sql = "insert into ".self::TABLE." (nombre, apellido, email, pass, fecha_nac, genero, ciudad_residencia) values(?,?,?,?,?,?,?)";
             $stmt = $this->pdo->prepare($sql);
             $result = $stmt->execute(array($this->nombre, $this->apellido, $this->email, $this->pass, $this->fecha_nac, $this->genero, $this->ciudad_residencia));
             return $result;
         } catch (PDOException $err){
-          throw new Exception(__FILE__ . __LINE__ . $err->getMessage());
+          throw $err;
+        } catch (Error $err){
+            throw $err;
         } catch (Exception $ex){
-            throw new Exception ($ex->getMessage());
-          }
+            throw $ex;
+        }    
     }
 
     public function update(){
@@ -49,11 +50,12 @@ class Usuario extends Crud {
           $result = $stmt->execute(array($this->nombre, $this->apellido, $this->email, $this->pass, $this->fecha_nac, $this->genero, $this->ciudad_residencia, $this->id));
           return $result;
         } catch (PDOException $err){
-            throw new Exception("Erro: </br>".$err->getMessage());
+            throw $err;
+        } catch (Error $err){
+            throw $err;
         } catch (Exception $ex){
-            throw new Exception ($ex->getMessage());
-        }    
-    }
+            throw $ex;
+        }    }
 
     public function getCredentials($email, $password){
         try {
@@ -63,10 +65,12 @@ class Usuario extends Crud {
             $result = $stmt->fetchAll(PDO::FETCH_OBJ);
             return $result;
         } catch (PDOException $err){
-            throw new Exception("Erro: </br>".$err->getMessage());
+            throw $err;
+        } catch (Error $err){
+            throw $err;
         } catch (Exception $ex){
-            throw new Exception ($ex->getMessage());
-        }
+            throw $ex;
+        }    
     }
 
 }

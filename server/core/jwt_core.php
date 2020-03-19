@@ -21,11 +21,17 @@ $nbf = 1357000000;
 
 function getCredentials($data){
 
-    //Abro una instancia del objeto usuario para ir a buscar sus credenciales
-    $usr = new UsuarioController();
-    //busco que me devuelva las credenciales el usuario y contraseña que le envío
-    $result = $usr->getCredentials($data->email, $data->password);
-    return $result;
+    try {
+        //Abro una instancia del objeto usuario para ir a buscar sus credenciales
+        $usr = new UsuarioController();
+        //busco que me devuelva las credenciales el usuario y contraseña que le envío
+        $result = $usr->getCredentials($data->email, $data->password);
+        return $result;
+    } catch (Error $err){
+        throw $err;
+    } catch (Exception $ex){
+        throw $ex;
+    }
 
 }
 
@@ -33,8 +39,7 @@ function isAuthenticated($token, $key){
 
     try {
         $plano = JWT::decode($token, $key, array('HS256'));
-        return (object)["ok"=>true, "payload"=>$plano->data];
-        
+        return (object)["ok"=>true, "payload"=>$plano->data];        
     } catch (Error $err){        
         return (object)["ok"=>false, "payload"=>$err->__toString()];
     } catch (Exception $ex){

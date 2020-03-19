@@ -1,5 +1,14 @@
 
 <?php
+  set_exception_handler('exceptionHandler');
+
+function exceptionHandler($ex) {
+    echo "Excepción no capturada: " , $ex->getMessage(), "\n";
+}
+  
+
+
+  
 
 function myError($errorLevel, $errorMessage){    
     
