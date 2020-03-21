@@ -4,6 +4,7 @@ import InputText from '../../base/inputText';
 import PropTypes from 'prop-types';
 
 const Password = ( {
+        Titulo="Password",
         Id="password",
         PlaceHolder="Introduzca su contraseña", 
         Valor="", 
@@ -21,7 +22,7 @@ const Password = ( {
 
     return (
         <div className="w3-container">
-            <Label texto="Password" htmlFor={Id} />
+            <Label Texto={Titulo} HtmlFor={Id} />
             <InputText 
                 Id={Id} 
                 Tipo="password"
@@ -35,6 +36,7 @@ const Password = ( {
 }
 
 Password.propTypes = {
+    Titulo: PropTypes.string,
     Id: PropTypes.any.isRequired,
     PlaceHolder: PropTypes.string,
     Valor : PropTypes.string.isRequired,

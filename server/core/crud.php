@@ -40,18 +40,56 @@ abstract class Crud extends Conexion {
 
 
 
-
-
-
-    public function getAll(){
+    public function getAll($filtro=[], $filtroValores=[]){
 
         try {
-            $stmt = $this->pdo->prepare("select * from $this->table");
-            $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-            // $stmt->execute();
+            $select = "select * from $this->table";
+
+            $filtrosArray = [];
+            //Veo si me trajo filtros
+            if(sizeof($filtro)>0 ){
+                //Cada filtro lo debo agregar a el select
+                $select = $select . " where ";
+                foreach ($filtro as $key=>$valor) {
+                    if($key>0){
+                        //agrego el AND para concatenar las condiciones
+                        $select = $select . " and ";
+                    }
+                    $select = $select . $valor . " in (";
+
+                    //agrego los valores
+                    foreach($filtroValores[$key] as $k=>$v){
+                        if($k>0){
+                            //agrego la coma
+                            $select = $select . ", ";
+                        }
+                        $select = $select . "?";
+                        array_push($filtrosArray,$v); //sumo los valores que se van a parsear en un solo array
+                    }
+                    $select = $select . ")";
+                } 
+            } 
+
+            $stmt = $this->pdo->prepare($select);
+            if(sizeof($filtro)>0 ){
+                $stmt->execute($filtrosArray);
+            } else {
+                $stmt->execute();
+            }
+
+            // recorriendo uno a uno
+            $result = [];
+            while ($row = $stmt->fetch()) {
+                array_push($result, $row);
+            }
+
+            // Trayendo todos juntos
+            // $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+            
+            //  return array([$select, $filtro, $filtrosArray]);
             return $result;
+
         } catch (PDOException $err) {
             throw $err;
         } catch (Error $err){

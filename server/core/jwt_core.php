@@ -13,8 +13,8 @@ date_default_timezone_set('America/Argentina/Buenos_Aires');
  
 // variables used for jwt
 $key = "tu secreto es: la suerte del principiante no puede fallar - twsagi6()";
-$iss = "http://localhost/egroups/api/";
-$aud = "http://localhost/egroups/api/";
+$iss = "http://localhost/api/";
+$aud = "http://localhost/api/";
 $iat = 1356999524;
 $nbf = 1357000000;
 

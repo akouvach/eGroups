@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 
 import Label from '../../base/Label';
 
-const Titulo3 = ({texto})=>{
+const Titulo3 = ({
+                Texto="Titulo 3",
+                Clase="w3-teal w3-padding"
+            })=>{
     return (
         <div className="w3-container">
             <h3>
-                <Label clase="w3-teal w3-padding" texto={texto} />
+                <Label Clase={Clase} Texto={Texto} />
             </h3>
         </div>
     );
@@ -15,7 +18,8 @@ const Titulo3 = ({texto})=>{
 }
 
 Titulo3.propTypes = {
-    texto: PropTypes.string.isRequired
+    Texto: PropTypes.string.isRequired,
+    Clase: PropTypes.string
 }
 
 export default Titulo3 ;

@@ -1,16 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Label = ( {htmlFor = "", texto = "completar", clase=""} )=>{
+const Label = ( {
+            HtmlFor = "", 
+            Texto = "completar", 
+            Clase="w3-left-align"
+        } )=>{
     return (
-        <label htmlFor={htmlFor} className={clase} > {texto} </label>
+        <label htmlFor={HtmlFor} className={Clase} > {Texto} </label>
     );
 }
 
 Label.propTypes = {
-    htmlFor : PropTypes.string,
-    texto : PropTypes.string.isRequired,
-    clase : PropTypes.string
+    HtmlFor : PropTypes.string,
+    Texto : PropTypes.string.isRequired,
+    Clase : PropTypes.string
 }
 
 export default Label;

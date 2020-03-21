@@ -4,24 +4,23 @@ import Button from '../../base/Button';
 
 
 const Enviar = ( {
-                    buttonHandler = ()=>{
-                                console.log("falta definir la funcion handler de enviar")
-                    },
-                    formId = "", 
-                    clase = ""
+                    FormId = "", 
+                    Clase = "w3-wide w3-margin-top"
                 } )=>{
 
-    let miClase = "w3-blue-grey w3-block " + clase
-    return (
-        <Button clase= {miClase} tipo="submit" texto="Enviar" formId={formId} buttonHandler={buttonHandler} />
-
+   return (
+        <Button 
+            Clase={Clase} 
+            Tipo="submit" 
+            Texto="Enviar" 
+            FormId={FormId}  
+        />
     );
 }
 
 Enviar.propTypes = {
-    buttonHandler: PropTypes.func,
-    formId: PropTypes.string,
-    clase: PropTypes.string
+    FormId: PropTypes.string.isRequired,
+    Clase: PropTypes.string
 }
 
 export default Enviar;

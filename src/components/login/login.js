@@ -7,6 +7,7 @@ import Enviar from '../../components/intermedio/boton/enviar';
 import Form from '../../components/base/Form';
 import Usuario from '../usuario/usuario';
 import Encrypt from '../generales/encrypt';
+import Counter from '../base/counter';
 
 class Login extends Component {
 
@@ -34,13 +35,7 @@ class Login extends Component {
 
     }
 
-    componentDidMount(){
-        this.setState({
-            email:"yourEmail@yourself.com",
-            password:""
-        });
-        
-    }
+
     actualizarEmail(valor){
         //console.log("estoy ejecutando la actualización:", valor);
         this.setState({
@@ -58,33 +53,36 @@ class Login extends Component {
 
     render(){
         return (    
+
             <div className="w3-container">
 
+                <Counter />
+                
                 <div className="w3-row">
 
                     <div className="w3-form">
 
-                        <Titulo1 texto="Ingrese" />
+                        <Titulo1 Texto="Ingrese" />
 
-                        <Form formId="uno" formHandler={this.verificarContrasenia}>
+                        <Form Id="uno" OnSubmit={this.verificarContrasenia}>
                             
                             <Email 
+                                Titulo="Email"
                                 Id="email" 
-                                Tipo="email" 
                                 PlaceHolder="Ingrese su correo" 
                                 Valor={this.state.email} 
                                 ValorSet={this.actualizarEmail}
                             />
 
                             <Password 
+                                Titulo="Contraseña"
                                 Id="password" 
-                                Tipo="password" 
                                 PlaceHolder="Ingrese su contraseña" 
                                 Valor={this.state.password} 
                                 ValorSet={this.actualizarPassword}
                             />
 
-                            <Enviar formId="uno" clase="w3-wide w3-margin-top" />
+                            <Enviar FormId="uno" />
                     
                         </Form>
 

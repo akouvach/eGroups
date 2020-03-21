@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Label from '../../base/Label';
 
 
 const Slider=( {images} )=>{

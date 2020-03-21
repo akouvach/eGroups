@@ -4,12 +4,11 @@ import InputText from '../../base/inputText';
 import PropTypes from 'prop-types';
 
 const Email = ( {
+        Titulo="Email",
         Id="email",
         PlaceHolder="introduzca su eMail", 
         Valor="", 
-        ValorSet=(valor)=>{
-            console.log("falta agregar la función para asignación en email.");
-        }
+        ValorSet=()=>console.log("falta agregar la función para asignación en email.")
     } )=>{
 
     let [email, emailSet] = useState(Valor);
@@ -21,7 +20,7 @@ const Email = ( {
 
     return (
         <div className="w3-container">
-            <Label texto="Email" htmlFor={Id} />
+            <Label Texto={Titulo} HtmlFor={Id} />
             <InputText 
                 Id={Id} 
                 Tipo="email" 
@@ -29,13 +28,12 @@ const Email = ( {
                 Valor={email} 
                 ValorSet={actualizarEmail}  
             />
-        
         </div>
-
     );
 }
 
 Email.propTypes = {
+    Titulo: PropTypes.string.isRequired,
     Id : PropTypes.any.isRequired,
     PlaceHolder : PropTypes.string,
     Valor : PropTypes.string.isRequired,

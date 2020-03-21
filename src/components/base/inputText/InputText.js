@@ -28,16 +28,15 @@ const InputText = ( {
             placeholder={PlaceHolder}
             value={miValor}
             onChange={(ev)=>cambiarValor(ev.target.value)}
-
         />
     )
 }
 
 InputText.propTypes = {
-    tipo: PropTypes.string,
+    Tipo: PropTypes.string,
     Id: PropTypes.any,
     PlaceHolder: PropTypes.string,
-    miValor: PropTypes.any.isRequired,
+    Valor: PropTypes.any.isRequired,
     ValorSet: PropTypes.func.isRequired
 }
 

@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Form = ({
-                formId="", 
-                formHandler=()=>{
-                    console.log("falta definir el handler del formulario");
-                },
-                children
+                children,
+                Id="falta el id del form", 
+                OnSubmit=()=>console.log("falta definir el handler del formulario")
             })=>{
     return (
-        <form id={formId} onSubmit={formHandler}>
+        <form 
+            id={Id} 
+            onSubmit={OnSubmit}
+        >
             {children}
         </form>
 
@@ -17,8 +18,8 @@ const Form = ({
 }
 
 Form.propTypes = {
-    formId : PropTypes.string.isRequired,
-    formHandler: PropTypes.func.isRequired
+    Id : PropTypes.string.isRequired,
+    OnSubmit: PropTypes.func.isRequired
 }
 
 export default Form;
