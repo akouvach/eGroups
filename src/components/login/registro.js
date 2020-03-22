@@ -37,7 +37,7 @@ class Registro extends Component {
     //         password:this.context.apellido
     //     });
         
-    // }
+    // }  // Cambio AK
     
     render(){
         return (
