@@ -43,7 +43,7 @@ class Registro extends Component {
         return (
             <div className="w3-container">
 
-                <div className="w3-form">
+                <div className="w3-form "> 
 
                     <div className="w3-container w3-teal">
                         <h2>Registro</h2>
