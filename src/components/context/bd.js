@@ -18,7 +18,7 @@ const WS = {
                     tabla+".php",
                     {"filter": filtros}
                 );
-                console.log("data bd: ", data);
+                // console.log("data bd: ", data);
                 resolve(data);
             } catch (err){
                 reject(err);

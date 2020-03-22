@@ -43,14 +43,14 @@ const MyLogin= async ()=>{
 
 
 const Fetch = async (myUrl, myFilter)=>{
-    console.log(myUrl, myFilter)
+    // console.log(myUrl, myFilter)
 
     let url = urlBase + myUrl;
     let token = JSON.parse(sessionStorage.getItem(tokenName));
     if(!token){
         console.log("no había token. la voy a buscar...", token);
         let rta=  await MyLogin();
-        console.log("me trajo esto: ", rta);
+        // console.log("me trajo esto: ", rta);
         if(rta.ok)
             token = JSON.parse(sessionStorage.getItem(tokenName));
         else    
@@ -78,7 +78,7 @@ const Fetch = async (myUrl, myFilter)=>{
 
     let rta = await fetch(url,miInit);
     let miJson = await rta.json();
-    console.log(miJson);
+    // console.log(miJson);
     return miJson.payload;
  
 }
