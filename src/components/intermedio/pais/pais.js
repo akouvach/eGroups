@@ -19,7 +19,7 @@ const Pais = ( {
 
     
     useEffect( () => {
-        console.log("ejecutando useEffect");
+        // console.log("ejecutando useEffect");
         isLoadingSet(true);
 
         // Si quisiera mandar filtros debería mandar un segundo parámetro a BD.traer
@@ -28,9 +28,12 @@ const Pais = ( {
 
         BD.traer("paises")
         .then( (data)=>{
-            paisesSet(data);
-            console.log("datos traidos en useEffect", data);
-            isLoadingSet(false);
+            setTimeout(()=>{
+                paisesSet(data);
+                // console.log("datos traidos en useEffect", data);
+                isLoadingSet(false);
+    
+            },5000);
         });
         
     }, []);
@@ -41,30 +44,27 @@ const Pais = ( {
         ValorSet(nuevoValor);
     }
 
-    if(isLoading){
-        return (
-            <Loading />
-        )
+    return (
 
-    } else {
-        return (
-
-            <div className="w3-container">
-                <Label 
-                    Texto={Titulo} 
-                    HtmlFor={Id}
-                />
+        <div className="w3-container">
+            <Label 
+                Texto={Titulo} 
+                HtmlFor={Id}
+            />
+            { 
+                isLoading ? 
+                <Loading /> :
                 <Select  
                     Id={Id} 
                     Valor={pais}
                     ValorSet={actualizarValor}
                     Valores={paises}
                 />
+            }
 
-            </div>
+        </div>
 
-        );
-    }
+    );
 }
 
 Pais.propTypes = {

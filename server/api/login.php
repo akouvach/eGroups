@@ -1,13 +1,15 @@
 
 
 <?php
-header('Access-Control-Allow-Origin: *');
+
+include_once '../core/headers.php';
+
 // header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
-header("Allow: GET, POST, OPTIONS, PUT, DELETE");
-header("Access-Control-Max-Age: 3600");
-header("Content-Type: application/json; charset=UTF-8");
+// header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+// header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+// header("Allow: GET, POST, OPTIONS, PUT, DELETE");
+// header("Access-Control-Max-Age: 3600");
+// header("Content-Type: application/json; charset=UTF-8");
 // print_r($_SERVER);
 
 include_once '../core/jwt_core.php';
