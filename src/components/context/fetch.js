@@ -43,43 +43,57 @@ const MyLogin= async ()=>{
 
 
 const Fetch = async (myUrl, myFilter)=>{
-    // console.log(myUrl, myFilter)
 
-    let url = urlBase + myUrl;
-    let token = JSON.parse(sessionStorage.getItem(tokenName));
-    if(!token){
-        console.log("no había token. la voy a buscar...", token);
-        let rta=  await MyLogin();
-        // console.log("me trajo esto: ", rta);
-        if(rta.ok)
-            token = JSON.parse(sessionStorage.getItem(tokenName));
-        else    
-            return {"ok":false, "payload":"el login falló"};
-    } 
-    // console.log("jwt: ", token);       
-    let data = {"payload":myFilter};
-    
-    //token.jwt +="pepe";
+    try {
 
-    // mode: 'cors',
-    // cache: 'no-cache' , 
+        // console.log(myUrl, myFilter)
 
-    let miInit = { 
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'text/plain',
-                        'Authorization': 'Bearer ' + token.jwt
-                    },
-                    mode: 'cors',
-                    cache: 'no-cache' , 
-                    crossDomain: true,
-                    body : JSON.stringify(data)
-                };
+        let url = urlBase + myUrl;
+        let token = JSON.parse(sessionStorage.getItem(tokenName));
+        if(!token){
+            try {
+                console.log("no había token. la voy a buscar...", token);
+                let rta=  await MyLogin();
+                // console.log("me trajo esto: ", rta);
+                if(rta.ok)
+                    token = JSON.parse(sessionStorage.getItem(tokenName));
+                else    
+                    return {"ok":false, "payload":"el login falló"};
+            } catch (err){
+                throw Error("falló el login");
+            }
 
-    let rta = await fetch(url,miInit);
-    let miJson = await rta.json();
-    // console.log(miJson);
-    return miJson.payload;
+        } 
+        // console.log("jwt: ", token);       
+        let data = {"payload":myFilter};
+        
+        //token.jwt +="pepe";
+
+        // mode: 'cors',
+        // cache: 'no-cache' , 
+
+        let miInit = { 
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'text/plain',
+                            'Authorization': 'Bearer ' + token.jwt
+                        },
+                        mode: 'cors',
+                        cache: 'no-cache' , 
+                        crossDomain: true,
+                        body : JSON.stringify(data)
+                    };
+
+        let rta = await fetch(url,miInit);
+        let miJson = await rta.json();
+        // console.log(miJson);
+        return miJson;
+
+    } catch (err){
+
+        return {"ok":false, "payload":"falló el fetch"}
+
+    }
  
 }
 
