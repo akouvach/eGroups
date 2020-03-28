@@ -1,9 +1,0 @@
-CREATE TABLE `participemos`.`usuarios` ( 
-    `id` BIGINT NOT NULL AUTO_INCREMENT , 
-    `nombre` VARCHAR(200) NOT NULL , 
-    `apellido` VARCHAR(200) NOT NULL , 
-    `email` VARCHAR(200) NOT NULL , 
-    `ciudad_residencia` JSON NOT NULL , 
-    `genero` CHAR NOT NULL , 
-    `fecha_nac` DATE NOT NULL , 
-    PRIMARY KEY (`id`)) ENGINE = InnoDB COMMENT = 'Registro de usuarios';

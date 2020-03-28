@@ -1,10 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Link } from 'react-router-dom';
+import {UserContext } from '../App';
 
 
 const Menu=()=>{
+    const userContext = useContext(UserContext);
+
+console.log(userContext);
+
     return (
         <div className="w3-nav">
+                {UserContext.nombre}
             
             <div className="w3-bar w3-light-grey w3-border">
                 <Link to="/" className="w3-bar-item w3-button w3-mobile">
@@ -23,7 +29,11 @@ const Menu=()=>{
   </div>
 </div> */}
 
-                <Link to="/search" className="w3-bar-item w3-button w3-mobile w3-right">
+
+<Link to="/login" className="w3-bar-item w3-button w3-mobile w3-right">Login</Link>
+<Link to="/login" className="w3-bar-item w3-button w3-mobile w3-right">{userContext.nombre}</Link>
+
+                <Link to="/buscar" className="w3-bar-item w3-button w3-mobile w3-right">
                     <i className="material-icons">search</i>
                 </Link>
     
@@ -38,7 +48,8 @@ const Menu=()=>{
 
                 <Link to="/grupos" className="w3-bar-item w3-button w3-mobile w3-right">Grupos</Link>
                 <Link to="/contacto" className="w3-bar-item w3-button w3-mobile w3-right">Contacto</Link>
-                <Link to="/login" className="w3-bar-item w3-button w3-mobile w3-right">Login</Link>
+              
+        
             
             </div>
 

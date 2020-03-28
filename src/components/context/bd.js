@@ -18,8 +18,13 @@ const WS = {
                     tabla+".php",
                     {"filter": filtros}
                 );
-                console.log("data bd: ", data);
-                resolve(data);
+                if(data.ok){
+                    // todo bien
+                    resolve(data.payload);
+                } else {
+                    reject(data);
+                }
+
             } catch (err){
                 reject(err);
             }
