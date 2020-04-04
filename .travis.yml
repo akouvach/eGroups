@@ -1,8 +1,7 @@
 before_script:
-   npm install
+   - npm install
+script: npm start
 language: node_js
-script:
-    npm start
 env:
     - PORT=777
 node_js:
