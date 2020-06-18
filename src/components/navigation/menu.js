@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { UserContext } from "../App";
 
@@ -11,20 +11,20 @@ const Login = (uc) => {
       <div className="w3-dropdown-hover w3-right">
         <button className="w3-button"> {uc.nombre} </button>{" "}
         <div className="w3-dropdown-content w3-bar-block w3-card-4">
-          <Link className="w3-bar-item w3-button" to="/userSettings">
+          <NavLink className="w3-bar-item w3-button" to="/userSettings">
             Configuracion
-          </Link>
-          <Link className="w3-bar-item w3-button" to="/avatar">
+          </NavLink>
+          <NavLink className="w3-bar-item w3-button" to="/avatar">
             Avatar
-          </Link>
+          </NavLink>
         </div>
       </div>
     );
   } else {
     return (
-      <Link
+      <NavLink
         to="/login"
-        className="w3-bar-item w3-button w3-mobile w3-right"></Link>
+        className="w3-bar-item w3-button w3-mobile w3-right"></NavLink>
     );
   }
 };
@@ -37,20 +37,20 @@ const MenuPersonal = (uc) => {
       <div className="w3-dropdown-hover w3-right">
         <button className="w3-button"> Mi menu </button>{" "}
         <div className="w3-dropdown-content w3-bar-block w3-card-4">
-          <Link className="w3-bar-item w3-button" to="/userSettings">
+          <NavLink className="w3-bar-item w3-button" to="/userSettings">
             Configuracion
-          </Link>
-          <Link className="w3-bar-item w3-button" to="/avatar">
+          </NavLink>
+          <NavLink className="w3-bar-item w3-button" to="/avatar">
             Avatar
-          </Link>
+          </NavLink>
         </div>
       </div>
     );
   } else {
     return (
-      <Link
+      <NavLink
         to="/login"
-        className="w3-bar-item w3-button w3-mobile w3-right"></Link>
+        className="w3-bar-item w3-button w3-mobile w3-right"></NavLink>
     );
   }
 };
@@ -63,20 +63,20 @@ const MiCanasta = (uc) => {
       <div className="w3-dropdown-hover w3-right">
         <button className="w3-button"> Mi Canasta </button>{" "}
         <div className="w3-dropdown-content w3-bar-block w3-card-4">
-          <Link className="w3-bar-item w3-button" to="/userSettings">
+          <NavLink className="w3-bar-item w3-button" to="/userSettings">
             Configuracion
-          </Link>
-          <Link className="w3-bar-item w3-button" to="/avatar">
+          </NavLink>
+          <NavLink className="w3-bar-item w3-button" to="/avatar">
             Avatar
-          </Link>
+          </NavLink>
         </div>
       </div>
     );
   } else {
     return (
-      <Link
+      <NavLink
         to="/login"
-        className="w3-bar-item w3-button w3-mobile w3-right"></Link>
+        className="w3-bar-item w3-button w3-mobile w3-right"></NavLink>
     );
   }
 };
@@ -89,20 +89,20 @@ const Notificaciones = (uc) => {
       <div className="w3-dropdown-hover w3-right">
         <button className="w3-button"> Notificaciones </button>{" "}
         <div className="w3-dropdown-content w3-bar-block w3-card-4">
-          <Link className="w3-bar-item w3-button" to="/userSettings">
+          <NavLink className="w3-bar-item w3-button" to="/userSettings">
             Configuracion
-          </Link>
-          <Link className="w3-bar-item w3-button" to="/avatar">
+          </NavLink>
+          <NavLink className="w3-bar-item w3-button" to="/avatar">
             Avatar
-          </Link>
+          </NavLink>
         </div>
       </div>
     );
   } else {
     return (
-      <Link
+      <NavLink
         to="/login"
-        className="w3-bar-item w3-button w3-mobile w3-right"></Link>
+        className="w3-bar-item w3-button w3-mobile w3-right"></NavLink>
     );
   }
 };
@@ -112,28 +112,37 @@ const Menu = () => {
 
   console.log("datsos del usuario", userContext);
 
+  const activeStyle = { color: "red" };
+
   return (
     <div className="w3-nav">
       <div className="w3-bar w3-light-grey w3-border">
-        <Link to="/" className="w3-bar-item w3-button w3-mobile">
+        <NavLink to="/" className="w3-bar-item w3-button w3-mobile">
           <button className="w3-button w3-wide w3-large"> eGroup </button>
-        </Link>
+        </NavLink>
         {Login(userContext)}
         {MenuPersonal(userContext)}
         {MiCanasta(userContext)}
         {Notificaciones(userContext)}
 
-        <Link to="/buscar" className="w3-bar-item w3-button w3-mobile w3-right">
+        <NavLink
+          to="/buscar"
+          activeStyle={activeStyle}
+          className="w3-bar-item w3-button w3-mobile w3-right">
           <i className="material-icons"> search </i>{" "}
-        </Link>
-        <Link to="/grupos" className="w3-bar-item w3-button w3-mobile w3-right">
+        </NavLink>
+        <NavLink
+          to="/grupos"
+          activeStyle={activeStyle}
+          className="w3-bar-item w3-button w3-mobile w3-right">
           Grupos
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/contacto"
+          activeStyle={activeStyle}
           className="w3-bar-item w3-button w3-mobile w3-right">
           Contacto
-        </Link>
+        </NavLink>
       </div>
     </div>
   );
