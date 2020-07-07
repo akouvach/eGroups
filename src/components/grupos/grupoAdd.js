@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Titulo1 from "../intermedio/titulos/titulo1";
 import GrupoDetalle from "./grupoDetalle";
 import { toast } from "react-toastify";
+import * as gruposApi from "../../api/gruposApi";
 
 // componentDidMount()
 // componentDidUpdate()
@@ -13,9 +14,9 @@ const GrupoAdd = (props) => {
   const [grupo, setGrupo] = useState({
     grupo: "",
     descripcion: "",
-    idCreador: "",
+    idCreador: 0,
     idOrganigrama: "",
-    tipo: "",
+    tipo: "U",
     tags: "",
   });
 
@@ -41,6 +42,7 @@ const GrupoAdd = (props) => {
       return;
     }
     console.log("voy a guardar", grupo);
+    gruposApi.guardar(grupo);
     toast.success("grupo grabado");
     props.history.push("/grupos");
   }

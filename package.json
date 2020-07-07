@@ -20,9 +20,9 @@
   },
   "scripts": {
     "start": "run-p start:api start:dev",
+    "prestart:dev": "",
     "start:dev": "react-scripts start",
-    "prestart:api": "node tools/createmockdb.js",
-    "start:api": "node tools/apiServer",
+    "start:api": "",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
