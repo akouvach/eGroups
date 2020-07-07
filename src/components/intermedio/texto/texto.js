@@ -35,7 +35,7 @@ Texto.propTypes = {
   PlaceHolder: PropTypes.string,
   Valor: PropTypes.string.isRequired,
   ValorSet: PropTypes.func,
-  Error: PropTypes.object,
+  Error: PropTypes.string,
 };
 
 export default Texto;

@@ -2,30 +2,48 @@ import React from "react";
 import Texto from "../intermedio/texto";
 import Enviar from "../intermedio/boton/enviar";
 import Form from "../base/Form";
+import PropTypes from "prop-types";
 
-const GrupoDetalle = (props) => {
+const GrupoDetalle = ({
+  grupo = {},
+  errors = {},
+  onSubmit = () => {
+    console.log("falta definir funcion de submit");
+  },
+  grupoHandler = () => {
+    console.log("falta definir funcion de hander para cambios de grupo");
+  },
+}) => {
+  //console.log("error", props.errors);
   return (
-    <Form OnSubmit={props.onSubmit} Id="grupoDetalle">
+    <Form OnSubmit={onSubmit} Id="grupoDetalle">
       <Texto
         Titulo="Nombre"
         Id="grupo"
-        Valor={props.grupo.grupo}
-        ValorSet={props.grupoHandler}
-        Error={props.errors.grupo}
+        Valor={grupo.grupo}
+        ValorSet={grupoHandler}
+        Error={errors.grupo}
       />
 
       <Texto
         Titulo="Descripcion"
         Id="descripcion"
-        Valor={props.grupo.descripcion}
-        ValorSet={props.grupoHandler}
-        Error={props.errors.descripcioin}
+        Valor={grupo.descripcion}
+        ValorSet={grupoHandler}
+        Error={errors.descripcion}
       />
 
       <br />
       <Enviar FormId="grupoDetalle" Texto="Agregar grupo" />
     </Form>
   );
+};
+
+GrupoDetalle.propTypes = {
+  grupo: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  grupoHandler: PropTypes.func.isRequired,
 };
 
 export default GrupoDetalle;
