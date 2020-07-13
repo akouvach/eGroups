@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 
 const Slider=( {images} )=>{
-    let [index , indexSet ] = useState(0);
-    let [imagenes, imagenesSet] = useState(images);
 
-    useEffect(() => {
-        // Actualiza el título del documento usando la API del navegador
-        console.log("indice: ", index, imagenes[index].imagen);
-    });
+    let [index , indexSet ] = useState(0);
+    let imagenes = useState(images)[0];
+
 
     const plusDivs= (n)=>{
 
@@ -26,7 +23,6 @@ const Slider=( {images} )=>{
     }
 
 
-
     return (
 
         <div className="w3-container">            
@@ -34,7 +30,7 @@ const Slider=( {images} )=>{
             <div className="w3-content w3-display-container">
 
                 <div className="w3-display-container">
-                    <img src={"./images/" + imagenes[index].imagen} style={{width:"100%"}} />
+                    <img src={"./images/" + imagenes[index].imagen} style={{width:"100%"}} alt={imagenes[index].descripcion} />
                     <div className="w3-display-bottomleft w3-large w3-container w3-padding-16 w3-black">
                         {imagenes[index].descripcion}
                     </div>

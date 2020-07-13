@@ -1,6 +1,7 @@
 import React from "react";
 import Texto from "../intermedio/texto";
-import Enviar from "../intermedio/boton/enviar";
+import TextArea from "../intermedio/textarea";
+import BtnEnviar from "../intermedio/botones/btnEnviar";
 import Form from "../base/Form";
 import PropTypes from "prop-types";
 
@@ -33,8 +34,18 @@ const GrupoDetalle = ({
         Error={errors.descripcion}
       />
 
+      <TextArea
+        Titulo="Tags"
+        Cols={40}
+        Rows={3}
+        Id="Tags"
+        Valor={grupo.tags}
+        ValorSet={grupoHandler}
+        Error={errors.tags}
+      />
+
       <br />
-      <Enviar FormId="grupoDetalle" Texto="Agregar grupo" />
+      <BtnEnviar FormId="grupoDetalle" Texto="Agregar grupo" />
     </Form>
   );
 };

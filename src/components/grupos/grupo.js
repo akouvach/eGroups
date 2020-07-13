@@ -1,85 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 
+import * as gruposApi from "../../api/gruposApi";
+import Blog from "../blogs/blog";
 
 // componentDidMount()
 // componentDidUpdate()
 // componentWillUnmount()
 
+const Grupo = () => {
+  // const [contador, contadorSet ] = useState(0);
+  const [grupo, grupoSet] = useState([]);
+  //   const idGrupo = 21;
 
-const Grupo = ( {filtro = "Esto es un filtro", usuarioId = "este es usuarioId" } )=>{
-    let misGrupos = [
-        {
-            "id":1, "nombre":"Scout", "residencias":[
-                    {"pais":"Argentina", "Provincia": "Buenos Aires", "ciudad":"ramos mejia"}
-                ]
-        },
-        {
-            "id":2, "nombre":"zouk", "residencias":[
-                    {"pais":"Argentina", "Provincia": "Buenos Aires", "ciudad":"ramos mejia"}
-                ]
-        },
-    ];
+  let { idGrupo } = useParams();
 
-    const [contador, contadorSet ] = useState(0);
+  useEffect(() => {
+    console.log("me ejecuté en el inicio del grupo");
 
-    useEffect( ()=>{
-        console.log("me ejecuté");
-    
-        return ()=>{
-            console.log("estoy saliendo");
-        };
-    
-    },[]);
+    gruposApi.getByPrim(idGrupo).then((data) => {
+      console.log("getByPrim", data);
+      grupoSet(data);
+    });
 
-    return (
-        <div className="w3-container">
-            <div className="w3-container w3-teal">
-            <h2>Grupo Zouk</h2>
-            </div>
+    return () => {
+      console.log("estoy saliendo");
+    };
+  }, []);
 
-            <h1>Blog</h1>
+  return (
+    <div className="w3-container">
+      <div className="w3-container w3-teal">
+        <h2>
+          <Link to="/grupos">Grupos</Link> / {grupo.grupo}
+        </h2>
+      </div>
+      <div className="w3-container">
+        <h3>Blog</h3>
+        <Blog IdGrupo={idGrupo} />
+      </div>
+    </div>
+  );
+};
 
-            <div className="w3-row">
-                <div>
-                    <header>Bruno - 1/2/2020</header>
-                    <article>Creo que podemos armar algún proyecto para pintar las escuelas del barrio.  </article>
-                </div>
-                <div>
-                    <header>Bruno - 1/2/2020</header>
-                    <article>Creo que podemos armar algún proyecto para pintar las escuelas del barrio.  </article>
-                </div>
-                <div>
-                    <header>Bruno - 1/2/2020</header>
-                    <article>Creo que podemos armar algún proyecto para pintar las escuelas del barrio.  </article>
-                </div>
-                <div>
-                    <header>Bruno - 1/2/2020</header>
-                    <article>Creo que podemos armar algún proyecto para pintar las escuelas del barrio.  </article>
-                </div>
-                <div>
-                    <header>Bruno - 1/2/2020</header>
-                    <article>Creo que podemos armar algún proyecto para pintar las escuelas del barrio.  </article>
-                </div>
-                <div>
-                    <header>Bruno - 1/2/2020</header>
-                    <article>Creo que podemos armar algún proyecto para pintar las escuelas del barrio.  </article>
-                </div>
-                <div>
-                    <header>Bruno - 1/2/2020</header>
-                    <article>Creo que podemos armar algún proyecto para pintar las escuelas del barrio.  </article>
-                </div>
-                <div>
-                    <header>Bruno - 1/2/2020</header>
-                    <article>Creo que podemos armar algún proyecto para pintar las escuelas del barrio.  </article>
-                </div>
-            </div>
-
-        </div>
-        
-    );
-
-
-}
-
-
-export default Grupo ;
+export default Grupo;

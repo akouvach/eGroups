@@ -1,11 +1,11 @@
 import { handleResponse, handleError, login } from "./apiUtils";
 // const baseUrl = process.env.REACT_APP_API_URL + "/grupos/";
-const baseClass = "grupos";
-const baseUrl = "http://localhost:8000/api/" + baseClass ;
+const baseClass = "sendmail";
+const baseUrl = "http://localhost:8000/api/" + baseClass;
 let tokenName = "token";
 
-export async function getAll() {
-  if(!sessionStorage.getItem(tokenName)){
+export async function sendMail(to, subject, mensaje) {
+  if (!sessionStorage.getItem(tokenName)) {
     // me voy a logonear forzadamente por ahora
     console.log("voy a forzar login");
     login();
@@ -13,9 +13,12 @@ export async function getAll() {
 
   let token = JSON.parse(sessionStorage.getItem(tokenName));
   console.log("El token es: ", token);
-  if(!token.jwt)
-    return false;
-  
+  if (!token.jwt) return false;
+
+  let data = {};
+  data.to = to;
+  data.subject = subject;
+  data.mensaje = mensaje;
   // let data = {
   //     "payload" : [
   //                     {
@@ -26,32 +29,27 @@ export async function getAll() {
   //                     }
   //     ]
   // };
-  let miInit = { 
-    method: 'GET',
+  let miInit = {
+    method: "POST",
     headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + token.jwt
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token.jwt,
     },
-    mode: 'cors',
-    cache: 'no-cache' , 
-    credentials: 'same-origin'
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "same-origin",
+    body: JSON.stringify(data),
   };
 
-  // el saque el miInit , 
-    // body : JSON.stringify(data)
-
+  // el saque el miInit ,
+  // body : JSON.stringify(data)
 
   console.log("buscando...", baseUrl, token.jwt);
   return fetch(baseUrl, miInit).then(handleResponse).catch(handleError);
-
 }
 
-
-
-
-
 export function getByPrim(idGrupo) {
-  if(!sessionStorage.getItem(tokenName)){
+  if (!sessionStorage.getItem(tokenName)) {
     // me voy a logonear forzadamente por ahora
     console.log("voy a forzar login");
     login();
@@ -59,9 +57,8 @@ export function getByPrim(idGrupo) {
 
   let token = JSON.parse(sessionStorage.getItem(tokenName));
   // console.log("El token es: ", token);
-  if(!token.jwt)
-    return false;
-  
+  if (!token.jwt) return false;
+
   // let data = {
   //     "payload" : [
   //                     {
@@ -72,26 +69,21 @@ export function getByPrim(idGrupo) {
   //                     }
   //     ]
   // };
-  let miInit = { 
-    method: 'GET',
+  let miInit = {
+    method: "GET",
     headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + token.jwt
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token.jwt,
     },
-    mode: 'cors',
-    cache: 'no-cache' , 
-    credentials: 'same-origin'
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "same-origin",
   };
 
-  // el saque el miInit , 
-    // body : JSON.stringify(data)
-
+  // el saque el miInit ,
+  // body : JSON.stringify(data)
 
   console.log("buscando...", baseUrl, token.jwt);
- 
-
-
-
 
   return fetch(baseUrl + "/" + idGrupo, miInit)
     .then((response) => {

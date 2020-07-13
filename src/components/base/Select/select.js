@@ -13,7 +13,13 @@ const Select = ( {
         miValorSet(nuevoValor);
         ValorSet(nuevoValor);
     }
-    
+    useEffect(() => {
+        console.log("me ejecuté dentro de select.js");
+        console.log(miValor);
+        return () => {
+          console.log("estoy saliendo");
+        };
+      });
 
 
     if(!Array.isArray(Valores)){

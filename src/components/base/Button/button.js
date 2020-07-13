@@ -9,16 +9,15 @@ const Button = ({
   FormId = "falta el form id",
   OnClick = () => console.log("click no definido"),
 }) => {
-  let miClase = "w3-btn " + Clase;
-
   return (
     <div className="w3-container">
       <button
         type={Tipo}
-        className={miClase}
+        className={"w3-button" + Clase}
         disabled={!Habilitado}
         onClick={OnClick}
-        form={FormId}>
+        form={FormId}
+      >
         {Texto}
       </button>
     </div>

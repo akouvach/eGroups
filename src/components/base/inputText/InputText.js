@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 const InputText = ({
   Tipo = "Text",
+  Clase = "w3-input",
   Id = "uno",
   PlaceHolder = "Placeholder",
   Valor = "",
@@ -18,7 +19,7 @@ const InputText = ({
 
   return (
     <input
-      className="w3-input"
+      className={Clase}
       type={Tipo}
       id={Id}
       name={Id}
@@ -31,6 +32,7 @@ const InputText = ({
 
 InputText.propTypes = {
   Tipo: PropTypes.string,
+  Clase: PropTypes.string,
   Id: PropTypes.any,
   PlaceHolder: PropTypes.string,
   Valor: PropTypes.any.isRequired,

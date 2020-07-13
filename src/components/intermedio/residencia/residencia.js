@@ -30,8 +30,8 @@ const Residencia = (
                 ValorSet={actualizarPais}
             />
 
-            {/* <Estado />
-            <Ciudad /> */}
+            <Estado />
+            <Ciudad /> 
         </div>
     );
 }

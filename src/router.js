@@ -37,7 +37,8 @@ class Router extends React.Component {
           to="/grupos/agregar"
           render={() => {
             return <h1> Agregar grupos</h1>;
-          }}></Route>
+          }}
+        ></Route>
       );
     }
   }
@@ -61,7 +62,7 @@ class Router extends React.Component {
 
               <Route exact path="/grupos/add" component={GrupoAdd}></Route>
               <Route exact path="/grupos" component={Grupos}></Route>
-              <Route exact path="/grupo/:idgrupo" component={Grupo}></Route>
+              <Route exact path="/grupo/:idGrupo" component={Grupo}></Route>
 
               <Route exact path="/buscar" component={Buscar}></Route>
               {this.signedInRoutes()}

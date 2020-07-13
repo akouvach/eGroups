@@ -28,7 +28,7 @@ const Estado = ({
         ]);
         console.log(estados);
 
-    },[]);
+    },[estados]);
 
     function actualizarValor(nuevoValor){
         estadoSet(nuevoValor);
