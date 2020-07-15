@@ -14,12 +14,12 @@ const BlogDetalle = ({ Mensajes = [] }) => {
     <div className="w3-container">
       {Mensajes.map((item, index) => {
         return (
-          <div className="w3-row-padding">
+          <div className="w3-row-padding" key={item.id}>
             <Header>
               {item.idUsuario} - {item.fecha}
             </Header>
             <Article>{item.mensaje}</Article>
-            <Footer>{item.id}</Footer>
+            <hr size="1" color="black" />
           </div>
         );
       })}

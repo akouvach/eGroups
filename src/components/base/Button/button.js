@@ -13,7 +13,7 @@ const Button = ({
     <div className="w3-container">
       <button
         type={Tipo}
-        className={"w3-button" + Clase}
+        className={"w3-button " + Clase}
         disabled={!Habilitado}
         onClick={OnClick}
         form={FormId}

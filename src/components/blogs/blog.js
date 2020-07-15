@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import * as blogsApi from "../../api/blogsApi";
 
 import BlogDetalle from "./blogDetalle";
+import Loading from "../intermedio/loading";
 
 // componentDidMount()
 // componentDidUpdate()
@@ -10,12 +11,13 @@ import BlogDetalle from "./blogDetalle";
 
 const Blog = ({ IdGrupo = 0 }) => {
   const [blog, blogSet] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    console.log("me ejecuté dentro de blog.js", IdGrupo);
+    setIsLoading(true);
     blogsApi.getLast(IdGrupo).then((data) => {
       blogSet(data);
-      console.log(" traje el blog", IdGrupo, data);
+      setIsLoading(false);
     });
 
     return () => {
@@ -25,6 +27,7 @@ const Blog = ({ IdGrupo = 0 }) => {
 
   return (
     <div className="w3-container">
+      <Loading isLoading={isLoading} />
       <BlogDetalle Mensajes={blog} />
     </div>
   );

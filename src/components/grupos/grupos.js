@@ -2,24 +2,26 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as gruposApi from "../../api/gruposApi";
 import BtnAgregar from "../intermedio/botones/btnAgregar";
+import BtnEditar from "../intermedio/botones/btnEditar";
+import BtnEliminar from "../intermedio/botones/btnEliminar";
 import Header from "../base/Header";
 import Footer from "../base/Footer";
+import { toast } from "react-toastify";
+import Loading from "../intermedio/loading";
 
 // componentDidMount()
 // componentDidUpdate()
 // componentWillUnmount()
 
-const Grupos = ({
-  filtro = "Esto es un filtro",
-  usuarioId = "este es usuarioId",
-}) => {
+const Grupos = (props) => {
   const [grupos, gruposSet] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    console.log("me ejecuté dentro de grupos.js");
+    setIsLoading(true);
     gruposApi.getAll().then((data) => {
       gruposSet(data);
-      // console.log(data);
+      setIsLoading(false);
     });
 
     return () => {
@@ -27,12 +29,30 @@ const Grupos = ({
     };
   }, []);
 
+  function eliminarGrupo(idGrupo) {
+    gruposApi.delByPrim(idGrupo).then((data) => {
+      console.log(data);
+      if (!isNaN(data)) {
+        if (data == 1) {
+          toast.success("grupo eliminado");
+          gruposSet(grupos.filter((grupo) => grupo.id != idGrupo));
+          // props.history.push("/grupos");
+        }
+      } else {
+        if (data && !data.rta) {
+          console.log(data.payload);
+        }
+        toast.error("No se pudo eliminar ");
+      }
+    });
+  }
+
   return (
     <div className="w3-container">
       <div className="w3-container w3-teal">
         <div className="w3-cell-row w3-mobile">
           <div className="w3-threequarter">
-            <h2>Grupos</h2>
+            <h2>Mis Grupos</h2>
           </div>
           <div className="w3-rest w3-right">
             <h3>
@@ -42,16 +62,23 @@ const Grupos = ({
         </div>
       </div>
       <div className="w3-container">
+        <Loading isLoading={isLoading} />
         {grupos.map((item, index) => {
           return (
             <div
-              className="w3-container w3-card-4 w3-third w3-padding"
+              className="w3-container w3-card-4 w3-half w3-padding"
               key={item.id}
             >
               <Header Clase="w3-container w3-blue ">
                 <h1>
                   <Link to={"/grupo/" + item.id}>{item.grupo}</Link>
                 </h1>
+                {item.idCreador == 1 && (
+                  <div>
+                    <BtnEditar Destino={"/grupo/edit/" + item.id} />
+                    <BtnEliminar HandleClick={() => eliminarGrupo(item.id)} />
+                  </div>
+                )}
               </Header>
 
               <div className="w3-container">

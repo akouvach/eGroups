@@ -1,4 +1,4 @@
-import { handleResponse, handleError, login } from "./apiUtils";
+import { handleResponse, handleError, login, getToken } from "./apiUtils";
 // const baseUrl = process.env.REACT_APP_API_URL + "/grupos/";
 const baseClass = "sendmail";
 const baseUrl = "http://localhost:8000/api/" + baseClass;
@@ -11,9 +11,9 @@ export async function sendMail(to, subject, mensaje) {
     login();
   }
 
-  let token = JSON.parse(sessionStorage.getItem(tokenName));
-  console.log("El token es: ", token);
-  if (!token.jwt) return false;
+  let token = getToken();
+  // console.log("El token es: ", token);
+  if (!token || token.jwt) return false;
 
   let data = {};
   data.to = to;
@@ -44,7 +44,7 @@ export async function sendMail(to, subject, mensaje) {
   // el saque el miInit ,
   // body : JSON.stringify(data)
 
-  console.log("buscando...", baseUrl, token.jwt);
+  // console.log("buscando...", baseUrl, token.jwt);
   return fetch(baseUrl, miInit).then(handleResponse).catch(handleError);
 }
 
@@ -83,7 +83,7 @@ export function getByPrim(idGrupo) {
   // el saque el miInit ,
   // body : JSON.stringify(data)
 
-  console.log("buscando...", baseUrl, token.jwt);
+  // console.log("buscando...", baseUrl, token.jwt);
 
   return fetch(baseUrl + "/" + idGrupo, miInit)
     .then((response) => {

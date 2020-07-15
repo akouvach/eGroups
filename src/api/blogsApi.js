@@ -1,19 +1,12 @@
-import { handleResponse, handleError, login } from "./apiUtils";
+import { handleResponse, handleError, login, getToken } from "./apiUtils";
 // const baseUrl = process.env.REACT_APP_API_URL + "/grupos/";
 const baseClass = "blogs";
 const baseUrl = "http://localhost:8000/api/" + baseClass;
 let tokenName = "token";
 
 export async function getLast(idGrupo) {
-  if (!sessionStorage.getItem(tokenName)) {
-    // me voy a logonear forzadamente por ahora
-    console.log("voy a forzar login");
-    login();
-  }
-
-  let token = JSON.parse(sessionStorage.getItem(tokenName));
-  console.log("El token es: ", token);
-  if (!token.jwt) return false;
+  let token = getToken();
+  if (!token || !token.jwt) return false;
 
   let miInit = {
     method: "GET",
@@ -30,7 +23,7 @@ export async function getLast(idGrupo) {
   // body : JSON.stringify(data)
 
   // baseUrl += "/" + idGrupo;
-  console.log("buscando...", baseUrl + "/grupos/" + idGrupo, token.jwt);
+  // console.log("buscando...", baseUrl + "/grupos/" + idGrupo, token.jwt);
   return fetch(baseUrl + "/grupos/" + idGrupo, miInit)
     .then(handleResponse)
     .catch(handleError);

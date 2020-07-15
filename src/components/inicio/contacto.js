@@ -7,6 +7,7 @@ import BtnEnviar from "../intermedio/botones/btnEnviar";
 import Form from "../base/Form";
 import { toast } from "react-toastify";
 import { sendMail } from "../../api/mailApi";
+import Titulo1 from "../intermedio/titulos/titulo1";
 
 const Contacto = (props) => {
   const [contacto, contactoSet] = useState({
@@ -71,9 +72,7 @@ const Contacto = (props) => {
 
   return (
     <div className="w3-container">
-      <div className="w3-container w3-teal">
-        <h2>Contacto</h2>
-      </div>
+      <Titulo1 Texto="Contacto" />
 
       <Form Id="miFormContacto" OnSubmit={EnviarMail}>
         <Nombre
@@ -105,6 +104,7 @@ const Contacto = (props) => {
         />
 
         <BtnEnviar
+          Texto="Login"
           FormId="miFormContacto"
           Clase="w3-block w3-section w3-blue w3-ripple w3-padding"
         />

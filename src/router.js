@@ -2,12 +2,13 @@ import React from "react";
 import { Route, BrowserRouter as ReactRouter, Switch } from "react-router-dom";
 import Inicio from "./components/inicio/inicio";
 import Login from "./components/login/login";
+import Logout from "./components/login/logout";
 import Registro from "./components/login/registro";
 import Contacto from "./components/inicio/contacto";
 
-import Grupos from "./components/grupos/grupos";
 import Grupo from "./components/grupos/grupo";
 import GrupoAdd from "./components/grupos/grupoAdd";
+import Grupos from "./components/grupos/grupos";
 
 import Buscar from "./components/intermedio/buscar";
 import MiCanasta from "./components/micanasta";
@@ -60,11 +61,20 @@ class Router extends React.Component {
               <Route exact path="/registro" component={Registro}></Route>
               <Route exact path="/contacto" component={Contacto}></Route>
 
+              <Route
+                exact
+                path="/grupo/edit/:idGrupo"
+                component={GrupoAdd}
+              ></Route>
+
+              <Route exact path="/grupo/:idGrupo" component={Grupo}></Route>
               <Route exact path="/grupos/add" component={GrupoAdd}></Route>
               <Route exact path="/grupos" component={Grupos}></Route>
-              <Route exact path="/grupo/:idGrupo" component={Grupo}></Route>
 
               <Route exact path="/buscar" component={Buscar}></Route>
+
+              <Route exact path="/logout" component={Logout}></Route>
+
               {this.signedInRoutes()}
               <Route component={NotFoundPage}></Route>
             </Switch>

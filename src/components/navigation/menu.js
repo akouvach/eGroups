@@ -1,64 +1,61 @@
-import React, { useContext } from "react";
-
 import { NavLink } from "react-router-dom";
+import React from "react";
+import { useUsuario } from "../../context/usuarioContext";
 
-import { UserContext } from "../App";
-
-const Login = (uc) => {
-  console.log("entre a login");
-  if (uc.nombre) {
+const Login = () => {
+  const { usuario, cargandoUsuario, setUsuario } = useUsuario();
+  console.log("entre a login", usuario);
+  if (usuario && usuario.nombre) {
     return (
       <div className="w3-dropdown-hover w3-right">
-        <button className="w3-button"> {uc.nombre} </button>{" "}
+        <button className="w3-button"> {usuario.nombre} </button>{" "}
         <div className="w3-dropdown-content w3-bar-block w3-card-4">
-          <NavLink className="w3-bar-item w3-button" to="/userSettings">
+          <NavLink className="w3-bar-item w3-button" to="/settings">
             Configuracion
           </NavLink>
-          <NavLink className="w3-bar-item w3-button" to="/avatar">
-            Avatar
+          <NavLink className="w3-bar-item w3-button" to="/logout">
+            Salir
           </NavLink>
         </div>
       </div>
     );
   } else {
     return (
-      <NavLink
-        to="/login"
-        className="w3-bar-item w3-button w3-mobile w3-right"></NavLink>
+      <NavLink to="/login" className="w3-bar-item w3-button w3-mobile w3-right">
+        Login / Registro
+      </NavLink>
     );
   }
 };
 
-const MenuPersonal = (uc) => {
+const MenuPersonal = () => {
   console.log("entre a mi menu especial");
+  const { usuario, cargandoUsuario, setUsuario } = useUsuario();
 
-  if (uc.nombre) {
+  if (usuario && usuario.nombre) {
     return (
       <div className="w3-dropdown-hover w3-right">
         <button className="w3-button"> Mi menu </button>{" "}
         <div className="w3-dropdown-content w3-bar-block w3-card-4">
-          <NavLink className="w3-bar-item w3-button" to="/userSettings">
+          <NavLink className="w3-bar-item w3-button" to="/settings">
             Configuracion
           </NavLink>
-          <NavLink className="w3-bar-item w3-button" to="/avatar">
-            Avatar
+          <NavLink className="w3-bar-item w3-button" to="/logout">
+            Salir
           </NavLink>
         </div>
       </div>
     );
   } else {
-    return (
-      <NavLink
-        to="/login"
-        className="w3-bar-item w3-button w3-mobile w3-right"></NavLink>
-    );
+    return <div></div>;
   }
 };
 
-const MiCanasta = (uc) => {
+const MiCanasta = () => {
   console.log("entre a Mi Canasta");
+  const { usuario, cargandoUsuario, setUsuario } = useUsuario();
 
-  if (uc.nombre) {
+  if (usuario && usuario.nombre) {
     return (
       <div className="w3-dropdown-hover w3-right">
         <button className="w3-button"> Mi Canasta </button>{" "}
@@ -73,18 +70,15 @@ const MiCanasta = (uc) => {
       </div>
     );
   } else {
-    return (
-      <NavLink
-        to="/login"
-        className="w3-bar-item w3-button w3-mobile w3-right"></NavLink>
-    );
+    return <div></div>;
   }
 };
 
-const Notificaciones = (uc) => {
+const Notificaciones = () => {
   console.log("entre a Notificaciones");
+  const { usuario, cargandoUsuario, setUsuario } = useUsuario();
 
-  if (uc.nombre) {
+  if (usuario && usuario.nombre) {
     return (
       <div className="w3-dropdown-hover w3-right">
         <button className="w3-button"> Notificaciones </button>{" "}
@@ -99,18 +93,32 @@ const Notificaciones = (uc) => {
       </div>
     );
   } else {
+    return <div></div>;
+  }
+};
+
+const MisGrupos = () => {
+  console.log("entre a entre a mis grupos");
+  const { usuario, cargandoUsuario, setUsuario } = useUsuario();
+
+  if (usuario && usuario.nombre) {
     return (
       <NavLink
-        to="/login"
-        className="w3-bar-item w3-button w3-mobile w3-right"></NavLink>
+        to="/grupos"
+        className="w3-bar-item w3-button w3-mobile w3-right"
+      >
+        Mis Grupos
+      </NavLink>
     );
+  } else {
+    return <div></div>;
   }
 };
 
 const Menu = () => {
-  const userContext = useContext(UserContext);
+  const { usuario, cargandoUsuario, setUsuario } = useUsuario();
 
-  console.log("datsos del usuario", userContext);
+  console.log("datsos del usuario", usuario);
 
   const activeStyle = { color: "red" };
 
@@ -120,29 +128,28 @@ const Menu = () => {
         <NavLink to="/" className="w3-bar-item w3-button w3-mobile">
           <button className="w3-button w3-wide w3-large"> eGroup </button>
         </NavLink>
-        {Login(userContext)}
-        {MenuPersonal(userContext)}
-        {MiCanasta(userContext)}
-        {Notificaciones(userContext)}
+        {Login(usuario)}
 
         <NavLink
           to="/buscar"
           activeStyle={activeStyle}
-          className="w3-bar-item w3-button w3-mobile w3-right">
-          <i className="material-icons"> search </i>{" "}
+          className="w3-bar-item w3-button w3-mobile w3-right"
+        >
+          Buscar
         </NavLink>
-        <NavLink
-          to="/grupos"
-          activeStyle={activeStyle}
-          className="w3-bar-item w3-button w3-mobile w3-right">
-          Grupos
-        </NavLink>
+
         <NavLink
           to="/contacto"
           activeStyle={activeStyle}
-          className="w3-bar-item w3-button w3-mobile w3-right">
+          className="w3-bar-item w3-button w3-mobile w3-right"
+        >
           Contacto
         </NavLink>
+
+        {MenuPersonal}
+        {MiCanasta}
+        {Notificaciones}
+        {MisGrupos}
       </div>
     </div>
   );

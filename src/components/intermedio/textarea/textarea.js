@@ -8,7 +8,7 @@ const TextArea = ({
   Titulo = "Texto",
   Rows = 2,
   Cols = 50,
-  Clase = "w3-input",
+  Clase = "",
   Id = "texto",
   PlaceHolder = "introduzca su Texto",
   Valor = "",
@@ -24,7 +24,7 @@ const TextArea = ({
         Id={Id}
         Cols={Cols}
         Rows={Rows}
-        Clase={"w3-input " + Clase}
+        Clase={Clase}
         PlaceHolder={PlaceHolder}
         Valor={Valor}
         ValorSet={ValorSet}
@@ -42,7 +42,7 @@ TextArea.propTypes = {
   Clase: PropTypes.string,
   PlaceHolder: PropTypes.string,
   Valor: PropTypes.string.isRequired,
-  ValorSet: PropTypes.func,
+  ValorSet: PropTypes.func.isRequired,
   Error: PropTypes.string,
 };
 

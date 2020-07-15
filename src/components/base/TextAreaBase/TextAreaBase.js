@@ -18,9 +18,9 @@ const TextAreaBase = ({
       cols={Cols}
       id={Id}
       name={Id}
-      className={Clase}
+      className={"w3-input " + Clase}
       placeholder={PlaceHolder}
-      onchange={ValorSet}
+      onChange={ValorSet}
       value={Valor}
     />
   );

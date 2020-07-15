@@ -4,9 +4,7 @@ let tokenName = "token";
 
 export async function handleResponse(response) {
   if (response.ok) {
-    let rta = await response.json();
-    console.log("traje", rta);
-    return rta;
+    return response.json();
   } else {
     if (response.status === 400) {
       // So, a server-side validation error occurred.
@@ -25,18 +23,22 @@ export function handleError(error) {
   throw error;
 }
 
-export function login() {
-  let data = {
-    email: "akouvach@yahoo.com",
-    password: "akouvach",
-  };
+export function getToken() {
+  if (!sessionStorage.getItem(tokenName)) {
+    return false;
+  } else {
+    return JSON.parse(sessionStorage.getItem(tokenName));
+  }
+}
+
+export function login(email, password) {
+  let data = { email, password };
 
   return verificarLogin(data);
 }
 
-export async function verificarLogin(data) {
+async function verificarLogin(data) {
   let rdo = false;
-  console.log("entre a verificar login");
 
   try {
     rdo = await traerUsuario(data);
@@ -50,6 +52,7 @@ export async function verificarLogin(data) {
 
 async function traerUsuario(data) {
   let url = urlBase + "login";
+  let jwt = {};
 
   let miInit = {
     method: "POST",
@@ -63,66 +66,33 @@ async function traerUsuario(data) {
   };
 
   console.log("arranco el fetch del login:", url);
-  let rta = await fetch(url, miInit)
-    .then(function (response) {
-      console.log("Termino el fetch del login:", response);
-      return response.json();
-    })
-    .then((data) => data)
-    .catch(function (error) {
-      console.log("error en el fetch", error.message);
-      return error;
-    });
 
-  console.log("rta del fetch", rta);
-  if (rta.rta) {
-    jwt.value = rta.jwt;
-    sessionStorage.setItem(tokenName, JSON.stringify(rta));
-    return true;
-  } else {
-    jwt.value = "error";
+  try {
+    let rta = await fetch(url, miInit)
+      .then((response) => response.json())
+      .then((data) => data)
+      .catch(function (error) {
+        console.log("error en el fetch", error.message);
+        return error;
+      });
+
+    console.log("rta del fetch", rta);
+    if (rta.rta) {
+      let _usuario = {};
+      _usuario.nombre = rta.payload.nombre;
+      _usuario.apellido = rta.payload.apellido;
+      _usuario.id = rta.payload.id;
+      _usuario.email = rta.payload.email;
+      _usuario.jwt = rta.jwt;
+
+      sessionStorage.setItem(tokenName, JSON.stringify(_usuario));
+    } else {
+      jwt.value = "error en las credenciales";
+    }
+
+    return rta.rta;
+  } catch (error) {
+    console.log(error);
     return false;
   }
 }
-
-// async function traerUsuarios(){
-
-//     let url = urlBase + "usuarios.php";
-
-//     let data = {
-//         email: "akouvach@yahoo.com",
-//         password : "akouvach"
-//     }
-
-//     let miInit = {
-//                     method: 'POST',
-//                     headers: {
-//                         'Content-Type': 'application/json',
-//                         'Accept': 'application/json'
-//                     },
-//                     mode: 'cors',
-//                     cache: 'no-cache' ,
-//                     credentials: 'omit',
-//                     body : JSON.stringify(data)
-//                 };
-
-//     let rta = await fetch(url,miInit)
-//         .then(function(response) {
-//             return response.json();
-//         })
-//         .catch(function(error) {
-//             console.log("error en el fetch", error.message);
-//             return error;
-//         });
-
-//     console.log(rta);
-//     if(rta.ok){
-//         jwt.value = rta.jwt;
-//         sessionStorage.setItem(tokenName, JSON.stringify(rta));
-//     } else {
-//         jwt.value = "error";
-//     }
-
-// //    resultado.innerHTML = response;
-
-// }
