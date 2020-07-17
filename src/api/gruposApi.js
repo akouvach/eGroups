@@ -1,8 +1,8 @@
-import { handleResponse, handleError, login, getToken } from "./apiUtils";
+import { handleResponse, handleError, getToken } from "./apiUtils";
 // const baseUrl = process.env.REACT_APP_API_URL + "/grupos/";
 const baseClass = "grupos";
 const baseUrl = "http://localhost:8000/api/" + baseClass;
-let tokenName = "token";
+// let tokenName = "token";
 
 export async function getAll() {
   let token = getToken();
@@ -25,6 +25,31 @@ export async function getAll() {
 
   // console.log("buscando...", baseUrl, token.jwt);
   return fetch(baseUrl, miInit).then(handleResponse).catch(handleError);
+}
+
+export async function getMyGroups() {
+  let token = getToken();
+  // console.log("El token es: ", token);
+  if (!token || !token.jwt) return false;
+
+  let miInit = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token.jwt,
+    },
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "same-origin",
+  };
+
+  // el saque el miInit ,
+  // body : JSON.stringify(data)
+
+  // console.log("buscando...", baseUrl, token.jwt);
+  return fetch(baseUrl + "/misgrupos", miInit)
+    .then(handleResponse)
+    .catch(handleError);
 }
 
 export function getByPrim(idGrupo) {
@@ -62,7 +87,7 @@ export function getByPrim(idGrupo) {
 export function guardar(grupo) {
   let token = getToken();
   // console.log("El token es: ", token);
-  if (!token || !token.jwt) return false;
+  if (!token || !token.jwt) return { rta: false };
 
   let miInit = {
     method: grupo.id ? "PUT" : "POST",

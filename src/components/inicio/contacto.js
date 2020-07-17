@@ -103,11 +103,7 @@ const Contacto = (props) => {
           Error={errors.comentarios}
         />
 
-        <BtnEnviar
-          Texto="Login"
-          FormId="miFormContacto"
-          Clase="w3-block w3-section w3-blue w3-ripple w3-padding"
-        />
+        <BtnEnviar Texto="Enviar mensaje" FormId="miFormContacto" />
       </Form>
     </div>
   );

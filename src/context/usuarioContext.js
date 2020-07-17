@@ -1,20 +1,20 @@
-import React, { useContext, useEffect, useState, useMemo } from "react";
-import { getToken } from "../api/apiUtils";
+import React, { useEffect, useState, useMemo } from "react";
+import { getToken, logout, login } from "../api/apiUtils";
 
 const UsuarioContext = React.createContext();
 
 export function UsuarioProvider(props) {
   const [usuario, usuarioSet] = useState(null);
-  const [cargandoUsuario, cargandoUsuarioSet] = useState(true);
+  const [cargandoUsuario, cargandoUsuarioSet] = useState(false);
 
   useEffect(() => {
     async function cargarUsuario() {
-      console.log("cargando token");
+      // console.log("cargando token");
       try {
         let token = getToken();
         if (token) {
           //cargo los datos del usuario
-          console.log("recupere los datos de la sesion", token);
+          // console.log("recupere los datos de la sesion", token);
           usuarioSet(token);
           return true;
         }
@@ -27,17 +27,33 @@ export function UsuarioProvider(props) {
     cargarUsuario();
   }, []);
 
-  async function login(email, password) {
-    const { data } = await login();
+  async function loginUser(email, password) {
+    cargandoUsuarioSet(true);
+    const { data } = await login(email, password);
+    console.log(data);
+    cargandoUsuarioSet(false);
+  }
+
+  function logoutUser() {
+    usuarioSet(null);
+    console.log("loggin out", logout());
   }
 
   const value = useMemo(() => {
+    if (!usuario) {
+      console.log("no hay usuario");
+    }
     return {
       usuario,
       cargandoUsuario,
       setUsuario: (_usuario) => {
-        console.log(_usuario);
         usuarioSet(_usuario);
+      },
+      logout: () => {
+        logoutUser();
+      },
+      login: (email, password) => {
+        loginUser(email, password);
       },
     };
   }, [usuario, cargandoUsuario]);

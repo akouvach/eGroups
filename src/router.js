@@ -10,7 +10,7 @@ import Grupo from "./components/grupos/grupo";
 import GrupoAdd from "./components/grupos/grupoAdd";
 import Grupos from "./components/grupos/grupos";
 
-import Buscar from "./components/intermedio/buscar";
+import Buscar from "./components/buscar";
 import MiCanasta from "./components/micanasta";
 import NotFoundPage from "./components/navigation/NotFoundPage";
 

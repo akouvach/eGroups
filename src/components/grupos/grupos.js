@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as gruposApi from "../../api/gruposApi";
-import BtnAgregar from "../intermedio/botones/btnAgregar";
+// import BtnAgregar from "../intermedio/botones/btnAgregar";
 import BtnEditar from "../intermedio/botones/btnEditar";
 import BtnEliminar from "../intermedio/botones/btnEliminar";
 import Header from "../base/Header";
 import Footer from "../base/Footer";
 import { toast } from "react-toastify";
 import Loading from "../intermedio/loading";
-
+import Titulo1 from "../intermedio/titulos/titulo1";
+import Icon from "../base/icon";
+import { Tooltip } from "@material-ui/core";
+import { useUsuario } from "../../context/usuarioContext";
 // componentDidMount()
 // componentDidUpdate()
 // componentWillUnmount()
@@ -16,13 +19,15 @@ import Loading from "../intermedio/loading";
 const Grupos = (props) => {
   const [grupos, gruposSet] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const { usuario } = useUsuario();
 
   useEffect(() => {
     setIsLoading(true);
-    gruposApi.getAll().then((data) => {
+    gruposApi.getMyGroups().then((data) => {
       gruposSet(data);
       setIsLoading(false);
     });
+    console.log("usuarioactual", usuario);
 
     return () => {
       console.log("estoy saliendo");
@@ -33,9 +38,9 @@ const Grupos = (props) => {
     gruposApi.delByPrim(idGrupo).then((data) => {
       console.log(data);
       if (!isNaN(data)) {
-        if (data == 1) {
+        if (data === 1) {
           toast.success("grupo eliminado");
-          gruposSet(grupos.filter((grupo) => grupo.id != idGrupo));
+          gruposSet(grupos.filter((grupo) => grupo.id !== idGrupo));
           // props.history.push("/grupos");
         }
       } else {
@@ -49,18 +54,14 @@ const Grupos = (props) => {
 
   return (
     <div className="w3-container">
-      <div className="w3-container w3-teal">
-        <div className="w3-cell-row w3-mobile">
-          <div className="w3-threequarter">
-            <h2>Mis Grupos</h2>
-          </div>
-          <div className="w3-rest w3-right">
-            <h3>
-              <BtnAgregar Destino="/grupos/add" />
-            </h3>
-          </div>
-        </div>
-      </div>
+      <Titulo1 Texto="Grupos">
+        <Tooltip title="Agrgar grupo">
+          <Link to="/grupos/add">
+            <Icon Nombre="group_add" />
+          </Link>
+        </Tooltip>
+      </Titulo1>
+
       <div className="w3-container">
         <Loading isLoading={isLoading} />
         {grupos.map((item, index) => {
@@ -73,7 +74,7 @@ const Grupos = (props) => {
                 <h1>
                   <Link to={"/grupo/" + item.id}>{item.grupo}</Link>
                 </h1>
-                {item.idCreador == 1 && (
+                {item.idCreador === usuario.id && (
                   <div>
                     <BtnEditar Destino={"/grupo/edit/" + item.id} />
                     <BtnEliminar HandleClick={() => eliminarGrupo(item.id)} />

@@ -2,7 +2,7 @@ import { handleResponse, handleError, login, getToken } from "./apiUtils";
 // const baseUrl = process.env.REACT_APP_API_URL + "/grupos/";
 const baseClass = "usuarios";
 const baseUrl = "http://localhost:8000/api/" + baseClass;
-let tokenName = "token";
+// let tokenName = "token";
 
 export async function usuarioLogin(email, pass) {
   // let token = getToken();
@@ -61,6 +61,23 @@ export function getByPrim(idGrupo) {
       });
     })
     .catch(handleError);
+}
+
+export function registrar(user) {
+
+
+  let miInit = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "same-origin",
+    body: JSON.stringify(user),
+  };
+
+  return fetch("http://localhost:8000/api/registrar", miInit).then(handleResponse).catch(handleError);
 }
 
 export function guardar(grupo) {

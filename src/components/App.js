@@ -1,15 +1,14 @@
 import React from "react";
-import MyNavBar from "./navigation/mynavbar";
-
+import Menu from "./navigation/menu";
 import { UsuarioProvider } from "../context/usuarioContext";
 
 class App extends React.Component {
   render() {
     return (
-      <div className="w3-container">
+      <div className="w3-container w3-padding-16">
         <UsuarioProvider>
           <div className="w3-row">
-            <MyNavBar />
+            <Menu />
           </div>
 
           <div className="w3-row">{this.props.children}</div>

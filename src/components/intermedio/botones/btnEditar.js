@@ -1,23 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Button from "../../base/Button";
 import { Link } from "react-router-dom";
+import Icon from "../../base/icon";
+import { Tooltip } from "@material-ui/core";
 
-const BtnEditar = ({
-  Clase = "w3-button w3-round w3-black ",
-  Texto = "...",
-  Destino = "/",
-}) => {
+const BtnEditar = ({ Texto = "Editar", Destino = "/" }) => {
   return (
-    <Link to={Destino}>
-      <Button Clase={Clase} Texto={Texto} />
-    </Link>
+    <Tooltip title={Texto}>
+      <Link to={Destino}>
+        <Icon Nombre="edit" />
+      </Link>
+    </Tooltip>
   );
 };
 
 BtnEditar.propTypes = {
   Texto: PropTypes.string,
-  Clase: PropTypes.string,
   Destino: PropTypes.string.isRequired,
 };
 

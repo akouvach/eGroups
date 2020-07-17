@@ -11,17 +11,19 @@ import Loading from "../intermedio/loading";
 
 const Blog = ({ IdGrupo = 0 }) => {
   const [blog, blogSet] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, isLoadingSet] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
+    isLoadingSet(true);
+    console.log("idGrupo del blog:", IdGrupo);
     blogsApi.getLast(IdGrupo).then((data) => {
+      console.log(data);
       blogSet(data);
-      setIsLoading(false);
+      isLoadingSet(false);
     });
 
     return () => {
-      console.log("estoy saliendo");
+      console.log("estoy saliendo del blog");
     };
   }, []);
 

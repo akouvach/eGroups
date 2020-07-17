@@ -17,7 +17,7 @@ const Texto = ({
 }) => {
   return (
     <div className="w3-container">
-      {Titulo != "" && <Label Texto={Titulo} htmlFor={Id} />}
+      {Titulo !== "" && <Label Texto={Titulo} htmlFor={Id} />}
       <InputText
         Id={Id}
         Clase={"w3-input " + Clase}

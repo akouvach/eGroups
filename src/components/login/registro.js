@@ -1,106 +1,129 @@
-import React, { Component } from "react";
-import Residencia from "../intermedio/residencia";
+import React, { Component, useState } from "react";
+// import Residencia from "../intermedio/residencia";
 import Texto from "../intermedio/texto";
 import Email from "../intermedio/email";
+import Nombre from "../intermedio/nombre";
+import Apellido from "../intermedio/apellido";
+import Titulo1 from "../intermedio/titulos/titulo1";
 import Password from "../intermedio/password";
 import BtnEnviar from "../intermedio/botones/btnEnviar";
 import Form from "../base/Form";
+import * as usuariosApi from "../../api/usuariosApi";
+import Encrypt from "../generales/encrypt";
+import { toast } from "react-toastify";
 
-class Registro extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: 0,
-      nombre: "",
-      apellido: "",
-      email: "",
-      pass: "",
-      pais: "2",
-      estado: "",
-      ciudad: "",
-      fecha_nac: new Date("1972-12-30").toJSON(),
-    };
+const Registro = (props)=>{
+
+  const [user, userSet] = useState({
+    nombre:"",usuario:"",apellido:"",email:"", pass:"", genero:"M",fecha_nac:"01-01-91-1970"
+  },[])
+  const [errors, errorsSet]=useState({})
+
+function handleUpdateUser({target}){
+userSet({ ...user, [target.name]: target.value });
+console.log(user);
+}
+
+
+
+  function formIsValid() {
+    const _errors = {};
+    if (!user.email) _errors.email = "Se requiere un email";
+    if (!user.pass) _errors.pass = "Se requiere una password";    
+        if (!user.nombre) _errors.nombre = "Se requiere una nombre";
+        if (!user.apellido) _errors.apellido = "Se requiere una apellido";        
+        
+        if (!user.usuario) _errors.usuario = "Se requiere una usuario";
+    errorsSet(_errors);
+    return Object.keys(_errors).length === 0;
   }
 
-  verificarFormulario = (ev) => {
-    ev.preventDefault();
-    console.log("verificando datos...");
-    console.log(this.state);
-  };
 
-  // componentDidMount(){
-  //     this.setState({
-  //         email:this.context.nombre,
-  //         password:this.context.apellido
-  //     });
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    if (!formIsValid()) {
+      return;
+    }
 
-  // }  // Cambio AK
+console.log(user);
 
-  render() {
+    let hash = Encrypt.hash(user.pass, { salt: user.email });
+    console.log("passsord:", user.pass, "Hash: ", hash);
+
+let _user = { ...user, pass: hash}
+    // userSet(_user);
+
+    usuariosApi.registrar(_user).then((data) => {
+      console.log("recibido del login:", data);
+      if (data==1) {
+                toast.success("Registro correcto");
+        props.history.push("/");
+      } else {
+        console.log("error", data);
+        toast.error("Registro incorrecto." + data.payload);
+      }
+
+    });
+
+  }
+
+
+
     return (
-      <div className="w3-container">
-        <div className="w3-form ">
-          <div className="w3-container w3-teal">
-            <h2>Registro</h2>
-          </div>
 
-          <Form Id="RegistroUsuario" OnSubmit={this.verificarFormulario}>
-            <Texto
-              Titulo="Nombre"
-              Id="registro_nombre"
-              PlaceHolder="Ingrese su nombre"
-              Valor={this.state.nombre}
-              ValorSet={(ev) => this.setState({ nombre: ev })}
-            />
+<div className="w3-container">
+      <Titulo1 Texto="Registro" />
+        <Form Id="formRegistro" OnSubmit={handleSubmit}>
 
-            <Texto
-              Titulo="Apellido"
-              Id="registro_apellido"
-              PlaceHolder="Ingrese su correo"
-              Valor={this.state.apellido}
-              ValorSet={(ev) => this.setState({ apellido: ev })}
-            />
+             <Nombre
+          Id="usuario"
+          Valor={user.usuario}
+          ValorSet={handleUpdateUser}
+          Error={errors.usuario}
+          PlaceHolder="Ingrese su codigo de usuario"
+        />
 
-            <Email
-              Titulo="Email"
-              Id="registro_email"
-              PlaceHolder="Ingrese su correo"
-              Valor={this.state.email}
-              ValorSet={(ev) => this.setState({ email: ev })}
-            />
+        <Nombre
+          Id="nombre"
+          Valor={user.nombre}
+          ValorSet={handleUpdateUser}
+          Error={errors.nombre}
+        />
 
-            <Password
-              Titulo="Contraseña"
-              Id="registro_password"
-              PlaceHolder="Ingrese su contraseña"
-              Valor={this.state.pass}
-              ValorSet={(ev) => this.setState({ pass: ev })}
-            />
+        <Apellido
+          Id="apellido"
+          Valor={user.apellido}
+          ValorSet={handleUpdateUser}
+          Error={errors.apellido}
+        />
 
-            <Residencia
-              PaisId="pais"
-              PaisTitulo="Pais"
-              PaisValor={this.state.pais}
-              PaisSet={(ev) => this.setState({ pais: ev })}
-            />
+        <Email
+          Id="email"
+          Valor={user.email}
+          ValorSet={handleUpdateUser}
+          Error={errors.email}
+          />
+          
+        
+        <Password
+          Titulo="Contraseña"
+          Id="pass"
+          PlaceHolder="Ingrese su contraseña"
+          Valor={user.pass}
+          ValorSet={handleUpdateUser}
+          Error={errors.pass}
+          />
+          
 
-            {/* {this.state.nombre} / 
-                        {this.state.apellido} / 
-                        {this.state.pass} / 
-                        {this.state.fecha_nac} / 
-                        {this.state.email} / 
-                        {this.state.pais} / 
-                        {this.state.estado} / 
-                        {this.state.ciudad}  */}
 
-            <br />
+        <BtnEnviar FormId="formRegistro" Texto="Registrese" />
+      </Form>
 
-            <BtnEnviar FormId="RegistroUsuario" />
-          </Form>
-        </div>
+
       </div>
+      
     );
-  }
+
 }
 
 export default Registro;

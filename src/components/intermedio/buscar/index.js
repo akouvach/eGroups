@@ -1,2 +1,2 @@
-import Buscar from './buscar';
+import Buscar from "./buscar";
 export default Buscar;

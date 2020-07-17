@@ -1,9 +1,7 @@
-import WS from '../context/bd';
-
 const Usuario = {
-    get : ()=>{
-        return WS.get();
-    }
-}
+  get: () => {
+    return "pepe";
+  },
+};
 
 export default Usuario;

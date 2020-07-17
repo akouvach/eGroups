@@ -9,11 +9,12 @@ import Form from "../../components/base/Form";
 import Encrypt from "../generales/encrypt";
 import * as usuariosApi from "../../api/usuariosApi";
 import { useUsuario } from "../../context/usuarioContext";
+import { toast } from "react-toastify";
 
 const Login = (props) => {
   const [errors, errorsSet] = useState({});
   const [login, loginSet] = useState({});
-  const { usuario, cargandoUsuario, setUsuario } = useUsuario();
+  const { setUsuario } = useUsuario();
 
   // const verificarContrasenia = (ev) => {
   //   ev.preventDefault();
@@ -54,6 +55,7 @@ const Login = (props) => {
     console.log("passsord:", login.pass, "Hash: ", hash);
 
     usuariosApi.usuarioLogin(login.email, hash).then((data) => {
+      console.log("recibido del login:", data);
       if (data.rta) {
         let _usuario = {};
         _usuario.nombre = data.payload.nombre;
@@ -62,9 +64,11 @@ const Login = (props) => {
         _usuario.email = data.payload.email;
         _usuario.jwt = data.jwt;
         setUsuario(_usuario);
+        toast.success("login correcto");
         props.history.push("/");
       } else {
         console.log("error", data);
+        toast.error("login incorrecto");
       }
 
       // console.log(data.rta, data.payload.pass);
@@ -94,7 +98,7 @@ const Login = (props) => {
           ValorSet={handleChangeLogin}
           Error={errors.email}
         />
-
+ 
         <Password
           Titulo="Contraseña"
           Id="pass"

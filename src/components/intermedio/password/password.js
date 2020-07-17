@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import InputText from "../../base/inputText";
 import PropTypes from "prop-types";

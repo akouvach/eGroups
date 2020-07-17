@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 
 import * as gruposApi from "../../api/gruposApi";
 import Blog from "../blogs/blog";
+// import { useUsuario } from "../../context/usuarioContext";
 
 // componentDidMount()
 // componentDidUpdate()
@@ -10,7 +11,8 @@ import Blog from "../blogs/blog";
 
 const Grupo = () => {
   // const [contador, contadorSet ] = useState(0);
-  const [grupo, grupoSet] = useState([]);
+  // const { usuario } = useUsuario();
+  const [grupo, grupoSet] = useState({});
   //   const idGrupo = 21;
 
   let { idGrupo } = useParams();
@@ -24,7 +26,7 @@ const Grupo = () => {
     });
 
     return () => {
-      console.log("estoy saliendo");
+      console.log("estoy saliendo del grupo");
     };
   }, []);
 

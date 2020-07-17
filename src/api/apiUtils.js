@@ -1,18 +1,16 @@
 let urlBase = "http://localhost:8000/api/";
-let jwt = {};
 let tokenName = "token";
 
 export async function handleResponse(response) {
+  // console.log(response);
   if (response.ok) {
-    return response.json();
+    return response.json().then((data) => {
+      console.log(data);
+      return data;
+    });
   } else {
-    if (response.status === 400) {
-      // So, a server-side validation error occurred.
-      // Server side validation returns a string error message, so parse as text instead of json.
-      const error = await response.text();
-      throw new Error(error);
-    }
-    throw new Error("Network response was not ok.");
+    const error = await response.text();
+    throw new Error(error);
   }
 }
 
@@ -30,29 +28,31 @@ export function getToken() {
     return JSON.parse(sessionStorage.getItem(tokenName));
   }
 }
+export function logout() {
+  return sessionStorage.removeItem(tokenName);
+}
 
-export function login(email, password) {
+export async function login(email, password) {
   let data = { email, password };
 
-  return verificarLogin(data);
-}
+  //   return verificarLogin(data);
+  // }
 
-async function verificarLogin(data) {
-  let rdo = false;
+  // async function verificarLogin(data) {
+  //   let rdo = false;
 
-  try {
-    rdo = await traerUsuario(data);
-    console.log("trajo el resultado");
-    return rdo;
-  } catch (err) {
-    console.log(err);
-    return false;
-  }
-}
+  //   try {
+  //     rdo = await traerUsuario(data);
+  //     console.log("trajo el resultado", rdo);
+  //     return rdo;
+  //   } catch (err) {
+  //     console.log(err);
+  //     return false;
+  //   }
+  // }
 
-async function traerUsuario(data) {
+  // async function traerUsuario(data) {
   let url = urlBase + "login";
-  let jwt = {};
 
   let miInit = {
     method: "POST",
@@ -86,11 +86,9 @@ async function traerUsuario(data) {
       _usuario.jwt = rta.jwt;
 
       sessionStorage.setItem(tokenName, JSON.stringify(_usuario));
-    } else {
-      jwt.value = "error en las credenciales";
     }
 
-    return rta.rta;
+    return rta;
   } catch (error) {
     console.log(error);
     return false;

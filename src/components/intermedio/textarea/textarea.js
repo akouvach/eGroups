@@ -19,7 +19,7 @@ const TextArea = ({
 }) => {
   return (
     <div className="w3-container">
-      {Titulo != "" && <Label Texto={Titulo} htmlFor={Id} />}
+      {Titulo !== "" && <Label Texto={Titulo} htmlFor={Id} />}
       <TextAreaBase
         Id={Id}
         Cols={Cols}

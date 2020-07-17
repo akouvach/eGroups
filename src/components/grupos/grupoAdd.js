@@ -6,21 +6,18 @@ import Texto from "../intermedio/texto";
 import TextArea from "../intermedio/textarea";
 import BtnEnviar from "../intermedio/botones/btnEnviar";
 import Form from "../base/Form";
+import { useUsuario } from "../../context/usuarioContext";
 
 import { toast } from "react-toastify";
 import * as gruposApi from "../../api/gruposApi";
-// import { searchconsole } from "googleapis/build/src/apis/searchconsole";
-
-// componentDidMount()
-// componentDidUpdate()
-// componentWillUnmount()
 
 const GrupoAdd = (props) => {
+  const { usuario } = useUsuario();
   const [errors, setErrors] = useState({});
   const [grupo, setGrupo] = useState({
     grupo: "",
     descripcion: "",
-    idCreador: 1,
+    idCreador: usuario.id || 0,
     idOrganigrama: 0,
     tipo: "U",
     tags: "",
@@ -61,39 +58,50 @@ const GrupoAdd = (props) => {
     if (!formIsValid()) {
       return;
     }
+
     console.log("voy a guardar", grupo);
 
-    gruposApi.guardar(grupo).then(() => {
-      toast.success("grupo grabado");
-      props.history.push("/grupos");
-    });
+    try {
+      gruposApi.guardar(grupo).then((data) => {
+        console.log(data);
+        if (data == 1) {
+          toast.success("grupo grabado");
+        } else {
+          toast.error(data);
+        }
+
+        props.history.push("/grupos");
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
     <div className="w3-container">
-      <div className="w3-container w3-teal">
-        <Titulo1 Texto="Grupos - Agregar" />
-      </div>
+      <Titulo1 Texto={"Grupos - " + grupo.id ? "Modificar" : "Agregar"} />
 
       <Form OnSubmit={handleSubmit} Id="grupoDetalle">
         <Texto
-          Titulo="Nombre"
+          Titulo=""
           Id="grupo"
           Valor={grupo.grupo}
           ValorSet={handleChangeGrupo}
+          PlaceHolder="Nombre del grupo"
           Error={errors.grupo}
         />
 
         <Texto
-          Titulo="Descripcion"
+          Titulo=""
           Id="descripcion"
           Valor={grupo.descripcion}
           ValorSet={handleChangeGrupo}
+          PlaceHolder="Descripcion del grupo"
           Error={errors.descripcion}
         />
 
         <TextArea
-          Titulo="Tags"
+          Titulo=""
           PlaceHolder="Tags asociados a este grupo.  Palabras claves asociadas al grupo (separadas por ;) "
           Id="tags"
           Valor={grupo.tags}
